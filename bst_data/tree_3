@@ -1,0 +1,36 @@
+digraph {
+    graph [ rankdir=TB ]
+    graph [ rankdir="LR" ]
+
+    0 [ label="fwd_subflow_bytes<150" ]
+    0 -> 1 [label="yes" color="#FF0000"]
+    0 -> 2 [label="no, missing" color="#0000FF"]
+
+    1 [ label="leaf=-1.99774599" ]
+
+    2 [ label="bwd_init_window_size<65228" ]
+    2 -> 3 [label="yes" color="#FF0000"]
+    2 -> 4 [label="no, missing" color="#0000FF"]
+
+    3 [ label="fwd_last_window_size<60" ]
+    3 -> 5 [label="yes" color="#FF0000"]
+    3 -> 6 [label="no, missing" color="#0000FF"]
+
+    5 [ label="fwd_iat.tot<1369793" ]
+    5 -> 7 [label="yes" color="#FF0000"]
+    5 -> 8 [label="no, missing" color="#0000FF"]
+
+    7 [ label="leaf=-0.865577221" ]
+
+    8 [ label="leaf=1.77580512" ]
+
+    6 [ label="flow_FIN_flag_count<2" ]
+    6 -> 9 [label="yes" color="#FF0000"]
+    6 -> 10 [label="no, missing" color="#0000FF"]
+
+    9 [ label="leaf=0.876198769" ]
+
+    10 [ label="leaf=-1.91936862" ]
+
+    4 [ label="leaf=-1.99169147" ]
+}

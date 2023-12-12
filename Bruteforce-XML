@@ -1,0 +1,9 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="fwd_pkts_payload.std <= 214.085\ngini = 0.5\nsamples = 10290\nvalue = [5145, 5145]\nclass = Benign"] ;
+1 [label="gini = 0.001\nsamples = 4998\nvalue = [4996, 2]\nclass = Benign"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.055\nsamples = 5292\nvalue = [149, 5143]\nclass = Bruteforce-XML"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
