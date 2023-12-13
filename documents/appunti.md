@@ -179,6 +179,72 @@
   
   - dicono che facendo il compromesso tra i gli score ottenuti e il tempo d'esecuzione random forest ne esca vincitore
 
+- A Unified Approach to Interpreting Model Predictions
+  Scott
+  
+  - creano un approccio unico per sei differenti metodi esistenti, in realtà poi sono aumentati
+  
+  - si spiega cos'è lime cioè una funzione lineare
+  
+  - come deep lift possa essere trasformato in funzione lineare
+  
+  - parlando di layer-wise relevance propagation che è simile a deep lift
+  
+  - presentano i classic shapley value, che per funzionare devono ogni volta fare il train di un modello togliendo una feature
+  
+  - indroducono kernel shap, cioè lime + shapley values
+  
+  - il paper è famoso per aver introdotto kernel shap, che è più veloce di classic shap
+  
+  - introducono dei model specific explainer perché sono più veloci di kernel shap
+  
+  - la figura 3 mostra come kernel shap sia più fedele si sampling shap e di lime rispetto agli shapley value
+
+- Consistent Individualized Feature Attribution for Tree Ensembles
+  
+  - introduzione di tree shap, un algoritmo efficient in grado di spiegare l'intero dataset
+  
+  - illustrano pure i alcuni plot
+
+- From Local Explanations to Global Understanding with Explainable AI for Trees
+  
+  - dicono che i modelli ad albero sono i non lineari più popolari
+  
+  - manca letteratura sulle local explanation
+  
+  - sappiamo come i modelli fanno le predizioni
+  
+  - dice che gli altri modelli proposti fin'ora ci mettono anni e quindi ha senso concentrarsi su quelli ad albero
+  
+  - dice come sommare diverse spiegazioni locali aiuti a spiegare tutto il modello
+  
+  - i modelli ad albero vano meglio per dataset tabulari
+  
+  - dicono come si possa spiegare un albero solo ma non un ensemble e poi parlano di un altro algoritmo saabas che provano essere inferiore a shap.
+  
+  - dice che il punteggio non va solo alle singole features ma anche alle paia di features
+  
+  - dicono come mettere assieme diverse spiegazioni sia il metodo migliore per fare una spiegazione globale
+  
+  - parla di come le tech companies sbaglino
+  
+  - hanno usato 200 background data per avere low variance
+  
+  - nella figura 3 fanno vedere come sia meglio tree shap di altre soluzioni compreso kernel shap
+
+- Fast TreeSHAP: Accelerating SHAP Value Computation for Trees
+  Jilei
+  
+  - fast treeshap v1 1,5 volte più veloce a parità di memoria
+  
+  - fast treeshap v2 2,5 volte più veloce ma con più memoria
+  
+  - spiega perché shap è il più raccomandato
+  
+  - dice che l'algoritmo originale patisce sopra le milioni di osservazioni e con alberi di profondità maggiore di 10
+  
+  - dice che l'alternative esistono ma si concentrano nel parallelizzare i calcoli e non semplificare
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -289,6 +355,8 @@
 
 - ricordarsi di far vedere al prof la questione del singolo albero per ciascun attacco
 
+- calcolare la vairanza degli shapley values con differenti numeri di k
+
 # Paper letti
 
 - Network Intrusion Detection Based on Explainable Artificial Intelligence, fa semplimente vedere quale modello sia il migliore in termini di risultato per fare un IDS. Parla di tutti i passaggi, pulizia training ecc ma non si sofferma più di tanto sulla spiegabilità.
@@ -326,6 +394,10 @@
 - Cybersecurity attacks: which dataset
   should be used to evaluate an intrusion
   detection system?
+- Anchors: High-Precision Model-Agnostic Explanations (parla di come sommare le spiegazioni locali ne crei una globale accurata)
+- Rules  of  Machine Learning: Best Practices for ML Engineering (parlano di come fanno le cose in google è un paper sulle best practice)
+- The many shapley values for model explanation (parla di come alcune approssimazioni di shap siano diverse)
+- random forest
 
 # Making dataset
 
