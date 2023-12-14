@@ -379,19 +379,19 @@
 
 # Da fare
 
-- testare quanto la differenza è grossa tra kernel e gli altri modelli che usano tutto il dataset al variare del numero dei clusters
-
-- confronto con impurtiy based feature selection e shap
-
 - aggiungere alert papers
 
 - ricordarsi di far vedere al prof la questione del singolo albero per ciascun attacco
 
-- calcolare la vairanza degli shapley values con differenti numeri di k
+- usare l'albero in modalità interventional  
 
-- provare a fare il train con tutto il dataset e poi usare metrice bilanciate
+# Issue utili shap
 
-- usare per testing le varie categorie e vedere come se la cavano
+-  [Question about TreeExplainer data parameter &amp; train/test subsets. · Issue #1366 · shap/shap · GitHub](https://github.com/shap/shap/issues/1366) qui dice che è meglio usare interventional
+-  [question about kmean · Issue #107 · shap/shap · GitHub](https://github.com/shap/shap/issues/107) qui dice che kmeans ha senso come background data
+- [Should global shap values depend on the variance of the feature? · Issue #696 · shap/shap · GitHub](https://github.com/shap/shap/issues/696) qui dice che per gli alberi è meglio usare loss
+- [which method is best for subsampling? · Issue #1018 · shap/shap · GitHub](https://github.com/shap/shap/issues/1018) fa il confronto tra kmeans e random sample
+- [Question: Background and explaining set sizes for TreeExplainer&#39;ing large data sets · Issue #955 · shap/shap · GitHub](https://github.com/shap/shap/issues/955) come capire quando ho abbastanza dati
 
 # Paper letti
 
