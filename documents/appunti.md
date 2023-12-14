@@ -376,6 +376,7 @@
 - Testati pytorch e tensorflow, tensorflow andava lento così ho scelto pytorch. Con tensorflow la libreria shap funziona e deep lift shap funziona senza usare troppa memoria, mentre per pytoch serve captum che prende più memoria. A questo punto ci sono due direzioni siccome pure il kernel shap prende troppa memoria, una è usare sampling shap ma è lento oppure si può fare sampling dei dati. Per fare sampling si possono prendere dati a caso, oppure si può usare k medoids o k means come consigliato dagli autori di shap. Quindi userò k medoids per fare sampling e sceglierò il numero di cluster in base a elbow method e silhouette per avere un numero sufficientemente alto ma non troppo che rappresenti la distribuzione.
 - confrontati risultati di kernel shap vs linear vs tree e avere più background non fa troppa differenza
 - notato che più semplifico il modello e più è capace di vedere gli zero day
+- controllato la convergenza degli shapley value e che la varianza non aumentasse
 
 # Da fare
 
