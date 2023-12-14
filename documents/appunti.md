@@ -245,6 +245,28 @@
   
   - dice che l'alternative esistono ma si concentrano nel parallelizzare i calcoli e non semplificare
 
+- The Many Shapley Values for Model Explanation Mukund
+  
+  - qui citano tutte le volte che gli shapley values vennero usati e si nota come quelli classici vennero usati prima dell'introduzione di shap
+  
+  - non riguarda i miei studi
+
+- Classification and Explanation for Intrusion Detection System Based on Ensemble Trees and SHAP Method
+  
+  - citano tutte le volte che una random forest è stata applicata per lavorare gli ids
+  
+  - dicono che andrebbe usato tutto il dataset, solo che così facendo i risultati peggiorano
+  
+  - cita i paper che usando xai hanno migliorato gli ids
+  
+  - spiega che la random forest fa la media dei risultati degli alberi
+  
+  - dicono hanno automatizzato il processo di fine tuning
+  
+  - fanno vedere come la random forest sia la migliore
+  
+  - fanno vedere le specs del pc
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -289,6 +311,14 @@
   - non hanno pubblicato il timestamp
   
   - non è vero che le loro feature sono le stesse di cicids, inoltre il numero di righe non fa il match con zeek e con cicflowmeter
+
+- Classification and Explanation for Intrusion Detection System Based on Ensemble Trees and SHAP Method
+  
+  - usano una no code
+  
+  - non misurano il tempo impiegato per farle il tutto
+  
+  - mancano le specifiche dell'albero
 
 # Perché il mio studio è diverso
 
@@ -338,6 +368,8 @@
 
 - utilizzo di kmeans per fare selezione dei punti da analizzare
 
+- puntare tutto sugli alberi, non solo sono più veloci e funzionano meglio ma tree shap analizza il modello stesso invece di fare un surrugato quindi sono perfetti
+
 # Cose fatte
 
 - build di cicflowmeter usando un wm con ubuntu 20.04 e openjdk-8
@@ -356,6 +388,10 @@
 - ricordarsi di far vedere al prof la questione del singolo albero per ciascun attacco
 
 - calcolare la vairanza degli shapley values con differenti numeri di k
+
+- provare a fare il train con tutto il dataset e poi usare metrice bilanciate
+
+- usare per testing le varie categorie e vedere come se la cavano
 
 # Paper letti
 
@@ -383,7 +419,6 @@
 
 # Paper non letti
 
-- Classification and Explanation for Intrusion Detection System Based on Ensemble Trees and SHAP Method: questo implementa la mia idea di usare iot-ton per implementare algortimi basati sull'albero decisonale e poi shap
 - Hybrid Intrusion Detection System for DDoS Attacks (qui parlano di come classificare in maniera veloce i dati sia importante)
 - GAN-based imbalanced data intrusion detection system (qui parlano di come classificare in maniera veloce i dati sia importante)
 - Ant colony optimization and feature selection for intrusion detection (parla di come fare feature selection sia un bene)
@@ -398,6 +433,8 @@
 - Rules  of  Machine Learning: Best Practices for ML Engineering (parlano di come fanno le cose in google è un paper sulle best practice)
 - The many shapley values for model explanation (parla di come alcune approssimazioni di shap siano diverse)
 - random forest
+- Feature relevance quantification in explainable AI: A causal problem (parlano di alcuni problemi nell'interpretazione di shap)
+- Understanding variable importances in Forests of randomized trees (parla di come interpretare il midi per la random forest)
 
 # Making dataset
 
