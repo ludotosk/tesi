@@ -1,0 +1,9 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="fwd_pkts_payload.avg <= 33.578\ngini = 0.5\nsamples = 20985\nvalue = [0.5, 0.5]"] ;
+1 [label="gini = 0.447\nsamples = 3706\nvalue = [0.021, 0.011]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.5\nsamples = 17279\nvalue = [0.479, 0.489]"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}

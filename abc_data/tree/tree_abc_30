@@ -1,0 +1,9 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="bwd_iat.min <= 26.584\ngini = 0.5\nsamples = 20985\nvalue = [0.5, 0.5]"] ;
+1 [label="gini = 0.5\nsamples = 17340\nvalue = [0.477, 0.462]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.467\nsamples = 3645\nvalue = [0.023, 0.038]"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}

@@ -1,0 +1,9 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="fwd_header_size_tot <= 522.0\ngini = 0.5\nsamples = 11768\nvalue = [5884, 5884]\nclass = Benign"] ;
+1 [label="gini = 0.027\nsamples = 5492\nvalue = [5418, 74]\nclass = Benign"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.137\nsamples = 6276\nvalue = [466, 5810]\nclass = Bruteforce"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
