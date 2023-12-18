@@ -267,6 +267,20 @@
   
   - fanno vedere le specs del pc
 
+- True to the Model or True to the Data?
+  
+  - spiega come interventional sia true to the model e observational true to the data
+  
+  - il vantaggio di quello observational è che se anche sbaglia con le features in realtà è capace di gestire anche dati mai visti che sono esegerati
+  
+  - è il paper dove presentano linear shap
+  
+  - dicono che generalmente true to the model è meglio perché di solito è il modello che si vuole spiegare
+  
+  - spiega che invece se vogliamo capire i dati true to the data sia meglio
+  
+  - se le features non sono correlate tra loro allora il risultato è lo stesso
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -320,23 +334,6 @@
   
   - mancano le specifiche dell'albero
 
-<<<<<<< HEAD
-=======
-- True to the Model or True to the Data?
-  
-  - spiega come interventional sia true to the model e observational true to the data
-  
-  - il vantaggio di quello observational è che se anche sbaglia con le features in realtà è capace di gestire anche dati mai visti che sono esegerati
-  
-  - è il paper dove presentano linear shap
-  
-  - dicono che generalmente true to the model è meglio perché di solito è il modello che si vuole spiegare
-  
-  - spiega che invece se vogliamo capire i dati true to the data sia meglio
-  
-  - se le features non sono correlate tra loro allora il risultato è lo stesso
-
->>>>>>> master
 # Perché il mio studio è diverso
 
 - dopo aver dimsostrato che con il mio metodo il mio ids riesce a riconoscere alcuni attacchi mai visti bisogna vedere se unendo i dataset si può fare di meglio
@@ -387,6 +384,8 @@
 
 - puntare tutto sugli alberi, non solo sono più veloci e funzionano meglio ma tree shap analizza il modello stesso invece di fare un surrugato quindi sono perfetti
 
+- siccome faccio pruning dei modelli ensemble come risultato ho che non tutte le features vengano usate, questo fa si che a livello di zero day funzionino diversamente perché nuovi attacchi possono usare features ancora inutilizzate
+
 # Cose fatte
 
 - build di cicflowmeter usando un wm con ubuntu 20.04 e openjdk-8
@@ -394,13 +393,10 @@
 - confrontati risultati di kernel shap vs linear vs tree e avere più background non fa troppa differenza
 - notato che più semplifico il modello e più è capace di vedere gli zero day
 - controllato la convergenza degli shapley value e che la varianza non aumentasse
-<<<<<<< HEAD
-=======
 - utilizzare il metodo interventional per spiegare i modelli ad albero
 - provato ad aggiungere dei dati con smote per aumentare la class miner ma la crossvalidation non è migliorata
 - lightgbm migliora nella feature selection con il metodo interventional, perché i grafici sono più coerenti
 - confrontare le variabili usate da adaboost con quelle che il kernel mi ha dato indietro
->>>>>>> master
 
 # Da fare
 
@@ -417,10 +413,7 @@
 - [Should global shap values depend on the variance of the feature? · Issue #696 · shap/shap · GitHub](https://github.com/shap/shap/issues/696) qui dice che per gli alberi è meglio usare loss
 - [which method is best for subsampling? · Issue #1018 · shap/shap · GitHub](https://github.com/shap/shap/issues/1018) fa il confronto tra kmeans e random sample
 - [Question: Background and explaining set sizes for TreeExplainer&#39;ing large data sets · Issue #955 · shap/shap · GitHub](https://github.com/shap/shap/issues/955) come capire quando ho abbastanza dati
-<<<<<<< HEAD
-=======
 - https://github.com/shap/shap/issues/1098 spiega la differenza tra true to the model e true to the data, interventional è true to the model quindi sarebbe meglio per feature selection
->>>>>>> master
 
 # Paper letti
 
