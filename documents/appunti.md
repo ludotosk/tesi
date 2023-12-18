@@ -281,6 +281,12 @@
   
   - se le features non sono correlate tra loro allora il risultato è lo stesso
 
+- Feature Drift Aware for Intrusion Detection System Using Developed Variable Length Particle Swarm Optimization in Data Stream
+  
+  - sottolineano come con la feature selection si possano migliorare le performance
+  
+  - parla degli ensemble
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -333,6 +339,10 @@
   - non misurano il tempo impiegato per farle il tutto
   
   - mancano le specifiche dell'albero
+
+- Feature Drift Aware for Intrusion Detection System Using Developed Variable Length Particle Swarm Optimization in Data Stream
+  
+  - eliminano alcuni attacchi per avere solo quelli bruteforce, così da avere le metriche al massimo
 
 # Perché il mio studio è diverso
 
