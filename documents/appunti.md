@@ -414,6 +414,10 @@
 
 - contare tempo di scaling e di trasformazione dei dati in tensor, misurare a parte giusto per avere un'idea
 
+- implementare lightgbm con api di scikit
+
+- guardare i parametri di lightgbm per capire se si possa copiare qualcosa per gli altri modelli
+
 # Issue utili shap
 
 -  [Question about TreeExplainer data parameter &amp; train/test subsets. · Issue #1366 · shap/shap · GitHub](https://github.com/shap/shap/issues/1366) qui dice che è meglio usare interventional
