@@ -410,11 +410,9 @@
 
 # Da fare
 
-- aggiungere alert papers
-
 - ricordarsi di far vedere al prof la questione del singolo albero per ciascun attacco
 
-- usare l'albero in modalità interventional  
+- contare tempo di scaling e di trasformazione dei dati in tensor, misurare a parte giusto per avere un'idea
 
 # Issue utili shap
 
