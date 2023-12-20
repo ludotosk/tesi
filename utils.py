@@ -291,7 +291,7 @@ def show_corr_matrix(ds):
 
 class DataPreprocessingAndValidation:
 
-    def __init__(self, ds, category_size, model, cv):
+    def __init__(self, ds, category_size, cv, init, params, scaler = None):
         self.ds = ds
         self.category_size = category_size
         self.feature_above_zero = None
@@ -309,8 +309,13 @@ class DataPreprocessingAndValidation:
         self.X_res = None
         self.y_res = None
         self.warmup = True # warmup boolean, this variable will be used to load in memory the function in order to have reliable time measures
-        self.model = model
+        self.model = init(**params)
         self.cv = cv
+        self.scaler = scaler
+        self.params = params
+        self.init = init
+        self.test_kfold = [] 
+        self.train_kfold = []
 
     def get_undersampled_ds(self):
         '''
@@ -319,11 +324,14 @@ class DataPreprocessingAndValidation:
         '''
         sampling_weights = {'Background': self.category_size * 2, 'Benign': self.category_size * 2, 'XMRIGCC CryptoMiner': self.category_size, 'Probing': self.category_size, 'Bruteforce': self.category_size, 'Bruteforce-XML': self.category_size}
 
+
+
         rus = RandomUnderSampler(random_state=42, sampling_strategy=sampling_weights)
         self.X_res, self.y_res = rus.fit_resample(self.ds[x_features], self.ds.traffic_category)
         return self.X_res, self.y_res
 
     def stratified_under_sample(self, group: pd.DataFrame, k: int, random_state: int):
+        print(f"Running the stratified {self.cv}-fold")
         # shuffle data
         group = group.sample(frac=1, random_state=random_state)
         
@@ -333,10 +341,6 @@ class DataPreprocessingAndValidation:
         # getting the size of each category per fold
         folded_category = self.category_size // k
         
-        # storing temporary data
-        test_res = []
-        train_res = []
-
         for i in range(k):
             test_indexes = []
             train_indexes = []
@@ -358,22 +362,39 @@ class DataPreprocessingAndValidation:
                     
             # shuffling the data with the same seed in order to have the same result in both the dataset
             np.random.shuffle(test_indexes)
-            test_res.append(test_indexes)
+            self.test_kfold.append(test_indexes)
             np.random.shuffle(train_indexes)
-            train_res.append(train_indexes)
+            self.train_kfold.append(train_indexes)
+        print("Test and Train k-fold created")
             
-        return test_res, train_res
+    def cross_validation(self, X, y, group):
+        if self.test_kfold == [] or self.train_kfold == []:
+            self.stratified_under_sample(group, self.cv, 42)
 
-    def cross_validation(self, X, y, group, verbose):
-        test_kfold, train_kfold = self.stratified_under_sample(group, self.cv, 12)
-        
+        # the neural network need to have the number of features in the input layer
+        if "n_features" in self.params:
+            self.params["n_features"] = X.shape[1]
+
+        # the random forest need to have the number of features in the input layer
+        if "max_features" in self.params:
+            self.params["max_features"] = X.shape[1]
+
         cvscores = []
-
+        print("Running the cross validation")
         start_cv = time.time()
-        for test, train in zip(test_kfold, train_kfold):
-            self.model.fit(X.loc[train], y.loc[train])
+        for test, train in zip(self.test_kfold, self.train_kfold):
+            # the model need to be reinitialized every time otherwise it will use the same model for every fold
+            self.model = self.init(**self.params)
+            if self.scaler is not None:
+                X_train = self.scaler.transform(X.loc[train])
+                X_test = self.scaler.transform(X.loc[test])
+            else:
+                X_train = X.loc[train]
+                X_test = X.loc[test]
+
+            self.model.fit(X_train, y.loc[train])
             
-            y_predicted = self.model.predict(X.loc[test])
+            y_predicted = self.model.predict(X_test)
 
             cvscores.append(metrics.f1_score(y.loc[test], y_predicted))
         end_cv = time.time()    
@@ -383,7 +404,7 @@ class DataPreprocessingAndValidation:
     def get_score(self, features):
         X = self.X_res[features]
         y = self.ds.loc[self.y_res.index].Label
-        cv_mean, cv_std, cv_time = self.cross_validation(X, y, self.y_res, 0)
+        cv_mean, cv_std, cv_time = self.cross_validation(X, y, self.y_res)
         return cv_mean, cv_std, len(features), cv_time
 
     def recursive_reduction(self):
@@ -392,10 +413,14 @@ class DataPreprocessingAndValidation:
         n_features = []
         cv_time = []
 
+        if self.scaler is not None:
+            self.scaler.fit(self.ds[['fwd_iat.tot']])
         # making a warm up run otherwise the first one will be always slower than the others
         # only one features so that it can be as fast as possibile
         self.get_score(['fwd_iat.tot'])
 
+        if self.scaler is not None:
+            self.scaler.fit(self.ds[self.feature_above_zero])
         result = self.get_score(self.feature_above_zero)
         scores.append(result[0])
         score_std.append(result[1])
@@ -404,6 +429,8 @@ class DataPreprocessingAndValidation:
         
         for i in range(1,len(self.feature_above_zero)):
             print(f"testing with {len(self.feature_above_zero[:-i])} features")
+            if self.scaler is not None:
+                self.scaler.fit(self.ds[self.feature_above_zero[:-i]])
             result = self.get_score(self.feature_above_zero[:-i])
             scores.append(result[0])
             score_std.append(result[1])
@@ -421,7 +448,7 @@ class DataPreprocessingAndValidation:
         X_attack, y_attack = rus_attack.fit_resample(self.ds[features], self.ds.traffic_category)
         y_attack = self.ds.loc[y_attack.index].Label
         
-        cv_mean, cv_std, cv_time = self.cross_validation(X_res, self.ds.loc[y_res.index].Label, y_res, 0)
+        cv_mean, cv_std, cv_time = self.cross_validation(X_res, self.ds.loc[y_res.index].Label, y_res)
         
         if self.warmup:
             self.model.fit(X_res, y_res)
@@ -466,9 +493,13 @@ class DataPreprocessingAndValidation:
         # making the dataset with only one attack
         rus_attack = RandomUnderSampler(random_state=42, sampling_strategy=sampling_attack)
         
+        if self.scaler is not None:
+            self.scaler.fit(self.ds[self.feature_above_zero])
         self.test_zero_day(attack, self.feature_above_zero, rus, rus_attack)
 
         for i in range(1,len(self.feature_above_zero)):
+            if self.scaler is not None:
+                self.scaler.fit(self.ds[self.feature_above_zero[:-i]])
             self.test_zero_day(attack, self.feature_above_zero[:-i], rus, rus_attack)
 
     def run_zero_day_test(self):
