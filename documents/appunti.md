@@ -396,6 +396,8 @@
 
 - siccome faccio pruning dei modelli ensemble come risultato ho che non tutte le features vengano usate, questo fa si che a livello di zero day funzionino diversamente perché nuovi attacchi possono usare features ancora inutilizzate
 
+- stressare sul fatto che molti paper non parlano di quale versione del dataset abbiano usato
+
 # Cose fatte
 
 - build di cicflowmeter usando un wm con ubuntu 20.04 e openjdk-8
@@ -407,6 +409,9 @@
 - provato ad aggiungere dei dati con smote per aumentare la class miner ma la crossvalidation non è migliorata
 - lightgbm migliora nella feature selection con il metodo interventional, perché i grafici sono più coerenti
 - confrontare le variabili usate da adaboost con quelle che il kernel mi ha dato indietro
+- libreria con cross validation custom per avere una cross validation stratificata
+- far notare come questo studio possa avere dei grossi bias in base a come si fa la cross validation, al posto di quello di imblearn
+- scrivere di come non pubblicare i propri notebook renda opaco tutto lo studio e citare il caso del tipo che ha usato l'index di pandas come feature
 
 # Da fare
 
