@@ -412,6 +412,7 @@
 - libreria con cross validation custom per avere una cross validation stratificata
 - far notare come questo studio possa avere dei grossi bias in base a come si fa la cross validation, al posto di quello di imblearn
 - scrivere di come non pubblicare i propri notebook renda opaco tutto lo studio e citare il caso del tipo che ha usato l'index di pandas come feature
+- notato che con più osservazioni il modello va peggio, ma facendo un po' di feature selection a volte migliora
 
 # Da fare
 
