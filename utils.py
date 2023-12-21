@@ -374,6 +374,7 @@ class DataPreprocessingAndValidation:
         # the neural network need to have the number of features in the input layer
         if "n_features" in self.params:
             self.params["n_features"] = X.shape[1]
+            print(f"setting the first layer to {X.shape[1]} neurons")
 
         # the random forest need to have the number of features in the input layer
         if "max_features" in self.params:
@@ -385,6 +386,7 @@ class DataPreprocessingAndValidation:
         for test, train in zip(self.test_kfold, self.train_kfold):
             # the model need to be reinitialized every time otherwise it will use the same model for every fold
             self.model = self.init(**self.params)
+
             if self.scaler is not None:
                 X_train = self.scaler.transform(X.loc[train])
                 X_test = self.scaler.transform(X.loc[test])
@@ -421,6 +423,7 @@ class DataPreprocessingAndValidation:
 
         if self.scaler is not None:
             self.scaler.fit(self.ds[self.feature_above_zero])
+        print(f"testing with {len(self.feature_above_zero)} features")
         result = self.get_score(self.feature_above_zero)
         scores.append(result[0])
         score_std.append(result[1])
@@ -439,6 +442,8 @@ class DataPreprocessingAndValidation:
             
         return scores, score_std, n_features, cv_time
 
+    # sistemare warmup
+
     def test_zero_day(self, attack, features, rus, rus_attack):
         print(f"training with {len(features)} features")
 
@@ -447,9 +452,13 @@ class DataPreprocessingAndValidation:
 
         X_attack, y_attack = rus_attack.fit_resample(self.ds[features], self.ds.traffic_category)
         y_attack = self.ds.loc[y_attack.index].Label
-        
+            
         cv_mean, cv_std, cv_time = self.cross_validation(X_res, self.ds.loc[y_res.index].Label, y_res)
         
+        if self.scaler is not None:
+            X_res = self.scaler.transform(X_res)
+            X_attack = self.scaler.transform(X_attack)
+
         if self.warmup:
             self.model.fit(X_res, y_res)
             self.model.predict(X_attack)
@@ -475,6 +484,8 @@ class DataPreprocessingAndValidation:
         # at the very first iteration we change it to false
         self.warmup = False
 
+    # eseguire la cross validation una volta dopo aver fatto il fit di ciascun attacco
+
     def recursive_reduction_over_attack(self, attack): # aggiungere scaling
         # making a sample for having a 1:1 ration for positive and negative class
         # keep in mind that in the training I will have only three attacks, while for the test only one attack
@@ -488,11 +499,18 @@ class DataPreprocessingAndValidation:
         rus = RandomUnderSampler(random_state=42, sampling_strategy=sampling_weights)
         
         # adding the attack to the test dataset with the non attack traffic
-        sampling_attack[attack] = 3279
+        sampling_attack[attack] = self.category_size
         
         # making the dataset with only one attack
         rus_attack = RandomUnderSampler(random_state=42, sampling_strategy=sampling_attack)
         
+        # running the warmup
+        self.warmup = True
+
+        # setting this two array to empty, in order to make another pair of test and train kfold with the new dataset
+        self.test_kfold = []
+        self.train_kfold = []
+
         if self.scaler is not None:
             self.scaler.fit(self.ds[self.feature_above_zero])
         self.test_zero_day(attack, self.feature_above_zero, rus, rus_attack)
