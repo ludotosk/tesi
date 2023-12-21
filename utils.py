@@ -374,7 +374,7 @@ class DataPreprocessingAndValidation:
         # the neural network need to have the number of features in the input layer
         if "n_features" in self.params:
             self.params["n_features"] = X.shape[1]
-            print(f"setting the first layer to {X.shape[1]} neurons")
+            print(f"Setting the first layer to {X.shape[1]} neurons")
 
         # the random forest need to have the number of features in the input layer
         if "max_features" in self.params:

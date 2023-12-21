@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import time
+from sklearn.base import BaseEstimator
 
 torch.manual_seed(12)
 
@@ -13,7 +14,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 device = 'cpu'
 
 # how need to initialize a nn.relu each time you use it
-class MLP(nn.Module):
+class MLP(nn.Module, BaseEstimator):
     def __init__(self, epoch = 320, verbose = False, patience = 10, n_features = 79):
         super(MLP, self).__init__()
         self.fc1 = nn.Sequential(nn.Linear(n_features, 6), nn.ReLU())
@@ -22,6 +23,8 @@ class MLP(nn.Module):
         self.epoch = epoch
         self.verbose = verbose
         self.patience = patience
+        self.estimator = "MultiLayerPerceptron"
+        self.n_features = n_features
 
     def forward(self, x):
         x = self.fc1(x)
