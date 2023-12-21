@@ -1,9 +1,9 @@
 digraph Tree {
 node [shape=box, fontname="helvetica"] ;
 edge [fontname="helvetica"] ;
-0 [label="fwd_pkts_payload.tot <= 1613.5\ngini = 0.5\nsamples = 20985\nvalue = [0.5, 0.5]"] ;
-1 [label="gini = 0.499\nsamples = 15178\nvalue = [0.348, 0.323]"] ;
+0 [label="flow_iat.tot <= 57412730.0\ngini = 0.5\nsamples = 51123\nvalue = [0.5, 0.5]"] ;
+1 [label="gini = 0.5\nsamples = 49761\nvalue = [0.492, 0.499]"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="gini = 0.497\nsamples = 5807\nvalue = [0.152, 0.177]"] ;
+2 [label="gini = 0.177\nsamples = 1362\nvalue = [0.008, 0.001]"] ;
 0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
 }
