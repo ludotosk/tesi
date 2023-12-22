@@ -354,11 +354,10 @@ class DataPreprocessingAndValidation:
                 else:
                     start = folded_category * i
                     stop = folded_category * (i + 1)
-                test_indexes.extend(group[group == category].iloc[start:stop].index)
+                test_indexes = np.append(test_indexes, group[group == category].iloc[start:stop].index)
             
-            for x in group.index:
-                if x not in test_indexes:
-                    train_indexes.append(x)
+            # getting the train indexes
+            train_indexes = np.setdiff1d(group.index, test_indexes, assume_unique=True)
                     
             # shuffling the data with the same seed in order to have the same result in both the dataset
             np.random.shuffle(test_indexes)
