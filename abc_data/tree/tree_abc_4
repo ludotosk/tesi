@@ -2,8 +2,8 @@ digraph Tree {
 node [shape=box, fontname="helvetica"] ;
 edge [fontname="helvetica"] ;
 0 [label="bwd_init_window_size <= 65194.0\ngini = 0.5\nsamples = 51123\nvalue = [0.5, 0.5]"] ;
-1 [label="gini = 0.498\nsamples = 48954\nvalue = [0.435, 0.5]"] ;
+1 [label="gini = 0.498\nsamples = 48954\nvalue = [0.434, 0.5]"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="gini = -0.0\nsamples = 2169\nvalue = [0.065, 0.0]"] ;
+2 [label="gini = -0.0\nsamples = 2169\nvalue = [0.066, 0.0]"] ;
 0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
 }
