@@ -324,13 +324,16 @@ class DataPreprocessingAndValidation:
         '''
         sampling_weights = {'Background': self.category_size * 2, 'Benign': self.category_size * 2, 'XMRIGCC CryptoMiner': self.category_size, 'Probing': self.category_size, 'Bruteforce': self.category_size, 'Bruteforce-XML': self.category_size}
 
-
-
         rus = RandomUnderSampler(random_state=42, sampling_strategy=sampling_weights)
         self.X_res, self.y_res = rus.fit_resample(self.ds[x_features], self.ds.traffic_category)
         return self.X_res, self.y_res
 
     def stratified_under_sample(self, group: pd.DataFrame, k: int, random_state: int):
+        '''
+        This function will create k folds of the dataset based on the group column. It will return two array, the first one with the test indexes and the second one with the train indexes.
+        Is usefull because in this case we have to columns that can be used as a taget, we will use Label as a target and user traffic_category for stratification.
+        In this way we ensure that an equal amount of each category will be present in each fold.
+        '''
         print(f"Running the stratified {self.cv}-fold")
         # shuffle data
         group = group.sample(frac=1, random_state=random_state)
@@ -367,6 +370,13 @@ class DataPreprocessingAndValidation:
         print("Test and Train k-fold created")
             
     def cross_validation(self, X, y, group):
+        '''
+        Here we first check if we already have the test and train kfold, if not we will create them.
+        Then we change the number of neurons in the first layer of the neural network based on the number of features.
+        And we do the same with the random forest.
+        Then we will run the cross validation and return the mean and the standard deviation of the f1 score.
+        The cross validation time take in account also the scaling of the data.
+        '''
         if self.test_kfold == [] or self.train_kfold == []:
             self.stratified_under_sample(group, self.cv, 42)
 
