@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import metrics
 import time
+import csv
 
 # Here I change the type of some feature becuase since they come from a network package they are supposed to be a certain amount of bit maximum, I also checked before to do the change.
-
 # Then I will eclude the ip of the hosts, the port and the Unnamed: 0. Because the ip and ports are categorical but they are to many to fit in the model, and also there is not a good reason for train the model over the ip since it change based on the network so the attacker will always have a different one. About the Unnamed: 0 you can use that number to split this csv in mani csvs which is not a thing that we need to do so I removed that feature as well.
 
 dtype_dict = {
@@ -316,6 +316,7 @@ class DataPreprocessingAndValidation:
         self.init = init
         self.test_kfold = [] 
         self.train_kfold = []
+        self.filename = None # since the knn goes in to segmentation fault after a while, we need to save the results to the hard drive every time we run a test, so that we can resume from the last test that we have done
 
     def get_undersampled_ds(self):
         '''
@@ -493,8 +494,15 @@ class DataPreprocessingAndValidation:
         # at the very first iteration we change it to false
         self.warmup = False
 
-    # eseguire la cross validation una volta dopo aver fatto il fit di ciascun attacco
+        # Check if filename is not None
+        if self.filename is not None:
+            # Open the file in append mode
+            with open(self.filename, 'a', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                # Write the results to the csv file
+                writer.writerow([self.attack_f1[-1], self.attack_recall[-1], self.attack_precision[-1], self.cv_score_avg[-1], self.cv_score_std[-1], self.n_features[-1], attack, self.fit_time[-1], self.pred_time[-1]])        
 
+    # eseguire la cross validation una volta dopo aver fatto il fit di ciascun attacco
     def recursive_reduction_over_attack(self, attack): # aggiungere scaling
         # making a sample for having a 1:1 ration for positive and negative class
         # keep in mind that in the training I will have only three attacks, while for the test only one attack
@@ -530,7 +538,7 @@ class DataPreprocessingAndValidation:
             self.test_zero_day(attack, self.feature_above_zero[:-i], rus, rus_attack)
 
     def run_zero_day_test(self):
-        for attack in ['XMRIGCC CryptoMiner','Probing','Bruteforce','Bruteforce-XML']: # aggiungere un tracking del tempo speso
+        for attack in ['Probing','Bruteforce','Bruteforce-XML']: # aggiungere un tracking del tempo speso 'XMRIGCC CryptoMiner',
             self.warmup = True
             print('traing for ', attack)
             start_time = time.time()
