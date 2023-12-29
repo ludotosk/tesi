@@ -2,3 +2,4 @@
 /gitignore
 /.ipynb_checkpoints
 /__pycache__
+knn_utils.pickle
