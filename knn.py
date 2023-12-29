@@ -47,7 +47,15 @@ def run_zero_day():
     '''
     with open('knn_utils.pickle', 'rb') as handle:
         pv = pickle.load(handle)
-        
-    zero_day_feature_reduction_scores = pv.run_zero_day_test()
+
+    pv.run_zero_day_test()
+
+def save_to_pickle():
+    '''
+    Saving the csv to pickle
+    '''     
+    zero_day_feature_reduction_scores = pd.read_csv('knn_zero_day.csv')
+    zero_day_feature_reduction_scores.columns = ['attack_f1', 'attack_recall', 'attack_precision', 'cv_score_avg', 'cv_score_std', 'n_features', 'attack_name', 'fit_time', 'pred_time']
+
     with open('knn_data/zero_day_feature_reduction_scores.pickle', 'wb') as handle:
             pickle.dump(zero_day_feature_reduction_scores, handle, protocol=pickle.HIGHEST_PROTOCOL)

@@ -538,7 +538,7 @@ class DataPreprocessingAndValidation:
             self.test_zero_day(attack, self.feature_above_zero[:-i], rus, rus_attack)
 
     def run_zero_day_test(self):
-        for attack in ['Probing','Bruteforce','Bruteforce-XML']: # aggiungere un tracking del tempo speso 'XMRIGCC CryptoMiner',
+        for attack in ['XMRIGCC CryptoMiner','Probing','Bruteforce','Bruteforce-XML']: # aggiungere un tracking del tempo speso
             self.warmup = True
             print('traing for ', attack)
             start_time = time.time()
