@@ -1,0 +1,156 @@
+digraph {
+    graph [ rankdir=TB ]
+    graph [ rankdir="LR" ]
+
+    0 [ label="fwd_subflow_bytes<150" ]
+    0 -> 1 [label="yes" color="#FF0000"]
+    0 -> 2 [label="no, missing" color="#0000FF"]
+
+    1 [ label="flow_iat.avg<37.9085541" ]
+    1 -> 3 [label="yes" color="#FF0000"]
+    1 -> 4 [label="no, missing" color="#0000FF"]
+
+    3 [ label="fwd_pkts_payload.min<40" ]
+    3 -> 7 [label="yes" color="#FF0000"]
+    3 -> 8 [label="no, missing" color="#0000FF"]
+
+    7 [ label="leaf=-1.98577666" ]
+
+    8 [ label="fwd_pkts_payload.min<41" ]
+    8 -> 13 [label="yes" color="#FF0000"]
+    8 -> 14 [label="no, missing" color="#0000FF"]
+
+    13 [ label="fwd_pkts_tot<2" ]
+    13 -> 17 [label="yes" color="#FF0000"]
+    13 -> 18 [label="no, missing" color="#0000FF"]
+
+    17 [ label="leaf=0.215922728" ]
+
+    18 [ label="leaf=1.66200876" ]
+
+    14 [ label="leaf=-1.98315454" ]
+
+    4 [ label="fwd_pkts_tot<202" ]
+    4 -> 9 [label="yes" color="#FF0000"]
+    4 -> 10 [label="no, missing" color="#0000FF"]
+
+    9 [ label="leaf=-1.99779749" ]
+
+    10 [ label="leaf=0.50001955" ]
+
+    2 [ label="bwd_init_window_size<65228" ]
+    2 -> 5 [label="yes" color="#FF0000"]
+    2 -> 6 [label="no, missing" color="#0000FF"]
+
+    5 [ label="fwd_init_window_size<64287" ]
+    5 -> 11 [label="yes" color="#FF0000"]
+    5 -> 12 [label="no, missing" color="#0000FF"]
+
+    11 [ label="bwd_iat.min<54.1210175" ]
+    11 -> 15 [label="yes" color="#FF0000"]
+    11 -> 16 [label="no, missing" color="#0000FF"]
+
+    15 [ label="fwd_last_window_size<775" ]
+    15 -> 19 [label="yes" color="#FF0000"]
+    15 -> 20 [label="no, missing" color="#0000FF"]
+
+    19 [ label="idle.tot<28208384" ]
+    19 -> 23 [label="yes" color="#FF0000"]
+    19 -> 24 [label="no, missing" color="#0000FF"]
+
+    23 [ label="flow_duration<1.38971901" ]
+    23 -> 29 [label="yes" color="#FF0000"]
+    23 -> 30 [label="no, missing" color="#0000FF"]
+
+    29 [ label="down_up_ratio<1.00078905" ]
+    29 -> 39 [label="yes" color="#FF0000"]
+    29 -> 40 [label="no, missing" color="#0000FF"]
+
+    39 [ label="leaf=-0.482246786" ]
+
+    40 [ label="leaf=1.25192618" ]
+
+    30 [ label="fwd_last_window_size<60" ]
+    30 -> 41 [label="yes" color="#FF0000"]
+    30 -> 42 [label="no, missing" color="#0000FF"]
+
+    41 [ label="leaf=1.82995892" ]
+
+    42 [ label="leaf=-1.25259292" ]
+
+    24 [ label="bwd_init_window_size<65160" ]
+    24 -> 31 [label="yes" color="#FF0000"]
+    24 -> 32 [label="no, missing" color="#0000FF"]
+
+    31 [ label="flow_pkts_payload.max<118" ]
+    31 -> 43 [label="yes" color="#FF0000"]
+    31 -> 44 [label="no, missing" color="#0000FF"]
+
+    43 [ label="leaf=1.95503235e-05" ]
+
+    44 [ label="leaf=-1.97390282" ]
+
+    32 [ label="fwd_pkts_payload.avg<103" ]
+    32 -> 45 [label="yes" color="#FF0000"]
+    32 -> 46 [label="no, missing" color="#0000FF"]
+
+    45 [ label="leaf=-1.58970845" ]
+
+    46 [ label="leaf=0.929614365" ]
+
+    20 [ label="leaf=-1.96735263" ]
+
+    16 [ label="bwd_PSH_flag_count<7" ]
+    16 -> 21 [label="yes" color="#FF0000"]
+    16 -> 22 [label="no, missing" color="#0000FF"]
+
+    21 [ label="down_up_ratio<1.075472" ]
+    21 -> 25 [label="yes" color="#FF0000"]
+    21 -> 26 [label="no, missing" color="#0000FF"]
+
+    25 [ label="fwd_header_size_tot<528" ]
+    25 -> 33 [label="yes" color="#FF0000"]
+    25 -> 34 [label="no, missing" color="#0000FF"]
+
+    33 [ label="leaf=-1.97104561" ]
+
+    34 [ label="fwd_last_window_size<60" ]
+    34 -> 47 [label="yes" color="#FF0000"]
+    34 -> 48 [label="no, missing" color="#0000FF"]
+
+    47 [ label="leaf=0.50001955" ]
+
+    48 [ label="leaf=-1.46663797" ]
+
+    26 [ label="leaf=-0.545429647" ]
+
+    22 [ label="fwd_last_window_size<60" ]
+    22 -> 27 [label="yes" color="#FF0000"]
+    22 -> 28 [label="no, missing" color="#0000FF"]
+
+    27 [ label="bwd_pkts_payload.avg<894.266663" ]
+    27 -> 35 [label="yes" color="#FF0000"]
+    27 -> 36 [label="no, missing" color="#0000FF"]
+
+    35 [ label="leaf=1.61293733" ]
+
+    36 [ label="flow_duration<6.86354399" ]
+    36 -> 49 [label="yes" color="#FF0000"]
+    36 -> 50 [label="no, missing" color="#0000FF"]
+
+    49 [ label="leaf=0.50001955" ]
+
+    50 [ label="leaf=-0.666644931" ]
+
+    28 [ label="fwd_pkts_tot<43" ]
+    28 -> 37 [label="yes" color="#FF0000"]
+    28 -> 38 [label="no, missing" color="#0000FF"]
+
+    37 [ label="leaf=-1.79996479" ]
+
+    38 [ label="leaf=-0.49998045" ]
+
+    12 [ label="leaf=-1.99378812" ]
+
+    6 [ label="leaf=-1.99571466" ]
+}
