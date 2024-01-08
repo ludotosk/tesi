@@ -10,7 +10,7 @@ import csv
 # Here I change the type of some feature becuase since they come from a network package they are supposed to be a certain amount of bit maximum, I also checked before to do the change.
 # Then I will eclude the ip of the hosts, the port and the Unnamed: 0. Because the ip and ports are categorical but they are to many to fit in the model, and also there is not a good reason for train the model over the ip since it change based on the network so the attacker will always have a different one. About the Unnamed: 0 you can use that number to split this csv in mani csvs which is not a thing that we need to do so I removed that feature as well.
 
-dtype_dict = {
+dtype_hikari = {
     'Unnamed: 0': 'uint32',
     'uid': 'str',
     'originh': 'category',
@@ -100,7 +100,95 @@ dtype_dict = {
     'Label': 'bool'
 }
 
-selected_features = [
+dtype_cicids = {
+    'Flow ID': 'category',
+    ' Source IP': 'category',
+    ' Source Port': 'float32',
+    ' Destination IP': 'category',
+    ' Destination Port': 'float32',
+    ' Protocol': 'float32',
+    ' Timestamp': 'category',
+    ' Flow Duration': 'float64',
+    ' Total Fwd Packets': 'float32',
+    ' Total Backward Packets': 'float32',
+    'Total Length of Fwd Packets': 'float32',
+    ' Total Length of Bwd Packets': 'float64',
+    ' Fwd Packet Length Max': 'float32',
+    ' Fwd Packet Length Min': 'float32',
+    ' Fwd Packet Length Mean': 'float32',
+    ' Fwd Packet Length Std': 'float32',
+    'Bwd Packet Length Max': 'float32',
+    ' Bwd Packet Length Min': 'float32',
+    ' Bwd Packet Length Mean': 'float32',
+    ' Bwd Packet Length Std': 'float32',
+    'Flow Bytes/s': 'float64',
+    ' Flow Packets/s': 'float64',
+    ' Flow IAT Mean': 'float64',
+    ' Flow IAT Std': 'float64',
+    ' Flow IAT Max': 'float64',
+    ' Flow IAT Min': 'float64',
+    'Fwd IAT Total': 'float64',
+    ' Fwd IAT Mean': 'float64',
+    ' Fwd IAT Std': 'float64',
+    ' Fwd IAT Max': 'float64',
+    ' Fwd IAT Min': 'float64',
+    'Bwd IAT Total': 'float64',
+    ' Bwd IAT Mean': 'float64',
+    ' Bwd IAT Std': 'float64',
+    ' Bwd IAT Max': 'float64',
+    ' Bwd IAT Min': 'float64',
+    'Fwd PSH Flags': 'float32',
+    ' Bwd PSH Flags': 'float32',
+    ' Fwd URG Flags': 'float32',
+    ' Bwd URG Flags': 'float32',
+    ' Fwd Header Length': 'float64',
+    ' Bwd Header Length': 'float64',
+    'Fwd Packets/s': 'float64',
+    ' Bwd Packets/s': 'float64',
+    ' Min Packet Length': 'float32',
+    ' Max Packet Length': 'float32',
+    ' Packet Length Mean': 'float32',
+    ' Packet Length Std': 'float32',
+    ' Packet Length Variance': 'float64',
+    'FIN Flag Count': 'float32',
+    ' SYN Flag Count': 'float32',
+    ' RST Flag Count': 'float32',
+    ' PSH Flag Count': 'float32',
+    ' ACK Flag Count': 'float32',
+    ' URG Flag Count': 'float32',
+    ' CWE Flag Count': 'float32',
+    ' ECE Flag Count': 'float32',
+    ' Down/Up Ratio': 'float32',
+    ' Average Packet Size': 'float32',
+    ' Avg Fwd Segment Size': 'float32',
+    ' Avg Bwd Segment Size': 'float32',
+    ' Fwd Header Length.1': 'float64',
+    'Fwd Avg Bytes/Bulk': 'float32',
+    ' Fwd Avg Packets/Bulk': 'float32',
+    ' Fwd Avg Bulk Rate': 'float32',
+    ' Bwd Avg Bytes/Bulk': 'float32',
+    ' Bwd Avg Packets/Bulk': 'float32',
+    'Bwd Avg Bulk Rate': 'float32',
+    'Subflow Fwd Packets': 'float32',
+    ' Subflow Fwd Bytes': 'float32',
+    ' Subflow Bwd Packets': 'float32',
+    ' Subflow Bwd Bytes': 'float64',
+    'Init_Win_bytes_forward': 'float32',
+    ' Init_Win_bytes_backward': 'float32',
+    ' act_data_pkt_fwd': 'float32',
+    ' min_seg_size_forward': 'float64',
+    'Active Mean': 'float64',
+    ' Active Std': 'float64',
+    ' Active Max': 'float64',
+    ' Active Min': 'float64',
+    'Idle Mean': 'float64',
+    ' Idle Std': 'float64',
+    ' Idle Max': 'float64',
+    ' Idle Min': 'float64',
+    ' Label': 'category'
+}
+
+selected_features_hikari = [
     "flow_duration", "fwd_pkts_tot", "bwd_pkts_tot",
     "fwd_data_pkts_tot", "bwd_data_pkts_tot", "fwd_pkts_per_sec", "bwd_pkts_per_sec", "flow_pkts_per_sec",
     "down_up_ratio", "fwd_header_size_tot", "fwd_header_size_min", "fwd_header_size_max",
@@ -257,9 +345,9 @@ def make_confusion_matrix(cf,
     if title:
         plt.title(title)
 
-def compute_ratio(data):
+def compute_ratio(data,column):
     # Get ratio instead of raw numbers using normalize=True
-    ratio = data['traffic_category'].value_counts(normalize=True)
+    ratio = data[column].value_counts(normalize=True)
 
     # Round and then convert to percentage
     ratio = ratio.round(4)*100
@@ -274,19 +362,19 @@ def show_corr_matrix(ds):
     sns.set_theme(style="white")
 
     # Compute the correlation matrix
-    corr = ds.loc[:, ds.columns != 'traffic_category'].corr()
+    corr = ds.select_dtypes(include=['number','bool']).corr()
 
     # Generate a mask for the upper triangle
     mask = np.triu(np.ones_like(corr, dtype=bool))
 
     # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(11, 9))
+    f, ax = plt.subplots(figsize=(22, 18))
 
     # Generate a custom diverging colormap
     cmap = sns.diverging_palette(230, 20, as_cmap=True)
 
     # Draw the heatmap with the mask and correct aspect ratio
-    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
+    sns.heatmap(corr, mask=mask, cmap=cmap, center=0,
                 square=True, linewidths=.5, cbar_kws={"shrink": .5})
 
 class DataPreprocessingAndValidation:

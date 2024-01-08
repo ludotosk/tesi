@@ -66,7 +66,9 @@
 
 - CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection
   
-  - fanno anche feature selection
+  - dicono che information gain è il metodo più usato per fare feature selection
+  
+  - dicono che i risultati sono migliorati facendo feature selection
   
   - sottolineano come manchi il tempo computazionale nei vari test
   
@@ -74,15 +76,27 @@
   
   - enfatizzano il fatto che manchino ancora studi su dataset di grosse dimensioni
   
+  - spiega che alcune feature che ci sono qui mancano altrove e per questo questo data set è meglio
+  
+  - parlano di rimuovere features ridondanti (in realtà è una che è finita lì per errore)
+  
+  - usano solo il 20% dei dati del dataset
+  
+  - dicono che il miglior modo per fare feature selection è quello di usare l'entropia, per ipotesi si potrebbe fare lo stesso usando i modelli ad albero
+  
+  - mostrano il loro setup hardware e software per eseguire il tutto usano un programma basato su java
+  
+  - usano delle quantità predefinite di peso di ciascuna feature per decidere quante tenerne. questo potrebbe velocizzare di tanto il mio processo
+  
   - dicono che fare RFCE è svantaggioso perché richiede un sacco di tempo
   
   - usano 10-fold
   
-  - usano entropy per misurare l'information gain
-  
   - fanno vedere come RF e RT funzionino meglio degli altri modelli testati
   
   - dicono che i modelli ad albero sono i migliori
+  
+  - fanno notare come gli infiltatrion attack non vengono rilevati, essendo solo 36 è normale. Quindi andrebbero tolti o comunque maggiorati con smote e poi andrebbe fatto un sampling stratificato.
 
 - Evaluating Unbalanced Network Data for Attack Detection
   
@@ -107,11 +121,17 @@
 
 - A detailed analysis of CICIDS2017 dataset for designing Intrusion Detection Systems
   
+  - nel intro spiega perché questo dataset sia valido
+  
+  - creano un subset del dataset e fanno anche relabeling
+  
   - il paper più citato che analizza CICIDS2017
   
   - loro parlano di perché sia importante fare il merge di tutti i papers
   
   - bisogna eliminare qualche riga con i dati mancanti
+  
+  - fanno notare come avere un dataset così sbilanciato sia un male perché durante la fase di training potrebbe non essere preso in cosiderazione qualche dato
   
   - rispetto a hikari mancano 3 features, una è la lable binaria e le altre sono la porta di partenza e gli ip
   
@@ -123,9 +143,19 @@
   
   - Usano la pca che non va bene per il mio caso perché si perde la parte di explainability e poi  ci va di più ad elaborare il dato
   
+  - parlano del fatto che si possa migliorare il risultato ottenuto nel paper originale di cic ids, potrei farlo meglio col mio metodo di sampling
+  
   - loro usano ensemble feature selection, io però userò shap
   
+  - Fanno l'analisi solo sugli attacchi ddos
+  
   - cita un paper a caso per giustificare l'utilizzo di una confusion matrix
+  
+  - descrivono il setup e anche la configurazione usata
+  
+  - raddoppiano la minority class del 200%
+  
+  - non hanno fatto fit una volta e poi transform per con la pca
   
   - cita un paper che dice quali sono le caratteristiche di un buon paper per fare gli ids
   
@@ -140,6 +170,8 @@
   - si parla di AIDS cioè i gli ids fatti con i modelli di machine learning
   
   - parlano di multi class
+  
+  - c'è un grafico dei dataset più usati fanno vedere che cic ids 2017 è tra questi
   
   - dicono che il dataset darpa è stato usato nel 42% degli studi e quello kdd cup nel 28%
   
@@ -287,6 +319,20 @@
   
   - il mdi in un singolo albero è calcolato con una sommattoria dell'impurità di una singola variabile su tutti i nodi
 
+- Anomaly process detection using negative selection algorithm and classification techniques
+  
+  - usano logistic regression, k-nn, rf e dt
+  
+  - fanno feature selection con weka (java)
+  
+  - introducono due diversi tipi di ids
+  
+  - fanno notare come fare feature selection sia importante
+  
+  - selezionano le feature che sono più correllate con gli attacchi
+  
+  - in sostanza non fanno hyper tuning, ma solo feature selection e poi fanno under sampling con quel algoritmo chiamato nsa
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -312,7 +358,9 @@
 
 - Benchmarking of Machine Learning for Anomaly Based Intrusion Detection Systems in the CICIDS2017 Dataset
   
-  - testano tanti modelli ma non fatto selezione delle feature e il fine tuning è deciso a priori non hanno preso il migliore
+  - parlano del fatto che la f1 è utile, ma in realtà ho visto con l'altro dataset che se la classe più grande è positiva può essere che f1 score sbagli e sia maggiore
+  - prendono in cosiderazione solo 4 classi per giunta neanche le più grandi così che il risultato sia completamente sbilanciato
+  - non hanno fatto undersampling
 
 - Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization
   
@@ -343,6 +391,21 @@
 - Feature Drift Aware for Intrusion Detection System Using Developed Variable Length Particle Swarm Optimization in Data Stream
   
   - eliminano alcuni attacchi per avere solo quelli bruteforce, così da avere le metriche al massimo
+
+- A detailed analysis of CICIDS2017 dataset for designing Intrusion Detection Systems
+  
+  - Il problema è che non controllano se questi attacchi sono simili tra loro e poi li mettono assieme. Per esempio xss e brute force non ha senso che stiano assieme.
+  - nello stesso paper di introduzione del dataset fanno feature selection e le feature selezionate non sono le stesse per tutti gli attacchi ddos per esempio
+
+- Improving AdaBoost-based Intrusion Detection System (IDS) Performance on CIC IDS 2017 Dataset
+  
+  - cita un altro studio dove dicono che adaboost ha pochi false negative e pochi false positive, ma non è vero nel mio caso
+  
+  - loro dicono di aver usato monday working hours ma quel dataset contiene solo dati benigni
+
+- CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection
+  
+  - parlano di fare feature selection ma volendo lavorare con modelli ad albero si potrebbe optare per fare il pruning
 
 # Perché il mio studio è diverso
 
@@ -398,6 +461,10 @@
 
 - stressare sul fatto che molti paper non parlano di quale versione del dataset abbiano usato
 
+- bisogna spiegare che non ho selezionato gli attacchi ad arte e le poche volte che l'ho fatto era perché il numero di osservazioni era davvero esiguo
+
+- non ha senso fare come fanno alcuni studi che prendono in cosiderazione solo alcuni attacchi
+
 # Cose fatte
 
 - build di cicflowmeter usando un wm con ubuntu 20.04 e openjdk-8
@@ -420,6 +487,14 @@
 - ricordarsi di far vedere al prof la questione del singolo albero per ciascun attacco
 
 - contare tempo di scaling e di trasformazione dei dati in tensor, misurare a parte giusto per avere un'idea
+
+- bisogna provare a fare feature selection dei modelli al albero usando l'information gian assieme a shap
+
+- mettere dei limiti di importanza da usare per fare feature selection, per farlo bisogna standardizzare l'importanza
+
+- fixare la correlation matrix, controllare che vengano inserite tutte le viariabili
+
+- provare a usare self organizing map per vedere se gli attacchi sono tutti simili o meno
 
 # Issue utili shap
 
