@@ -333,6 +333,14 @@
   
   - in sostanza non fanno hyper tuning, ma solo feature selection e poi fanno under sampling con quel algoritmo chiamato nsa
 
+- Effectiveness of Machine Learning based Intrusion Detection Systems
+  
+  - provano diverse metriche tra cui il tempo di training ecc
+  - fanno notare come in quasi tutti gli studi su cicids non vengano usati tutti gli attacchi
+  - dice che due colonne hanno valori nan o infiniti
+  - hanno fatto feature selection usando la random forest
+  - fanno vedere che la knn è la migliore ma è lenta quindi inadatta al mondo reale
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -406,6 +414,14 @@
 - CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection
   
   - parlano di fare feature selection ma volendo lavorare con modelli ad albero si potrebbe optare per fare il pruning
+
+- Effectiveness of Machine Learning based Intrusion Detection Systems
+  
+  - non fanno undersampling ne hyper tuning, risultato la knn è la migliore perché non ha problemi con il dataset sbilanciato assumendo che i vari cluster siano ben distanti
+  
+  - manca la spiegazione su cosa hanno usato per fare feature importance
+  
+  - 
 
 # Perché il mio studio è diverso
 
