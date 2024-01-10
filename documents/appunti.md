@@ -420,8 +420,6 @@
   - non fanno undersampling ne hyper tuning, risultato la knn è la migliore perché non ha problemi con il dataset sbilanciato assumendo che i vari cluster siano ben distanti
   
   - manca la spiegazione su cosa hanno usato per fare feature importance
-  
-  - 
 
 # Perché il mio studio è diverso
 
@@ -508,9 +506,9 @@
 
 - mettere dei limiti di importanza da usare per fare feature selection, per farlo bisogna standardizzare l'importanza
 
-- fixare la correlation matrix, controllare che vengano inserite tutte le viariabili
-
 - provare a usare self organizing map per vedere se gli attacchi sono tutti simili o meno
+
+- 
 
 # Issue utili shap
 
