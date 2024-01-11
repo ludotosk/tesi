@@ -5,6 +5,10 @@
   - citazione [4] dice che il 67% degli esperti non si fida dall'ai
   
   - spiegano per filo e per segno tutto dalla pulizia dei dati a come hanno fatto il modello, però non fanno vedere una rappresentazione grafica della spiegazione del modello
+  
+  - usano kdd9 e poi spiegano con shap ma non usano tutti gli shap
+  
+  - usano kernel shap
 
 - ROULETTE
   
@@ -23,15 +27,38 @@
   - anche questo paper spiega nel dettaglio come ha misurato i risultati e come ha fatto il tuning della rete
 
 - PAIRED è quello che tiene conto della velocità dell'algoritmo
+  
+  - non mi serve perché parla di android
 
 - Realguard parla di perché ha senso fare un ids per l'iot
   
-  - fa anche i test su un raspberry
+  - citano il fatto che siano capaci di processare 10600 pacchetti al secondo con un raspberry
+  
+  - nell'intro cita due studi che spiegano come i device iot saranno importantissimi
+  
+  - parlando dnn citando altri studi dove però non viene fatto fine tuning
+  
+  - hanno pubblicato il docker (no link provided, su richiesta dicono)
+  
+  - hanno creato un mvp
+  
+  - in questo studio parlano dei pcap di cicids 2017, cosa che negli altri dataset manca e apre alla possibilità di fare mvp come hanno fatto loro
+  
+  - fanno under sampling e usano k-fold
+  
+  - mancano tutti i web attack, nessuna spiegazione fornita
+  
+  - fa anche i test su un raspberry con una rete simulata con i pcap, sono tra i pochissimi a farlo
   
   - e fa vedere come far una piccola CNN con 5 layers di modo che utilizzi poche performance
-
-- A systematic literature review of methods and datasets for anomaly-based network intrusion detection
   
+  - lamentano la mancanza di altri dataset ma c'è hikari
+
+- A systematic literature review of methods and datasets for anomaly-based network intrusion detection (in realtà non mi serve)
+  
+  - seguono la metodologia SLR, systematic literature review
+  - dicono che il loro è l'unico lavoro di literature review riproducibile
+  - spiega perché hanno usato scopus
   - cita tutte le strategie usate dai vari papers sul tema, per esempio come fare feature selection ecc.
 
 - Generating Network Intrusion Detection Dataset Based on Real and Encrypted Synthetic Attack Traffic (questo è il paper che presenta hikair-2021)
@@ -110,20 +137,14 @@
 
 - Network Intrusion Detection Packet Classification with the HIKARI-2021 Dataset: a study on ML Algorithms
   
-  - riproducono quanto fatto nel paper del dataset
+  - leggere parte critiche
   - usano chi-squared per rimuovere le feature
-
-- From explanations to feature selection: assessing SHAP values as feature selection mechanism
-  
-  - confronto tra usare shap per determinare l'importanza delle feature e altri metodi
-  
-  - questo paper lo posso aggiornare con fast tree shap
 
 - A detailed analysis of CICIDS2017 dataset for designing Intrusion Detection Systems
   
   - nel intro spiega perché questo dataset sia valido
   
-  - creano un subset del dataset e fanno anche relabeling
+  - creano un subset del dataset e fanno anche relabeling (qui bisogna fare attenzione)
   
   - il paper più citato che analizza CICIDS2017
   
@@ -133,11 +154,11 @@
   
   - fanno notare come avere un dataset così sbilanciato sia un male perché durante la fase di training potrebbe non essere preso in cosiderazione qualche dato
   
-  - rispetto a hikari mancano 3 features, una è la lable binaria e le altre sono la porta di partenza e gli ip
+  - rispetto a hikari mancano 3 features, una è la label binaria e le altre sono la porta di partenza e gli ip
   
   - cita un paper che fa una valutazione di ids del passato
 
-- Improving AdaBoost-based Intrusion Detection System (IDS) Performance on CIC IDS 2017 Dataset
+- Improving AdaBoost-based Intrusion Detection System (IDS) Performance on CIC IDS 2017 Dataset (191)
   
   - parlano di smote come possibile soluzione (questo dataset ha una minority class più piccola di hikari)
   
@@ -240,6 +261,8 @@
 
 - From Local Explanations to Global Understanding with Explainable AI for Trees
   
+  - parte spiegando perché fare reduction usando metodi come la pca implica una perdita in termini di spiegabilità (cui bisogna agganciarsi al paper dove dicono che molti esperti non si fidano degli ids)
+  
   - dicono che i modelli ad albero sono i non lineari più popolari
   
   - manca letteratura sulle local explanation
@@ -263,6 +286,10 @@
   - hanno usato 200 background data per avere low variance
   
   - nella figura 3 fanno vedere come sia meglio tree shap di altre soluzioni compreso kernel shap
+  
+  - confronto tra usare shap per determinare l'importanza delle feature e altri metodi
+  
+  - questo paper lo posso aggiornare con fast tree shap
 
 - Fast TreeSHAP: Accelerating SHAP Value Computation for Trees
   Jilei
@@ -278,6 +305,10 @@
   - dice che l'alternative esistono ma si concentrano nel parallelizzare i calcoli e non semplificare
 
 - Classification and Explanation for Intrusion Detection System Based on Ensemble Trees and SHAP Method
+  
+  - citano un paper dove si parla del fatto che la mancanza di spiegazioni è un problema [9]
+  
+  - usano una libreria no code per lo sviluppo
   
   - citano tutte le volte che una random forest è stata applicata per lavorare gli ids
   
@@ -352,9 +383,11 @@
   
   - anche qui fanno l'errore di fare la classificazione multipla e dicono che l'undersampling non aiuta ma ho già mostrato come non sia vero
   
+  - il grafico che mostrano delle correlazione è sbagliato, o quanto meno è diverso alla luce dell'aggiornamento
+  
   - usano chi-square per fare undersampling però come dice l'altro paper shap è meglio
   
-  - parlano di 83 feature ma non è possibile, sono 86 ma togliendo lo uid e l'index si arriva a 84 poi però bisogna far fuori pure le porte e gli ip e così si scende a 80. Pure Evaluating Unbalanced Network Data for Attack Detection dice che le features sono 79.
+  - parlano di 83 feature ma non è possibile, sono 81 ma tenendo conto di traffic_category e di Label di cui delle due ne va usata una. Lui ha usato anche 'Unnamed: 0.1', 'Unnamed: 0' prova il grafico e il paper successivo
   
   - non dicono come hanno fatto il fine tuning
   
@@ -362,7 +395,9 @@
 
 - From explanations to feature selection: assessing SHAP values as feature selection mechanism
   
-  - qui loro fanno un confronto in termini di perfomance tra SHAP e altri algoritmi però non tengono conto del nuovo algoritmo proposto da LinkedIn. quindi potrei eventualmente portare questo test
+  - qui loro fanno un confronto in termini di perfomance tra SHAP e altri algoritmi però non tengono conto del nuovo algoritmo proposto da LinkedIn. Quindi potrei eventualmente portare questo test.
+  - introducono prima kernel shap e poi tree shap ma fanno confusione e non spiegano la differenza tra i due
+  - non parlano nemmeno della differenza tra true to data e true to the model, il che potrebbe portare a un miglioramento del loro paper
 
 - Benchmarking of Machine Learning for Anomaly Based Intrusion Detection Systems in the CICIDS2017 Dataset
   
@@ -495,6 +530,7 @@
 - scrivere di come non pubblicare i propri notebook renda opaco tutto lo studio e citare il caso del tipo che ha usato l'index di pandas come feature
 - notato che con più osservazioni il modello va peggio, ma facendo un po' di feature selection a volte migliora
 - dato più peso a alla classe negativa per avere precision e recall uguali
+- devo dire che ho usato la z-score con i modelli che ne necessitavano
 
 # Da fare
 
@@ -508,7 +544,7 @@
 
 - provare a usare self organizing map per vedere se gli attacchi sono tutti simili o meno
 
-- 
+- guardare quanta memoria richiede un normale dataset contro un dataset di float
 
 # Issue utili shap
 
@@ -567,6 +603,23 @@
 - random forest
 - Feature relevance quantification in explainable AI: A causal problem (parlano di alcuni problemi nell'interpretazione di shap)
 - Understanding variable importances in Forests of randomized trees (parla di come interpretare il mdi per la random forest)
+- paper sugli ids xai
+  - Explaining Network Intrusion Detection System Using Explainable AI Framework
+  - An Explainable Machine Learning Framework for Intrusion Detection Systems
+  - Explainable Artificial Intelligence (XAI) to Enhance Trust Management in Intrusion Detection Systems Using Decision Tree Model
+  - Achieving Explainability of Intrusion Detection System by Hybrid Oracle- Explainer Approach
+  - An Explainable Machine Learning-based Network Intrusion Detection System for Enabling Generalisability in Securing IoT Networks
+  - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-based Network Intrusion Detection
+- paper su hikari (32 citazioni 11/01/2024)
+  - Dual-IDS: A bagging-based gradient boosting decision tree model for networkanomaly intrusion detection system (42 citazioni il più citato di quelli che usano hikari)
+  - PeerAmbush: Multi-Layer Perceptron to Detect Peer-to-Peer Botnet
+- paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
+  - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
+  - Anomaly-Based Intrusion Detection From
+    Network Flow Features Using Variational
+    Autoencoder (200 citazioni)
+  - Intrusion detection system for wireless mesh network using multiple support vector machine classifiers with genetic-algorithm-based feature selection (195 citazioni)
+  - A fast network intrusion detection system using adaptive synthetic oversampling and LightGBM (113)
 
 # Making dataset
 
