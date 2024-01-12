@@ -372,6 +372,24 @@
   - hanno fatto feature selection usando la random forest
   - fanno vedere che la knn è la migliore ma è lenta quindi inadatta al mondo reale
 
+- Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system (42 citazioni il più citato su 32 di hikari)
+  
+  - usano tre dataset
+  
+  - non usano hikari completo
+  
+  - giustificano la scelta di tenere il dataset sbilanciato usano una formula chiamata mcc
+  
+  - forniscono i parametri per il fine tuning (provare a usare stessi parametri)
+  
+  - non fanno feature selection
+  
+  - da prendere in esempio per comparare i modelli
+  
+  - dicono che i falsi positivi sono da ridurre
+  
+  - dicono che alcuni progressi sono stati fatti dalle neural network per riuscire a battere i metodi ensemble
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -455,6 +473,22 @@
   - non fanno undersampling ne hyper tuning, risultato la knn è la migliore perché non ha problemi con il dataset sbilanciato assumendo che i vari cluster siano ben distanti
   
   - manca la spiegazione su cosa hanno usato per fare feature importance
+
+- Anomaly-Based Intrusion Detection From
+  Network Flow Features Using Variational
+  Autoencoder (200 citazioni)
+  
+  - allenano il modello usando un metodo semi supervised, si allena il modello senza label ma si testa con label
+  
+  - non possono fare cross validation siccome il training è fatto su dati non anomali
+  
+  - fanno hyper tuning e dopo dicono che hanno usato la rule of thumb per avere i parametri giusti
+  
+  - fanno notare come il loro metodo funzioni anche con delle percentuali di dati in training ridicole
+
+- Intrusion detection system for wireless mesh network using multiple support vector machine classifiers with genetic-algorithm-based feature selection (195 citazioni)
+  
+  - 
 
 # Perché il mio studio è diverso
 
@@ -546,6 +580,8 @@
 
 - guardare quanta memoria richiede un normale dataset contro un dataset di float
 
+- bisogna usare bagging sui miei modelli
+
 # Issue utili shap
 
 -  [Question about TreeExplainer data parameter &amp; train/test subsets. · Issue #1366 · shap/shap · GitHub](https://github.com/shap/shap/issues/1366) qui dice che è meglio usare interventional
@@ -611,14 +647,9 @@
   - An Explainable Machine Learning-based Network Intrusion Detection System for Enabling Generalisability in Securing IoT Networks
   - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-based Network Intrusion Detection
 - paper su hikari (32 citazioni 11/01/2024)
-  - Dual-IDS: A bagging-based gradient boosting decision tree model for networkanomaly intrusion detection system (42 citazioni il più citato di quelli che usano hikari)
   - PeerAmbush: Multi-Layer Perceptron to Detect Peer-to-Peer Botnet
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
-  - Anomaly-Based Intrusion Detection From
-    Network Flow Features Using Variational
-    Autoencoder (200 citazioni)
-  - Intrusion detection system for wireless mesh network using multiple support vector machine classifiers with genetic-algorithm-based feature selection (195 citazioni)
   - A fast network intrusion detection system using adaptive synthetic oversampling and LightGBM (113)
 
 # Making dataset
