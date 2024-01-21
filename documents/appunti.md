@@ -398,7 +398,12 @@
 
 - A fast network intrusion detection system using adaptive synthetic oversampling and LightGBM (113)
 
-- 
+  - nulla di particolare da riportare lo dovrò rileggere quando avrò dimestichezza col dataset
+
+- CNN-LSTM-based IDS on Precision Farming for IIoT data
+  - hanno selezionato sia label che traffic category
+  - usano il vecchio hikari
+  - mostrano una tabella delle features correlate
 
 # Critiche ai vari papers
 
@@ -613,13 +618,6 @@
   - fa notare come un modello di ml in generale è meglio di un confronto delle firme che richiede avere un database enorme e molta cpu per cifrare
   - cita un paper che descrive come ha fatto una mlp per allenare la rete
   - parla di papers che usano un dataset per il training e un altro per il test. potrebbe essere utile per dimostare come il modello funzioni con nuovi attacchi.
-
-- CNN-LSTM-based IDS on Precision Farming for IIoT data
-  
-  - qui fanno un bello schema che rende comprensibile come abbiano fatto a fare il training dei dati
-  
-  - fanno pure vedere una tabella con le feature selezionate
-
 - Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system
   Maya
   
