@@ -378,6 +378,8 @@
   
   - non usano hikari completo
   
+  - hanno usato hold out 80/20 per testare il dataset senza stratificazione
+  
   - giustificano la scelta di tenere il dataset sbilanciato usano una formula chiamata mcc
   
   - forniscono i parametri per il fine tuning (provare a usare stessi parametri)
