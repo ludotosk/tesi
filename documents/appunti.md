@@ -392,6 +392,14 @@
   
   - dicono che alcuni progressi sono stati fatti dalle neural network per riuscire a battere i metodi ensemble
 
+- Intrusion detection system for wireless mesh network using multiple support vector machine classifiers with genetic-algorithm-based feature selection (195 citazioni)
+  
+  - sfruttano i pcap di cicids ma non il csv quindi non è paragonabile al mio
+
+- A fast network intrusion detection system using adaptive synthetic oversampling and LightGBM (113)
+
+- 
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -488,9 +496,9 @@
   
   - fanno notare come il loro metodo funzioni anche con delle percentuali di dati in training ridicole
 
-- Intrusion detection system for wireless mesh network using multiple support vector machine classifiers with genetic-algorithm-based feature selection (195 citazioni)
+- Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system
   
-  - 
+  - non parlano delle feature da eliminare eppure ci sono
 
 # Perché il mio studio è diverso
 
@@ -652,7 +660,6 @@
   - PeerAmbush: Multi-Layer Perceptron to Detect Peer-to-Peer Botnet
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
-  - A fast network intrusion detection system using adaptive synthetic oversampling and LightGBM (113)
 
 # Making dataset
 
