@@ -404,6 +404,8 @@
   - hanno selezionato sia label che traffic category
   - usano il vecchio hikari
   - mostrano una tabella delle features correlate
+- An empirical comparison of botnet detectionmethods
+  - creano il dataset ctu-13 che ho citato perché è stato usato assieme a Hikari in Peer ambush
 
 # Critiche ai vari papers
 
