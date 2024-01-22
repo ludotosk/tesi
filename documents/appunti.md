@@ -1,5 +1,7 @@
 # Papers da citare
 
+
+
 - Network Intrusion Detection Based on Explainable Artificial Intelligence
   
   - citazione [4] dice che il 67% degli esperti non si fida dall'ai
@@ -397,8 +399,14 @@
   - sfruttano i pcap di cicids ma non il csv quindi non è paragonabile al mio
 
 - A fast network intrusion detection system using adaptive synthetic oversampling and LightGBM (113)
-
-- 
+  
+  - usa lightgbm e adasyn per fare classificazion e oversampling
+  
+  - non notano le colonne duplicate o vuote e non parlano delle righe duplicate
+  
+  - fanno over sampling su Web Attack, Bot, Infiltration and Heartbleed
+  
+  - mancano auc, f1 e mcc
 
 # Critiche ai vari papers
 
