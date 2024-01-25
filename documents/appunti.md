@@ -662,6 +662,8 @@
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
   - Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
+  - Polymorphic Adversarial DDoS attack on IDS usingGAN (usano shap 43 citazioni)
+  - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
 
 # Making dataset
 
