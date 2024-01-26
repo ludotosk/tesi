@@ -407,7 +407,19 @@
   - fanno over sampling su Web Attack, Bot, Infiltration and Heartbleed
   
   - mancano auc, f1 e mcc
-
+- Polymorphic Adversarial DDoS attack on IDS usingGAN (usano shap 43 citazioni)
+	- usano shap per fare feature selection
+	- fanno chiarezza su come hanno ripulito il Dataset
+	- hanno detto di aver tolto le informazioni sulle socket come indirizzi ip e porte
+	- hanno detto che hanno fatto il relabeling da multi class a binario
+	- hanno rimosso degli white space (devo verificare dove siano)
+	- e rimosso missing values e infinite values
+	- non specificano quale shap abbiano usato ma credo sia il tree perché lo enfatizzano
+	- non fanno vedere come sia stato fatto l'hyper tuning (c'è solo per il gan non per gli altri modelli)
+	- usano solo ddos
+- Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
+	- citano dei paper che lamentano l'inaffidabilità di questi papers sui nids
+	- comparano diversi feature set con diversi dataset
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -662,9 +674,6 @@
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
   - Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
-  - Polymorphic Adversarial DDoS attack on IDS usingGAN (usano shap 43 citazioni)
-  - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
-
 # Making dataset
 
 - anzitutto ho usato cicflowmeter per rifare quello fatto con hikari
