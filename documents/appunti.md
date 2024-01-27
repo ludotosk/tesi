@@ -420,6 +420,14 @@
 - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
 	- citano dei paper che lamentano l'inaffidabilità di questi papers sui nids
 	- comparano diversi feature set con diversi dataset
+	- dicono che multiclass va meglio
+	- citano il primo paper che parla di shap applicato ai nids
+	- dicono che usare le stesse features in più dataset è meglio per fare valutazioni tra diversi datasets
+	- spiegano come convertire un paper a cicflowmeter
+	- hanno fatto fine tuning e usano una mlp piccola
+	- parlano del fatto che hanno rimosso porte, ip e flow id
+	- dicono che hanno fatto un 5 fold e hanno usato min max
+	- parlano di adversarial attack
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -519,6 +527,10 @@
 - Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system
   
   - non parlano delle feature da eliminare eppure ci sono
+ 
+- Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
+	- fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
+	- non cita il paper di tree shap
 
 # Perché il mio studio è diverso
 
