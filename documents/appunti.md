@@ -1,7 +1,5 @@
 # Papers da citare
 
-
-
 - Network Intrusion Detection Based on Explainable Artificial Intelligence
   
   - citazione [4] dice che il 67% degli esperti non si fida dall'ai
@@ -93,7 +91,7 @@
   
   - spiegano anche come abbiano fatto a fare le labels
 
-- CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection
+- CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection (194 citazioni)
   
   - dicono che information gain è il metodo più usato per fare feature selection
   
@@ -186,7 +184,7 @@
   
   - hanno fatto la cross validation 5 volte per far si che fosse più precisa
 
-- Benchmarking of Machine Learning for Anomaly Based Intrusion Detection Systems in the CICIDS2017 Dataset
+- Benchmarking of Machine Learning for Anomaly Based Intrusion Detection Systems in the CICIDS2017 Dataset (200 citazioni)
   
   - nell'introduzione dice quali sono i migliori modelli e dicono di averne usati 31
   
@@ -407,7 +405,7 @@
   - fanno over sampling su Web Attack, Bot, Infiltration and Heartbleed
   
   - mancano auc, f1 e mcc
-- Polymorphic Adversarial DDoS attack on IDS usingGAN (usano shap 43 citazioni)
+- Polymorphic Adversarial DDoS attack on IDS usingGAN (usano shap su cic ids 43 citazioni)
 	- usano shap per fare feature selection
 	- fanno chiarezza su come hanno ripulito il Dataset
 	- hanno detto di aver tolto le informazioni sulle socket come indirizzi ip e porte
@@ -417,7 +415,7 @@
 	- non specificano quale shap abbiano usato ma credo sia il tree perché lo enfatizzano
 	- non fanno vedere come sia stato fatto l'hyper tuning (c'è solo per il gan non per gli altri modelli)
 	- usano solo ddos
-- Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
+- Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap su cic ids 40 citazioni)
 	- citano dei paper che lamentano l'inaffidabilità di questi papers sui nids
 	- comparano diversi feature set con diversi dataset
 	- dicono che multiclass va meglio
@@ -428,6 +426,15 @@
 	- parlano del fatto che hanno rimosso porte, ip e flow id
 	- dicono che hanno fatto un 5 fold e hanno usato min max
 	- parlano di adversarial attack
+- Anomaly-Based Intrusion Detection From Network Flow Features Using Variational Autoencoder (200 citazioni)
+  
+  - allenano il modello usando un metodo semi supervised, si allena il modello senza label ma si testa con label
+  
+  - non possono fare cross validation siccome il training è fatto su dati non anomali
+  
+  - fanno hyper tuning e dopo dicono che hanno usato la rule of thumb per avere i parametri giusti
+  
+  - fanno notare come il loro metodo funzioni anche con delle percentuali di dati in training ridicole
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -512,23 +519,11 @@
   
   - manca la spiegazione su cosa hanno usato per fare feature importance
 
-- Anomaly-Based Intrusion Detection From
-  Network Flow Features Using Variational
-  Autoencoder (200 citazioni)
-  
-  - allenano il modello usando un metodo semi supervised, si allena il modello senza label ma si testa con label
-  
-  - non possono fare cross validation siccome il training è fatto su dati non anomali
-  
-  - fanno hyper tuning e dopo dicono che hanno usato la rule of thumb per avere i parametri giusti
-  
-  - fanno notare come il loro metodo funzioni anche con delle percentuali di dati in training ridicole
-
 - Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system
   
   - non parlano delle feature da eliminare eppure ci sono
  
-- Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
+- Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap su cic ids 40 citazioni)
 	- fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
 	- non cita il paper di tree shap
 - Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
