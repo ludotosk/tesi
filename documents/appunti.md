@@ -531,7 +531,11 @@
 - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap 40 citazioni)
 	- fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
 	- non cita il paper di tree shap
-
+- Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
+	- non l'ho letto tutto ho solo dato uno sguardo
+	- usano anche ces-cic-ids 2018 che è un'estensione del 2017 con più attacchi e 80 milioni di flow contro i 3 del 2017
+	- uaano dei radar chart fighi per mostrare le performance multi class
+	- hanno un altro grafico figo che fa vedere il trade off  tra spiegabilità e perfomance ma forse è un po' inventato
 # Perché il mio studio è diverso
 
 - dopo aver dimsostrato che con il mio metodo il mio ids riesce a riconoscere alcuni attacchi mai visti bisogna vedere se unendo i dataset si può fare di meglio
@@ -685,7 +689,6 @@
   - PeerAmbush: Multi-Layer Perceptron to Detect Peer-to-Peer Botnet
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
-  - Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
 # Making dataset
 
 - anzitutto ho usato cicflowmeter per rifare quello fatto con hikari
