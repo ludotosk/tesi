@@ -10,114 +10,266 @@ import csv
 # Here I change the type of some feature becuase since they come from a network package they are supposed to be a certain amount of bit maximum, I also checked before to do the change.
 # Then I will eclude the ip of the hosts, the port and the Unnamed: 0. Because the ip and ports are categorical but they are to many to fit in the model, and also there is not a good reason for train the model over the ip since it change based on the network so the attacker will always have a different one. About the Unnamed: 0 you can use that number to split this csv in mani csvs which is not a thing that we need to do so I removed that feature as well.
 
-dtype_dict = {
-    'Unnamed: 0': 'uint32',
-    'uid': 'str',
-    'originh': 'category',
-    'originp': 'uint16',
-    'responh': 'category',
-    'responp': 'uint16',
-    'flow_duration': 'float64',
-    'fwd_pkts_tot': 'uint64',
-    'bwd_pkts_tot': 'uint64',
-    'fwd_data_pkts_tot': 'uint64',
-    'bwd_data_pkts_tot': 'uint64',
-    'fwd_pkts_per_sec': 'float64',
-    'bwd_pkts_per_sec': 'float64',
-    'flow_pkts_per_sec': 'float64',
-    'down_up_ratio': 'float32',
-    'fwd_header_size_tot': 'uint64',
-    'fwd_header_size_min': 'uint8',
-    'fwd_header_size_max': 'uint8',
-    'bwd_header_size_tot': 'uint64',
-    'bwd_header_size_min': 'uint8',
-    'bwd_header_size_max': 'uint8',
-    'flow_FIN_flag_count': 'uint64',
-    'flow_SYN_flag_count': 'uint64',
-    'flow_RST_flag_count': 'uint64',
-    'fwd_PSH_flag_count': 'uint64',
-    'bwd_PSH_flag_count': 'uint64',
-    'flow_ACK_flag_count': 'uint64',
-    'fwd_URG_flag_count': 'uint64',
-    'bwd_URG_flag_count': 'uint64',
-    'flow_CWR_flag_count': 'uint64',
-    'flow_ECE_flag_count': 'uint64',
-    'fwd_pkts_payload.min': 'uint16',
-    'fwd_pkts_payload.max': 'uint16',
-    'fwd_pkts_payload.tot': 'float64',
-    'fwd_pkts_payload.avg': 'float64',
-    'fwd_pkts_payload.std': 'float64',
-    'bwd_pkts_payload.min': 'uint16',
-    'bwd_pkts_payload.max': 'uint16',
-    'bwd_pkts_payload.tot': 'float64',
-    'bwd_pkts_payload.avg': 'float64',
-    'bwd_pkts_payload.std': 'float64',
-    'flow_pkts_payload.min': 'uint16',
-    'flow_pkts_payload.max': 'uint16',
-    'flow_pkts_payload.tot': 'float64',
-    'flow_pkts_payload.avg': 'float64',
-    'flow_pkts_payload.std': 'float64',
-    'fwd_iat.min': 'float64',
-    'fwd_iat.max': 'float64',
-    'fwd_iat.tot': 'float64',
-    'fwd_iat.avg': 'float64',
-    'fwd_iat.std': 'float64',
-    'bwd_iat.min': 'float64',
-    'bwd_iat.max': 'float64',
-    'bwd_iat.tot': 'float64',
-    'bwd_iat.avg': 'float64',
-    'bwd_iat.std': 'float64',
-    'flow_iat.min': 'float64',
-    'flow_iat.max': 'float64',
-    'flow_iat.tot': 'float64',
-    'flow_iat.avg': 'float64',
-    'flow_iat.std': 'float64',
-    'payload_bytes_per_second': 'float64',
-    'fwd_subflow_pkts': 'float64',
-    'bwd_subflow_pkts': 'float64',
-    'fwd_subflow_bytes': 'float64',
-    'bwd_subflow_bytes': 'float64',
-    'fwd_bulk_bytes': 'float64',
-    'bwd_bulk_bytes': 'float64',
-    'fwd_bulk_packets': 'float32',
-    'bwd_bulk_packets': 'float32',
-    'fwd_bulk_rate': 'float64',
-    'bwd_bulk_rate': 'float64',
-    'active.min': 'float64',
-    'active.max': 'float64',
-    'active.tot': 'float64',
-    'active.avg': 'float64',
-    'active.std': 'float64',
-    'idle.min': 'float64',
-    'idle.max': 'float64',
-    'idle.tot': 'float64',
-    'idle.avg': 'float64',
-    'idle.std': 'float64',
-    'fwd_init_window_size': 'uint16',
-    'bwd_init_window_size': 'uint16',
-    'fwd_last_window_size': 'uint16',
-    'traffic_category': 'category',
-    'Label': 'bool'
+dtype_hikari = {
+    "Unnamed: 0": "uint32",
+    "uid": "str",
+    "originh": "category",
+    "originp": "uint16",
+    "responh": "category",
+    "responp": "uint16",
+    "flow_duration": "float64",
+    "fwd_pkts_tot": "uint64",
+    "bwd_pkts_tot": "uint64",
+    "fwd_data_pkts_tot": "uint64",
+    "bwd_data_pkts_tot": "uint64",
+    "fwd_pkts_per_sec": "float64",
+    "bwd_pkts_per_sec": "float64",
+    "flow_pkts_per_sec": "float64",
+    "down_up_ratio": "float32",
+    "fwd_header_size_tot": "uint64",
+    "fwd_header_size_min": "uint8",
+    "fwd_header_size_max": "uint8",
+    "bwd_header_size_tot": "uint64",
+    "bwd_header_size_min": "uint8",
+    "bwd_header_size_max": "uint8",
+    "flow_FIN_flag_count": "uint64",
+    "flow_SYN_flag_count": "uint64",
+    "flow_RST_flag_count": "uint64",
+    "fwd_PSH_flag_count": "uint64",
+    "bwd_PSH_flag_count": "uint64",
+    "flow_ACK_flag_count": "uint64",
+    "fwd_URG_flag_count": "uint64",
+    "bwd_URG_flag_count": "uint64",
+    "flow_CWR_flag_count": "uint64",
+    "flow_ECE_flag_count": "uint64",
+    "fwd_pkts_payload.min": "uint16",
+    "fwd_pkts_payload.max": "uint16",
+    "fwd_pkts_payload.tot": "float64",
+    "fwd_pkts_payload.avg": "float64",
+    "fwd_pkts_payload.std": "float64",
+    "bwd_pkts_payload.min": "uint16",
+    "bwd_pkts_payload.max": "uint16",
+    "bwd_pkts_payload.tot": "float64",
+    "bwd_pkts_payload.avg": "float64",
+    "bwd_pkts_payload.std": "float64",
+    "flow_pkts_payload.min": "uint16",
+    "flow_pkts_payload.max": "uint16",
+    "flow_pkts_payload.tot": "float64",
+    "flow_pkts_payload.avg": "float64",
+    "flow_pkts_payload.std": "float64",
+    "fwd_iat.min": "float64",
+    "fwd_iat.max": "float64",
+    "fwd_iat.tot": "float64",
+    "fwd_iat.avg": "float64",
+    "fwd_iat.std": "float64",
+    "bwd_iat.min": "float64",
+    "bwd_iat.max": "float64",
+    "bwd_iat.tot": "float64",
+    "bwd_iat.avg": "float64",
+    "bwd_iat.std": "float64",
+    "flow_iat.min": "float64",
+    "flow_iat.max": "float64",
+    "flow_iat.tot": "float64",
+    "flow_iat.avg": "float64",
+    "flow_iat.std": "float64",
+    "payload_bytes_per_second": "float64",
+    "fwd_subflow_pkts": "float64",
+    "bwd_subflow_pkts": "float64",
+    "fwd_subflow_bytes": "float64",
+    "bwd_subflow_bytes": "float64",
+    "fwd_bulk_bytes": "float64",
+    "bwd_bulk_bytes": "float64",
+    "fwd_bulk_packets": "float32",
+    "bwd_bulk_packets": "float32",
+    "fwd_bulk_rate": "float64",
+    "bwd_bulk_rate": "float64",
+    "active.min": "float64",
+    "active.max": "float64",
+    "active.tot": "float64",
+    "active.avg": "float64",
+    "active.std": "float64",
+    "idle.min": "float64",
+    "idle.max": "float64",
+    "idle.tot": "float64",
+    "idle.avg": "float64",
+    "idle.std": "float64",
+    "fwd_init_window_size": "uint16",
+    "bwd_init_window_size": "uint16",
+    "fwd_last_window_size": "uint16",
+    "traffic_category": "category",
+    "Label": "bool",
 }
 
-selected_features = [
-    "flow_duration", "fwd_pkts_tot", "bwd_pkts_tot",
-    "fwd_data_pkts_tot", "bwd_data_pkts_tot", "fwd_pkts_per_sec", "bwd_pkts_per_sec", "flow_pkts_per_sec",
-    "down_up_ratio", "fwd_header_size_tot", "fwd_header_size_min", "fwd_header_size_max",
-    "bwd_header_size_tot", "bwd_header_size_min", "bwd_header_size_max", "flow_FIN_flag_count",
-    "flow_SYN_flag_count", "flow_RST_flag_count", "fwd_PSH_flag_count", "bwd_PSH_flag_count", "flow_ACK_flag_count",
-    "fwd_URG_flag_count", "bwd_URG_flag_count", "flow_CWR_flag_count", "flow_ECE_flag_count",
-    "fwd_pkts_payload.min", "fwd_pkts_payload.max", "fwd_pkts_payload.tot", "fwd_pkts_payload.avg",
-    "fwd_pkts_payload.std", "bwd_pkts_payload.min", "bwd_pkts_payload.max", "bwd_pkts_payload.tot",
-    "bwd_pkts_payload.avg", "bwd_pkts_payload.std", "flow_pkts_payload.min", "flow_pkts_payload.max",
-    "flow_pkts_payload.tot", "flow_pkts_payload.avg", "flow_pkts_payload.std", "fwd_iat.min",
-    "fwd_iat.max", "fwd_iat.tot", "fwd_iat.avg", "fwd_iat.std", "bwd_iat.min", "bwd_iat.max",
-    "bwd_iat.tot", "bwd_iat.avg", "bwd_iat.std", "flow_iat.min", "flow_iat.max", "flow_iat.tot",
-    "flow_iat.avg", "flow_iat.std", "payload_bytes_per_second", "fwd_subflow_pkts", "bwd_subflow_pkts",
-    "fwd_subflow_bytes", "bwd_subflow_bytes", "fwd_bulk_bytes", "bwd_bulk_bytes", "fwd_bulk_packets",
-    "bwd_bulk_packets", "fwd_bulk_rate", "bwd_bulk_rate", "active.min", "active.max", "active.tot",
-    "active.avg", "active.std", "idle.min", "idle.max", "idle.tot", "idle.avg", "idle.std",
-    "fwd_init_window_size", "bwd_init_window_size", "fwd_last_window_size", "traffic_category", "Label"
+dtype_cicids = {
+    "Flow ID": "category",
+    " Source IP": "category",
+    " Source Port": "float32",
+    " Destination IP": "category",
+    " Destination Port": "float32",
+    " Protocol": "float32",
+    " Timestamp": "category",
+    " Flow Duration": "float64",
+    " Total Fwd Packets": "float32",
+    " Total Backward Packets": "float32",
+    "Total Length of Fwd Packets": "float32",
+    " Total Length of Bwd Packets": "float64",
+    " Fwd Packet Length Max": "float32",
+    " Fwd Packet Length Min": "float32",
+    " Fwd Packet Length Mean": "float32",
+    " Fwd Packet Length Std": "float32",
+    "Bwd Packet Length Max": "float32",
+    " Bwd Packet Length Min": "float32",
+    " Bwd Packet Length Mean": "float32",
+    #" Bwd Packet Length Std": "float64",
+    "Flow Bytes/s": "float64",
+    " Flow Packets/s": "float64",
+    " Flow IAT Mean": "float64",
+    " Flow IAT Std": "float64",
+    " Flow IAT Max": "float64",
+    " Flow IAT Min": "float64",
+    "Fwd IAT Total": "float64",
+    " Fwd IAT Mean": "float64",
+    " Fwd IAT Std": "float64",
+    " Fwd IAT Max": "float64",
+    " Fwd IAT Min": "float64",
+    "Bwd IAT Total": "float64",
+    " Bwd IAT Mean": "float64",
+    " Bwd IAT Std": "float64",
+    " Bwd IAT Max": "float64",
+    " Bwd IAT Min": "float64",
+    "Fwd PSH Flags": "uint16",
+    " Bwd PSH Flags": "uint16",
+    " Fwd URG Flags": "float32",
+    " Bwd URG Flags": "float32",
+    " Fwd Header Length": "float64",
+    " Bwd Header Length": "float64",
+    "Fwd Packets/s": "float64",
+    " Bwd Packets/s": "float64",
+    " Min Packet Length": "float32",
+    " Max Packet Length": "float32",
+    " Packet Length Mean": "float32",
+    " Packet Length Std": "float32",
+    " Packet Length Variance": "float64",
+    "FIN Flag Count": "float32",
+    " SYN Flag Count": "float32",
+    " RST Flag Count": "float32",
+    " PSH Flag Count": "float32",
+    " ACK Flag Count": "float32",
+    " URG Flag Count": "float32",
+    " CWE Flag Count": "float32",
+    " ECE Flag Count": "float32",
+    " Down/Up Ratio": "float32",
+    " Average Packet Size": "float32",
+    " Avg Fwd Segment Size": "float32",
+    " Avg Bwd Segment Size": "float32",
+    " Fwd Header Length.1": "float64",
+    "Fwd Avg Bytes/Bulk": "float32",
+    " Fwd Avg Packets/Bulk": "float32",
+    " Fwd Avg Bulk Rate": "float32",
+    " Bwd Avg Bytes/Bulk": "float32",
+    " Bwd Avg Packets/Bulk": "float32",
+    "Bwd Avg Bulk Rate": "float32",
+    "Subflow Fwd Packets": "float32",
+    " Subflow Fwd Bytes": "float32",
+    " Subflow Bwd Packets": "float32",
+    " Subflow Bwd Bytes": "float64",
+    "Init_Win_bytes_forward": "float32",
+    " Init_Win_bytes_backward": "float32",
+    " act_data_pkt_fwd": "float32",
+    " min_seg_size_forward": "float64",
+    "Active Mean": "float64",
+    " Active Std": "float64",
+    " Active Max": "float64",
+    " Active Min": "float64",
+    "Idle Mean": "float64",
+    " Idle Std": "float64",
+    " Idle Max": "float64",
+    " Idle Min": "float64",
+    " Label": "category",
+}
+
+selected_features_hikari = [
+    "flow_duration",
+    "fwd_pkts_tot",
+    "bwd_pkts_tot",
+    "fwd_data_pkts_tot",
+    "bwd_data_pkts_tot",
+    "fwd_pkts_per_sec",
+    "bwd_pkts_per_sec",
+    "flow_pkts_per_sec",
+    "down_up_ratio",
+    "fwd_header_size_tot",
+    "fwd_header_size_min",
+    "fwd_header_size_max",
+    "bwd_header_size_tot",
+    "bwd_header_size_min",
+    "bwd_header_size_max",
+    "flow_FIN_flag_count",
+    "flow_SYN_flag_count",
+    "flow_RST_flag_count",
+    "fwd_PSH_flag_count",
+    "bwd_PSH_flag_count",
+    "flow_ACK_flag_count",
+    "fwd_URG_flag_count",
+    "bwd_URG_flag_count",
+    "flow_CWR_flag_count",
+    "flow_ECE_flag_count",
+    "fwd_pkts_payload.min",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.tot",
+    "fwd_pkts_payload.avg",
+    "fwd_pkts_payload.std",
+    "bwd_pkts_payload.min",
+    "bwd_pkts_payload.max",
+    "bwd_pkts_payload.tot",
+    "bwd_pkts_payload.avg",
+    "bwd_pkts_payload.std",
+    "flow_pkts_payload.min",
+    "flow_pkts_payload.max",
+    "flow_pkts_payload.tot",
+    "flow_pkts_payload.avg",
+    "flow_pkts_payload.std",
+    "fwd_iat.min",
+    "fwd_iat.max",
+    "fwd_iat.tot",
+    "fwd_iat.avg",
+    "fwd_iat.std",
+    "bwd_iat.min",
+    "bwd_iat.max",
+    "bwd_iat.tot",
+    "bwd_iat.avg",
+    "bwd_iat.std",
+    "flow_iat.min",
+    "flow_iat.max",
+    "flow_iat.tot",
+    "flow_iat.avg",
+    "flow_iat.std",
+    "payload_bytes_per_second",
+    "fwd_subflow_pkts",
+    "bwd_subflow_pkts",
+    "fwd_subflow_bytes",
+    "bwd_subflow_bytes",
+    "fwd_bulk_bytes",
+    "bwd_bulk_bytes",
+    "fwd_bulk_packets",
+    "bwd_bulk_packets",
+    "fwd_bulk_rate",
+    "bwd_bulk_rate",
+    "active.min",
+    "active.max",
+    "active.tot",
+    "active.avg",
+    "active.std",
+    "idle.min",
+    "idle.max",
+    "idle.tot",
+    "idle.avg",
+    "idle.std",
+    "fwd_init_window_size",
+    "bwd_init_window_size",
+    "fwd_last_window_size",
+    "traffic_category",
+    "Label",
 ]
 
 x_features = [    
@@ -141,37 +293,50 @@ x_features = [
 ]
 
 # Function to create dataframe with metrics
-def performanceMetricsDF(metricsObj, yTrain, yPredTrain, yTest, yPredTest, average='binary'):
-  measures_list = ['ACCURACY','PRECISION', 'RECALL','F1 SCORE','AUC']
-  train_results = [metricsObj.accuracy_score(yTrain, yPredTrain),
-                metricsObj.precision_score(yTrain, yPredTrain, average = average),
-                metricsObj.recall_score(yTrain, yPredTrain, average = average),
-                metricsObj.f1_score(yTrain, yPredTrain, average = average),
-                metricsObj.roc_auc_score(yTrain, yPredTrain, average = None if average == 'binary' else average)
-                ]
-  test_results = [metricsObj.accuracy_score(yTest, yPredTest),
-               metricsObj.precision_score(yTest, yPredTest, average = average),
-               metricsObj.recall_score(yTest, yPredTest, average = average),
-               metricsObj.f1_score(yTest, yPredTest, average = average),
-               metricsObj.roc_auc_score(yTest, yPredTest, average = None if average == 'binary' else average)
-               ]
-  resultsDF = pd.DataFrame({'Measure': measures_list, 'Train': train_results, 'Test':test_results})
-  return(resultsDF)
+def performanceMetricsDF(
+    metricsObj, yTrain, yPredTrain, yTest, yPredTest, average="binary"
+):
+    measures_list = ["ACCURACY", "PRECISION", "RECALL", "F1 SCORE", "AUC"]
+    train_results = [
+        metricsObj.accuracy_score(yTrain, yPredTrain),
+        metricsObj.precision_score(yTrain, yPredTrain, average=average),
+        metricsObj.recall_score(yTrain, yPredTrain, average=average),
+        metricsObj.f1_score(yTrain, yPredTrain, average=average),
+        metricsObj.roc_auc_score(
+            yTrain, yPredTrain, average=None if average == "binary" else average
+        ),
+    ]
+    test_results = [
+        metricsObj.accuracy_score(yTest, yPredTest),
+        metricsObj.precision_score(yTest, yPredTest, average=average),
+        metricsObj.recall_score(yTest, yPredTest, average=average),
+        metricsObj.f1_score(yTest, yPredTest, average=average),
+        metricsObj.roc_auc_score(
+            yTest, yPredTest, average=None if average == "binary" else average
+        ),
+    ]
+    resultsDF = pd.DataFrame(
+        {"Measure": measures_list, "Train": train_results, "Test": test_results}
+    )
+    return resultsDF
+
 
 # Function to plot confusion matrix - Adapted from https://github.com/DTrimarchi10/confusion_matrix/blob/master/cf_matrix.py
-def make_confusion_matrix(cf,
-                          group_names=None,
-                          categories='auto',
-                          count=True,
-                          percent=True,
-                          cbar=True,
-                          xyticks=True,
-                          xyplotlabels=True,
-                          sum_stats=True,
-                          figsize=None,
-                          cmap='Blues',
-                          title=None):
-    '''
+def make_confusion_matrix(
+    cf,
+    group_names=None,
+    categories="auto",
+    count=True,
+    percent=True,
+    cbar=True,
+    xyticks=True,
+    xyplotlabels=True,
+    sum_stats=True,
+    figsize=None,
+    cmap="Blues",
+    title=None,
+):
+    """
     This function will make a pretty plot of an sklearn Confusion Matrix cm using a Seaborn heatmap visualization.
     Arguments
     ---------
@@ -188,15 +353,14 @@ def make_confusion_matrix(cf,
     figsize:       Tuple representing the figure size. Default will be the matplotlib rcParams value.
     cmap:          Colormap of the values displayed from matplotlib.pyplot.cm. Default is 'Blues'
                    See http://matplotlib.org/examples/color/colormaps_reference.html
-                   
-    title:         Title for the heatmap. Default is None.
-    '''
 
+    title:         Title for the heatmap. Default is None.
+    """
 
     # CODE TO GENERATE TEXT INSIDE EACH SQUARE
-    blanks = ['' for i in range(cf.size)]
+    blanks = ["" for i in range(cf.size)]
 
-    if group_names and len(group_names)==cf.size:
+    if group_names and len(group_names) == cf.size:
         group_labels = ["{}\n".format(value) for value in group_names]
     else:
         group_labels = blanks
@@ -207,91 +371,111 @@ def make_confusion_matrix(cf,
         group_counts = blanks
 
     if percent:
-        group_percentages = ["{0:.2%}".format(value) for value in cf.flatten()/np.sum(cf)]
+        group_percentages = [
+            "{0:.2%}".format(value) for value in cf.flatten() / np.sum(cf)
+        ]
     else:
         group_percentages = blanks
 
-    box_labels = [f"{v1}{v2}{v3}".strip() for v1, v2, v3 in zip(group_labels,group_counts,group_percentages)]
-    box_labels = np.asarray(box_labels).reshape(cf.shape[0],cf.shape[1])
-
+    box_labels = [
+        f"{v1}{v2}{v3}".strip()
+        for v1, v2, v3 in zip(group_labels, group_counts, group_percentages)
+    ]
+    box_labels = np.asarray(box_labels).reshape(cf.shape[0], cf.shape[1])
 
     # CODE TO GENERATE SUMMARY STATISTICS & TEXT FOR SUMMARY STATS
     if sum_stats:
-        #Accuracy is sum of diagonal divided by total observations
-        accuracy  = np.trace(cf) / float(np.sum(cf))
+        # Accuracy is sum of diagonal divided by total observations
+        accuracy = np.trace(cf) / float(np.sum(cf))
 
-        #if it is a binary confusion matrix, show some more stats
-        if len(cf)==2:
-            #Metrics for Binary Confusion Matrices
-            precision = cf[1,1] / sum(cf[:,1])
-            recall    = cf[1,1] / sum(cf[1,:])
-            f1_score  = 2*precision*recall / (precision + recall)
+        # if it is a binary confusion matrix, show some more stats
+        if len(cf) == 2:
+            # Metrics for Binary Confusion Matrices
+            precision = cf[1, 1] / sum(cf[:, 1])
+            recall = cf[1, 1] / sum(cf[1, :])
+            f1_score = 2 * precision * recall / (precision + recall)
             stats_text = "\n\nAccuracy={:0.3f}\nPrecision={:0.3f}\nRecall={:0.3f}\nF1 Score={:0.3f}".format(
-                accuracy,precision,recall,f1_score)
+                accuracy, precision, recall, f1_score
+            )
         else:
             stats_text = "\n\nAccuracy={:0.3f}".format(accuracy)
     else:
         stats_text = ""
 
-
     # SET FIGURE PARAMETERS ACCORDING TO OTHER ARGUMENTS
-    if figsize==None:
-        #Get default figure size if not set
-        figsize = plt.rcParams.get('figure.figsize')
+    if figsize == None:
+        # Get default figure size if not set
+        figsize = plt.rcParams.get("figure.figsize")
 
-    if xyticks==False:
-        #Do not show categories if xyticks is False
-        categories=False
-
+    if xyticks == False:
+        # Do not show categories if xyticks is False
+        categories = False
 
     # MAKE THE HEATMAP VISUALIZATION
     plt.figure(figsize=figsize)
-    ax = sns.heatmap(cf,annot=box_labels, fmt="",cmap=cmap,cbar=cbar,xticklabels=categories,yticklabels=categories)
+    ax = sns.heatmap(
+        cf,
+        annot=box_labels,
+        fmt="",
+        cmap=cmap,
+        cbar=cbar,
+        xticklabels=categories,
+        yticklabels=categories,
+    )
 
     if xyplotlabels:
-        plt.ylabel('True label')
-        plt.xlabel('Predicted label' + stats_text)
+        plt.ylabel("True label")
+        plt.xlabel("Predicted label" + stats_text)
     else:
         plt.xlabel(stats_text)
-    
+
     if title:
         plt.title(title)
 
-def compute_ratio(data):
+
+def compute_ratio(data, column):
     # Get ratio instead of raw numbers using normalize=True
-    ratio = data['traffic_category'].value_counts(normalize=True)
+    ratio = data[column].value_counts(normalize=True)
 
     # Round and then convert to percentage
-    ratio = ratio.round(4)*100
+    ratio = ratio.round(4) * 100
 
     # convert to a DataFrame and store in variable 'traffic_category_ratios'
-    # We'll use this variable to compare ratios for samples 
-    # selected using SRS and Stratified Sampling 
-    traffic_category_ratios = pd.DataFrame({'Ratio':ratio})
+    # We'll use this variable to compare ratios for samples
+    # selected using SRS and Stratified Sampling
+    traffic_category_ratios = pd.DataFrame({"Ratio": ratio})
     print(traffic_category_ratios)
+
 
 def show_corr_matrix(ds):
     sns.set_theme(style="white")
 
     # Compute the correlation matrix
-    corr = ds.loc[:, ds.columns != 'traffic_category'].corr()
+    corr = ds.select_dtypes(include=["number", "bool"]).corr()
 
     # Generate a mask for the upper triangle
     mask = np.triu(np.ones_like(corr, dtype=bool))
 
     # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(11, 9))
+    f, ax = plt.subplots(figsize=(22, 18))
 
     # Generate a custom diverging colormap
     cmap = sns.diverging_palette(230, 20, as_cmap=True)
 
     # Draw the heatmap with the mask and correct aspect ratio
-    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
-                square=True, linewidths=.5, cbar_kws={"shrink": .5})
+    sns.heatmap(
+        corr,
+        mask=mask,
+        cmap=cmap,
+        center=0,
+        square=True,
+        linewidths=0.5,
+        cbar_kws={"shrink": 0.5},
+    )
+
 
 class DataPreprocessingAndValidation:
-
-    def __init__(self, ds, category_size, cv, init, params, scaler = None):
+    def __init__(self, ds, category_size, cv, init, params, scaler=None):
         self.ds = ds
         self.category_size = category_size
         self.feature_above_zero = None
@@ -308,76 +492,87 @@ class DataPreprocessingAndValidation:
         self.pred_time = []
         self.X_res = None
         self.y_res = None
-        self.warmup = True # warmup boolean, this variable will be used to load in memory the function in order to have reliable time measures
+        self.warmup = True  # warmup boolean, this variable will be used to load in memory the function in order to have reliable time measures
         self.model = init(**params)
         self.cv = cv
         self.scaler = scaler
         self.params = params
         self.init = init
-        self.test_kfold = [] 
+        self.test_kfold = []
         self.train_kfold = []
-        self.filename = None # since the knn goes in to segmentation fault after a while, we need to save the results to the hard drive every time we run a test, so that we can resume from the last test that we have done
+        self.filename = None  # since the knn goes in to segmentation fault after a while, we need to save the results to the hard drive every time we run a test, so that we can resume from the last test that we have done
 
     def get_undersampled_ds(self):
-        '''
+        """
         This function is tailormade for the dataset used in this project. It will undersample the dataset to the specified category size.
         It will return two dataset the first one with the X features and the second one with the y feature.
-        '''
-        sampling_weights = {'Background': self.category_size * 2, 'Benign': self.category_size * 2, 'XMRIGCC CryptoMiner': self.category_size, 'Probing': self.category_size, 'Bruteforce': self.category_size, 'Bruteforce-XML': self.category_size}
+        """
+        sampling_weights = {
+            "Background": self.category_size * 2,
+            "Benign": self.category_size * 2,
+            "XMRIGCC CryptoMiner": self.category_size,
+            "Probing": self.category_size,
+            "Bruteforce": self.category_size,
+            "Bruteforce-XML": self.category_size,
+        }
 
         rus = RandomUnderSampler(random_state=42, sampling_strategy=sampling_weights)
-        self.X_res, self.y_res = rus.fit_resample(self.ds[x_features], self.ds.traffic_category)
+        self.X_res, self.y_res = rus.fit_resample(
+            self.ds[x_features], self.ds.traffic_category
+        )
         return self.X_res, self.y_res
 
     def stratified_under_sample(self, group: pd.DataFrame, k: int, random_state: int):
-        '''
+        """
         This function will create k folds of the dataset based on the group column. It will return two array, the first one with the test indexes and the second one with the train indexes.
         Is usefull because in this case we have to columns that can be used as a taget, we will use Label as a target and user traffic_category for stratification.
         In this way we ensure that an equal amount of each category will be present in each fold.
-        '''
+        """
         print(f"Running the stratified {self.cv}-fold")
         # shuffle data
         group = group.sample(frac=1, random_state=random_state)
-        
+
         # making a dictionary for checking if all the groups are equally insert into the array
         unique_categories = set(group)
-        
+
         # getting the size of each category per fold
         folded_category = self.category_size // k
-        
+
         for i in range(k):
             test_indexes = []
             train_indexes = []
-            
-            # iterating over the unique categories        
+
+            # iterating over the unique categories
             for category in unique_categories:
                 # making a window of data to retreive
-                if (category == 'Background') | (category == 'Benign'):
+                if (category == "Background") | (category == "Benign"):
                     start = (folded_category * 2) * i
                     stop = (folded_category * 2) * (i + 1)
                 else:
                     start = folded_category * i
                     stop = folded_category * (i + 1)
-                test_indexes = np.append(test_indexes, group[group == category].iloc[start:stop].index)
-            
+                test_indexes = np.append(
+                    test_indexes, group[group == category].iloc[start:stop].index
+                )
+
             # getting the train indexes
             train_indexes = np.setdiff1d(group.index, test_indexes, assume_unique=True)
-                    
+
             # shuffling the data with the same seed in order to have the same result in both the dataset
             np.random.shuffle(test_indexes)
             self.test_kfold.append(test_indexes)
             np.random.shuffle(train_indexes)
             self.train_kfold.append(train_indexes)
         print("Test and Train k-fold created")
-            
+
     def cross_validation(self, X, y, group):
-        '''
+        """
         Here we first check if we already have the test and train kfold, if not we will create them.
         Then we change the number of neurons in the first layer of the neural network based on the number of features.
         And we do the same with the random forest.
         Then we will run the cross validation and return the mean and the standard deviation of the f1 score.
         The cross validation time take in account also the scaling of the data.
-        '''
+        """
         if self.test_kfold == [] or self.train_kfold == []:
             self.stratified_under_sample(group, self.cv, 42)
 
@@ -405,12 +600,12 @@ class DataPreprocessingAndValidation:
                 X_test = X.loc[test]
 
             self.model.fit(X_train, y.loc[train])
-            
+
             y_predicted = self.model.predict(X_test)
 
             cvscores.append(metrics.f1_score(y.loc[test], y_predicted))
-        end_cv = time.time()    
-        
+        end_cv = time.time()
+
         return np.mean(cvscores), np.std(cvscores), end_cv - start_cv
 
     def get_score(self, features):
@@ -426,10 +621,10 @@ class DataPreprocessingAndValidation:
         cv_time = []
 
         if self.scaler is not None:
-            self.scaler.fit(self.ds[['fwd_iat.tot']])
+            self.scaler.fit(self.ds[["fwd_iat.tot"]])
         # making a warm up run otherwise the first one will be always slower than the others
         # only one features so that it can be as fast as possibile
-        self.get_score(['fwd_iat.tot'])
+        self.get_score(["fwd_iat.tot"])
 
         if self.scaler is not None:
             self.scaler.fit(self.ds[self.feature_above_zero])
@@ -437,10 +632,10 @@ class DataPreprocessingAndValidation:
         result = self.get_score(self.feature_above_zero)
         scores.append(result[0])
         score_std.append(result[1])
-        n_features.append(result[2])    
+        n_features.append(result[2])
         cv_time.append(result[3])
-        
-        for i in range(1,len(self.feature_above_zero)):
+
+        for i in range(1, len(self.feature_above_zero)):
             print(f"testing with {len(self.feature_above_zero[:-i])} features")
             if self.scaler is not None:
                 self.scaler.fit(self.ds[self.feature_above_zero[:-i]])
@@ -449,7 +644,7 @@ class DataPreprocessingAndValidation:
             score_std.append(result[1])
             n_features.append(result[2])
             cv_time.append(result[3])
-            
+
         return scores, score_std, n_features, cv_time
 
     # sistemare warmup
@@ -460,11 +655,15 @@ class DataPreprocessingAndValidation:
         X_res, y_res = rus.fit_resample(self.ds[features], self.ds.traffic_category)
         y_res = self.ds.loc[y_res.index].Label
 
-        X_attack, y_attack = rus_attack.fit_resample(self.ds[features], self.ds.traffic_category)
+        X_attack, y_attack = rus_attack.fit_resample(
+            self.ds[features], self.ds.traffic_category
+        )
         y_attack = self.ds.loc[y_attack.index].Label
-            
-        cv_mean, cv_std, cv_time = self.cross_validation(X_res, self.ds.loc[y_res.index].Label, y_res)
-        
+
+        cv_mean, cv_std, cv_time = self.cross_validation(
+            X_res, self.ds.loc[y_res.index].Label, y_res
+        )
+
         if self.scaler is not None:
             X_res = self.scaler.transform(X_res)
             X_attack = self.scaler.transform(X_attack)
@@ -472,15 +671,15 @@ class DataPreprocessingAndValidation:
         if self.warmup:
             self.model.fit(X_res, y_res)
             self.model.predict(X_attack)
-        
+
         start_fit = time.time()
         self.model.fit(X_res, y_res)
         end_fit = time.time()
-        
+
         start_pred = time.time()
         y_predicted = self.model.predict(X_attack)
         end_pred = time.time()
-        
+
         self.attack_f1.append(metrics.f1_score(y_attack, y_predicted))
         self.attack_recall.append(metrics.recall_score(y_attack, y_predicted))
         self.attack_precision.append(metrics.precision_score(y_attack, y_predicted))
@@ -497,30 +696,58 @@ class DataPreprocessingAndValidation:
         # Check if filename is not None
         if self.filename is not None:
             # Open the file in append mode
-            with open(self.filename, 'a', newline='', encoding='utf-8') as file:
+            with open(self.filename, "a", newline="", encoding="utf-8") as file:
                 writer = csv.writer(file)
                 # Write the results to the csv file
-                writer.writerow([self.attack_f1[-1], self.attack_recall[-1], self.attack_precision[-1], self.cv_score_avg[-1], self.cv_score_std[-1], self.n_features[-1], attack, self.fit_time[-1], self.pred_time[-1]])        
+                writer.writerow(
+                    [
+                        self.attack_f1[-1],
+                        self.attack_recall[-1],
+                        self.attack_precision[-1],
+                        self.cv_score_avg[-1],
+                        self.cv_score_std[-1],
+                        self.n_features[-1],
+                        attack,
+                        self.fit_time[-1],
+                        self.pred_time[-1],
+                    ]
+                )
 
     # eseguire la cross validation una volta dopo aver fatto il fit di ciascun attacco
-    def recursive_reduction_over_attack(self, attack): # aggiungere scaling
+    def recursive_reduction_over_attack(self, attack):  # aggiungere scaling
         # making a sample for having a 1:1 ration for positive and negative class
         # keep in mind that in the training I will have only three attacks, while for the test only one attack
-        sampling_weights = {'Background': int(self.category_size * 1.5), 'Benign': int(self.category_size * 1.5), 'XMRIGCC CryptoMiner': self.category_size, 'Probing': self.category_size, 'Bruteforce': self.category_size, 'Bruteforce-XML': self.category_size}
-        sampling_attack = {'Background': int(self.category_size * 0.5), 'Benign': int(self.category_size * 0.5), 'XMRIGCC CryptoMiner': 0, 'Probing': 0, 'Bruteforce': 0, 'Bruteforce-XML': 0}
+        sampling_weights = {
+            "Background": int(self.category_size * 1.5),
+            "Benign": int(self.category_size * 1.5),
+            "XMRIGCC CryptoMiner": self.category_size,
+            "Probing": self.category_size,
+            "Bruteforce": self.category_size,
+            "Bruteforce-XML": self.category_size,
+        }
+        sampling_attack = {
+            "Background": int(self.category_size * 0.5),
+            "Benign": int(self.category_size * 0.5),
+            "XMRIGCC CryptoMiner": 0,
+            "Probing": 0,
+            "Bruteforce": 0,
+            "Bruteforce-XML": 0,
+        }
 
         # removing all the attack observations
         sampling_weights[attack] = 0
-        
+
         # doing the undersampling
         rus = RandomUnderSampler(random_state=42, sampling_strategy=sampling_weights)
-        
+
         # adding the attack to the test dataset with the non attack traffic
         sampling_attack[attack] = self.category_size
-        
+
         # making the dataset with only one attack
-        rus_attack = RandomUnderSampler(random_state=42, sampling_strategy=sampling_attack)
-        
+        rus_attack = RandomUnderSampler(
+            random_state=42, sampling_strategy=sampling_attack
+        )
+
         # running the warmup
         self.warmup = True
 
@@ -532,18 +759,34 @@ class DataPreprocessingAndValidation:
             self.scaler.fit(self.ds[self.feature_above_zero])
         self.test_zero_day(attack, self.feature_above_zero, rus, rus_attack)
 
-        for i in range(1,len(self.feature_above_zero)):
+        for i in range(1, len(self.feature_above_zero)):
             if self.scaler is not None:
                 self.scaler.fit(self.ds[self.feature_above_zero[:-i]])
             self.test_zero_day(attack, self.feature_above_zero[:-i], rus, rus_attack)
 
     def run_zero_day_test(self):
-        for attack in ['XMRIGCC CryptoMiner','Probing','Bruteforce','Bruteforce-XML']: # aggiungere un tracking del tempo speso
+        for attack in [
+            "Probing",
+            "Bruteforce",
+            "Bruteforce-XML",
+        ]:  # aggiungere un tracking del tempo speso 'XMRIGCC CryptoMiner',
             self.warmup = True
-            print('traing for ', attack)
+            print("traing for ", attack)
             start_time = time.time()
             self.recursive_reduction_over_attack(attack)
             end_time = time.time()
-            print('has taken ', end_time - start_time, ' seconds')
+            print("has taken ", end_time - start_time, " seconds")
 
-        return pd.DataFrame({'attack_f1': self.attack_f1,  'attack_recall': self.attack_recall, 'attack_precision': self.attack_precision, 'cv_score_avg': self.cv_score_avg, 'cv_score_std': self.cv_score_std, 'n_features': self.n_features, 'attack_name': self.attacks, 'fit_time': self.fit_time, 'pred_time': self.pred_time})
+        return pd.DataFrame(
+            {
+                "attack_f1": self.attack_f1,
+                "attack_recall": self.attack_recall,
+                "attack_precision": self.attack_precision,
+                "cv_score_avg": self.cv_score_avg,
+                "cv_score_std": self.cv_score_std,
+                "n_features": self.n_features,
+                "attack_name": self.attacks,
+                "fit_time": self.fit_time,
+                "pred_time": self.pred_time,
+            }
+        )

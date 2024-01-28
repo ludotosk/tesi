@@ -1,0 +1,85 @@
+attack,distance
+Infiltration - Heartbleed,55.94928471892107
+Infiltration - DoS GoldenEye,55.14928713959246
+Infiltration - DDoS,55.135594306138614
+Infiltration - PortScan,55.02505560488271
+Infiltration - DoS Hulk,55.00533033863124
+Infiltration - Web Attack  XSS,54.913386693602355
+Infiltration - Web Attack  Sql Injection,54.892545168700984
+Infiltration - FTP-Patator,54.80392285278219
+Infiltration - SSH-Patator,54.78913975946558
+Web Attack  Brute Force - Infiltration,54.74831682194289
+Infiltration - Web Attack  Brute Force,54.74831682194289
+BENIGN - Infiltration,54.70876230617007
+Infiltration - Bot,54.56433951314374
+Infiltration - DoS slowloris,54.25503142836148
+Infiltration - DoS Slowhttptest,53.79258480037164
+Heartbleed - DoS Slowhttptest,22.564116307412256
+DoS slowloris - Heartbleed,21.96655927141966
+Heartbleed - DoS slowloris,21.96655927141966
+Heartbleed - FTP-Patator,20.552638828963058
+Web Attack  Brute Force - Heartbleed,20.469182188584583
+SSH-Patator - Heartbleed,19.898459444660933
+Heartbleed - SSH-Patator,19.898459444660933
+BENIGN - Heartbleed,19.595022095045714
+Web Attack  Sql Injection - Heartbleed,19.050455777688576
+Heartbleed - DoS GoldenEye,16.75643310776247
+DoS Hulk - Heartbleed,16.60541683176626
+Heartbleed - DoS Hulk,16.60541683176626
+Heartbleed - DDoS,15.212682133614265
+DoS Hulk - DoS Slowhttptest,12.158334662959156
+DoS slowloris - DDoS,12.012583202406631
+SSH-Patator - DoS Slowhttptest,11.922367840002954
+Web Attack  Brute Force - DoS Slowhttptest,11.9133813981848
+Web Attack  Sql Injection - DoS Slowhttptest,11.87625885509207
+BENIGN - DoS Slowhttptest,11.377001958320891
+DoS slowloris - DoS GoldenEye,10.960614623612953
+DoS Hulk - DoS slowloris,10.805095334403815
+DoS slowloris - DoS Hulk,10.805095334403815
+DoS slowloris - Web Attack  XSS,10.653741218939109
+DoS slowloris - Web Attack  Sql Injection,10.528130398299844
+Web Attack  Sql Injection - DoS slowloris,10.528130398299844
+Web Attack  Brute Force - DoS slowloris,10.525967046459304
+DoS slowloris - SSH-Patator,10.516359134263858
+SSH-Patator - DoS slowloris,10.516359134263858
+DoS slowloris - DoS Slowhttptest,10.374586603552522
+DoS slowloris - FTP-Patator,10.21773319815171
+BENIGN - DoS slowloris,9.902645464056336
+DoS Hulk - FTP-Patator,9.775114076066094
+Web Attack  Brute Force - DoS Hulk,9.66347866944568
+DoS Hulk - SSH-Patator,9.199694163667262
+SSH-Patator - DoS Hulk,9.199694163667262
+BENIGN - DoS Hulk,8.504117881607211
+DoS Hulk - Web Attack  Sql Injection,8.504051607925868
+Web Attack  Sql Injection - DoS Hulk,8.504051607925868
+Web Attack  Brute Force - DoS GoldenEye,8.498956575983424
+SSH-Patator - DoS GoldenEye,8.311648970582524
+Web Attack  Brute Force - DDoS,8.184885546840048
+BENIGN - DoS GoldenEye,7.888137000118485
+SSH-Patator - DDoS,7.495630319994771
+Web Attack  Sql Injection - DoS GoldenEye,7.424561863933429
+DoS Hulk - DoS GoldenEye,7.33897147190819
+BENIGN - DDoS,7.065014458204372
+Web Attack  Sql Injection - DDoS,6.388112750489186
+DoS Hulk - DDoS,6.02804886594232
+Web Attack  Brute Force - FTP-Patator,4.715907432171153
+Web Attack  Sql Injection - Web Attack  XSS,4.318325169274511
+SSH-Patator - Web Attack  XSS,4.302965705105078
+BENIGN - Web Attack  XSS,4.257917448889684
+Web Attack  Sql Injection - FTP-Patator,4.141258876608907
+SSH-Patator - FTP-Patator,3.906297696370943
+BENIGN - Web Attack  Brute Force,3.8034158290724585
+Web Attack  Sql Injection - Web Attack  Brute Force,3.7863408205484235
+Web Attack  Brute Force - Web Attack  Sql Injection,3.7863408205484235
+SSH-Patator - Web Attack  Brute Force,3.7202625753572764
+Web Attack  Brute Force - SSH-Patator,3.7202625753572764
+BENIGN - FTP-Patator,3.679560258170419
+Web Attack  Brute Force - Bot,3.6271748922507094
+BENIGN - PortScan,2.847882679374631
+BENIGN - Web Attack  Sql Injection,2.4872508152368575
+BENIGN - SSH-Patator,2.3969691963420745
+BENIGN - Bot,2.245190859215519
+Web Attack  Sql Injection - Bot,1.7980136457051297
+SSH-Patator - Web Attack  Sql Injection,1.4039282084710272
+Web Attack  Sql Injection - SSH-Patator,1.4039282084710272
+Web Attack  Brute Force - Web Attack  XSS,0.6103587044558842
