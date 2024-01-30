@@ -90,6 +90,7 @@
   - tutti gli ip esterni, cioè quelli della lista ALEXA sono benigni
   
   - spiegano anche come abbiano fatto a fare le labels
+  - a differenza di cicids che usa un software closed source per il traffico benigno qui viene usato un software open source
 
 - CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection (194 citazioni)
   
@@ -405,27 +406,32 @@
   - fanno over sampling su Web Attack, Bot, Infiltration and Heartbleed
   
   - mancano auc, f1 e mcc
+
 - Polymorphic Adversarial DDoS attack on IDS usingGAN (usano shap su cic ids 43 citazioni)
-	- usano shap per fare feature selection
-	- fanno chiarezza su come hanno ripulito il Dataset
-	- hanno detto di aver tolto le informazioni sulle socket come indirizzi ip e porte
-	- hanno detto che hanno fatto il relabeling da multi class a binario
-	- hanno rimosso degli white space (devo verificare dove siano)
-	- e rimosso missing values e infinite values
-	- non specificano quale shap abbiano usato ma credo sia il tree perché lo enfatizzano
-	- non fanno vedere come sia stato fatto l'hyper tuning (c'è solo per il gan non per gli altri modelli)
-	- usano solo ddos
+  
+  - usano shap per fare feature selection
+  - fanno chiarezza su come hanno ripulito il Dataset
+  - hanno detto di aver tolto le informazioni sulle socket come indirizzi ip e porte
+  - hanno detto che hanno fatto il relabeling da multi class a binario
+  - hanno rimosso degli white space (devo verificare dove siano)
+  - e rimosso missing values e infinite values
+  - non specificano quale shap abbiano usato ma credo sia il tree perché lo enfatizzano
+  - non fanno vedere come sia stato fatto l'hyper tuning (c'è solo per il gan non per gli altri modelli)
+  - usano solo ddos
+
 - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap su cic ids 40 citazioni)
-	- citano dei paper che lamentano l'inaffidabilità di questi papers sui nids
-	- comparano diversi feature set con diversi dataset
-	- dicono che multiclass va meglio
-	- citano il primo paper che parla di shap applicato ai nids
-	- dicono che usare le stesse features in più dataset è meglio per fare valutazioni tra diversi datasets
-	- spiegano come convertire un paper a cicflowmeter
-	- hanno fatto fine tuning e usano una mlp piccola
-	- parlano del fatto che hanno rimosso porte, ip e flow id
-	- dicono che hanno fatto un 5 fold e hanno usato min max
-	- parlano di adversarial attack
+  
+  - citano dei paper che lamentano l'inaffidabilità di questi papers sui nids
+  - comparano diversi feature set con diversi dataset
+  - dicono che multiclass va meglio
+  - citano il primo paper che parla di shap applicato ai nids
+  - dicono che usare le stesse features in più dataset è meglio per fare valutazioni tra diversi datasets
+  - spiegano come convertire un paper a cicflowmeter
+  - hanno fatto fine tuning e usano una mlp piccola
+  - parlano del fatto che hanno rimosso porte, ip e flow id
+  - dicono che hanno fatto un 5 fold e hanno usato min max
+  - parlano di adversarial attack
+
 - Anomaly-Based Intrusion Detection From Network Flow Features Using Variational Autoencoder (200 citazioni)
   
   - allenano il modello usando un metodo semi supervised, si allena il modello senza label ma si testa con label
@@ -435,6 +441,35 @@
   - fanno hyper tuning e dopo dicono che hanno usato la rule of thumb per avere i parametri giusti
   
   - fanno notare come il loro metodo funzioni anche con delle percentuali di dati in training ridicole
+
+- Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
+  - non l'ho letto tutto ho solo dato uno sguardo
+  - usano anche ces-cic-ids 2018 che è un'estensione del 2017 con più attacchi e 80 milioni di flow contro i 3 del 2017
+  - uaano dei radar chart fighi per mostrare le performance multi class
+  - hanno un altro grafico figo che fa vedere il trade off  tra spiegabilità e perfomance ma forse è un po' inventato
+
+- Error Prevalence in NIDS datasets: A Case Study on CIC-IDS-2017 and CSE-CIC-IDS-2018
+  - fanno vedere come fare il relabeling
+  - dice che i due dataset si differenziano perché il la rete usata e potrebbero essere interscambiabili
+  - conferma che il dataset non è stato praticamente cambiato
+  - spiega come cicflowmeter termina la connessione
+  - il traffico benigno è stato generato da un software java closed source
+  - dicono che con le label attuali è impossibile ottenere grandi risultati senza fare overfitting
+  - fanno delle modifiche a cicflowmeter
+  - hanno parlato con gli autori di cse cic ids 2018 per avere il csv completo e non quello castrato
+  - la versione pubblicata corrisponde solo al 25% del dataset reale
+  - parlano di attacchi mancanti e di come alcune label siano state assegnate in maniera scorretta
+  - hanno scoperto che nel dataset pubblicato c'è un 5% di livello di curruzione
+  - tra i vari errori ci sono mancanza di payload, attacchi su porte chiuse, connessioni a server malevoli categorizzate come benevole, mancanza di payload malevolo dovuto al timeout di cicflowmeter, artifatti agli attacchi, la vittima non risponde, classificazione basata soltanto sul tempo che ha fatto si che alcuni attacchi si mescolassero
+  - alcuni flow subiscono un overlap causato dal fatto che le colonne generate da cic flow meter sono errate
+  - hanno pubblicato una versione migliorata di cicflowmeter che non solo contiene dei fix, ma contiene pure 4 nuove features
+  - tessono le lodi alla random forest
+  - decidono di eliminare le colonne correlate al 90%
+  - analizzato le top features per ogni classe
+  - le singole feature hanno meno importanza nella nuova versione
+  - citano studi che parlano di come avere dei pattern sbagliati faccia si che i modelli imparino male
+  - dicono che ci possono essere delle limitazioni e che avendo messo il relabeling pubblico sono aperti a nuove modifiche
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
@@ -475,6 +510,8 @@
   - fanno girare dei modelli ma non ci sono dettagli su come abbiano fatto il tuning
   
   - cicflowmeter 3 a me ha dato qualche problema con gli ip
+
+  - non c'è un match essatto tra quello che c'è scritto sul paper e le label effettive dei vari attacchi
 
 - Generating Network Intrusion Detection Dataset Based on Real and Encrypted Synthetic Attack Traffic (questo è il paper che presenta hikair-2021)
   
@@ -522,16 +559,13 @@
 - Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system
   
   - non parlano delle feature da eliminare eppure ci sono
- 
+
 - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap su cic ids 40 citazioni)
-	- fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
-	- non cita il paper di tree shap
-- Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
-	- non l'ho letto tutto ho solo dato uno sguardo
-	- usano anche ces-cic-ids 2018 che è un'estensione del 2017 con più attacchi e 80 milioni di flow contro i 3 del 2017
-	- uaano dei radar chart fighi per mostrare le performance multi class
-	- hanno un altro grafico figo che fa vedere il trade off  tra spiegabilità e perfomance ma forse è un po' inventato
-# Perché il mio studio è diverso
+  
+  - fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
+  - non cita il paper di tree shap
+    
+    # Perché il mio studio è diverso
 
 - dopo aver dimsostrato che con il mio metodo il mio ids riesce a riconoscere alcuni attacchi mai visti bisogna vedere se unendo i dataset si può fare di meglio
 
@@ -644,6 +678,7 @@
   - fa notare come un modello di ml in generale è meglio di un confronto delle firme che richiede avere un database enorme e molta cpu per cifrare
   - cita un paper che descrive come ha fatto una mlp per allenare la rete
   - parla di papers che usano un dataset per il training e un altro per il test. potrebbe essere utile per dimostare come il modello funzioni con nuovi attacchi.
+
 - Dual-IDS: A bagging-based gradient boosting decision tree model for network anomaly intrusion detection system
   Maya
   
@@ -658,33 +693,53 @@
 # Paper non letti
 
 - Hybrid Intrusion Detection System for DDoS Attacks (qui parlano di come classificare in maniera veloce i dati sia importante)
+
 - GAN-based imbalanced data intrusion detection system (qui parlano di come classificare in maniera veloce i dati sia importante)
+
 - Ant colony optimization and feature selection for intrusion detection (parla di come fare feature selection sia un bene)
+
 - Toward credible evaluation of anomaly-based intrusion-detection methods (qui parla del fatto che molti paper non siano credibili)
+
 - Challenges in Experimenting with Botnet Detection Systems (parla della difficoltà nel comparare alcuni paper con altri)
+
 - Characterization of tor traffic using time based features (paper che introduce CICFlowMeter)
+
 - An Efficient Explanation of Individual Classificationsusing Game Theory (paper dal quale è stato ispirato sampling explainer)
+
 - Cybersecurity attacks: which dataset
   should be used to evaluate an intrusion
   detection system?
+
 - Anchors: High-Precision Model-Agnostic Explanations (parla di come sommare le spiegazioni locali ne crei una globale accurata)
+
 - Rules  of  Machine Learning: Best Practices for ML Engineering (parlano di come fanno le cose in google è un paper sulle best practice)
+
 - The many shapley values for model explanation (parla di come alcune approssimazioni di shap siano diverse)
+
 - random forest
+
 - Feature relevance quantification in explainable AI: A causal problem (parlano di alcuni problemi nell'interpretazione di shap)
+
 - Understanding variable importances in Forests of randomized trees (parla di come interpretare il mdi per la random forest)
+
 - paper sugli ids xai
+  
   - Explaining Network Intrusion Detection System Using Explainable AI Framework
   - An Explainable Machine Learning Framework for Intrusion Detection Systems
   - Explainable Artificial Intelligence (XAI) to Enhance Trust Management in Intrusion Detection Systems Using Decision Tree Model
   - Achieving Explainability of Intrusion Detection System by Hybrid Oracle- Explainer Approach
   - An Explainable Machine Learning-based Network Intrusion Detection System for Enabling Generalisability in Securing IoT Networks
   - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-based Network Intrusion Detection
+
 - paper su hikari (32 citazioni 11/01/2024)
+  
   - PeerAmbush: Multi-Layer Perceptron to Detect Peer-to-Peer Botnet
+
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
+  
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
-# Making dataset
+
+    # Making dataset
 
 - anzitutto ho usato cicflowmeter per rifare quello fatto con hikari
 
