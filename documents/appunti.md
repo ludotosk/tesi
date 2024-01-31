@@ -90,6 +90,7 @@
   - tutti gli ip esterni, cioè quelli della lista ALEXA sono benigni
   
   - spiegano anche come abbiano fatto a fare le labels
+  
   - a differenza di cicids che usa un software closed source per il traffico benigno qui viene usato un software open source
 
 - CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection (194 citazioni)
@@ -443,12 +444,14 @@
   - fanno notare come il loro metodo funzioni anche con delle percentuali di dati in training ridicole
 
 - Machine Learning Algorithms for Raw and Unbalanced Intrusion Detection Data in a Multi-Class Classification Problem (usano shap su cic ids 4 citazioni)
+  
   - non l'ho letto tutto ho solo dato uno sguardo
   - usano anche ces-cic-ids 2018 che è un'estensione del 2017 con più attacchi e 80 milioni di flow contro i 3 del 2017
   - uaano dei radar chart fighi per mostrare le performance multi class
   - hanno un altro grafico figo che fa vedere il trade off  tra spiegabilità e perfomance ma forse è un po' inventato
 
 - Error Prevalence in NIDS datasets: A Case Study on CIC-IDS-2017 and CSE-CIC-IDS-2018
+  
   - fanno vedere come fare il relabeling
   - dice che i due dataset si differenziano perché il la rete usata e potrebbero essere interscambiabili
   - conferma che il dataset non è stato praticamente cambiato
@@ -469,6 +472,80 @@
   - le singole feature hanno meno importanza nella nuova versione
   - citano studi che parlano di come avere dei pattern sbagliati faccia si che i modelli imparino male
   - dicono che ci possono essere delle limitazioni e che avendo messo il relabeling pubblico sono aperti a nuove modifiche
+
+- Machine Learning on Public Intrusion Datasets: Academic Hype or Concrete Advances in NIDS?
+  
+  - criticano la maniera in cui i paper dei giorni d'oggi sono fatti
+  
+  - criticano la maniera in cui i dataset di oggi sono costruiti
+  
+  - spiegano cosa sia un flow
+  
+  - critica netwflow dicendo che alcuni strumenti come quello non sono adatti per un utilizzo nids
+  
+  - cita cicids2017 che il dataset più usato negli ultimi anni
+  
+  - cita tutti i problemi cicids2017
+  
+  - semplificazione dell'ambiente di collezione dati (qui si può fare poco)
+  
+  - dice che i dataset restano aggiornati per poco tempo e cicids2017 è vecchio di 7 anni
+  
+  - smonta tutti i modelli che poteggono contro ddos perché una configurazione corretta del server lo rende immune agli attacchi ddos
+  
+  - problema sia di hikari che di cicids il traffico è generato solo via web e di pochi utenti
+  
+  - critica sia cicflowmeter che ha dei bug che cicids2017 e dice che esistono molte alternative che sistemano i problema ma che è difficile sta aggiornati
+  
+  - spiega che il problema del time labeling è grave perchè del traffico non maligno potrebbe essere categorizzato come benevolo
+  
+  - parla del problema del class imbalance
+  
+  - dice che non tutte le features sono usate e che alcune feature bastano a predirre un attacco e che quindi anche i metodi più semplici funzionano e rendono overkill i metodi di deep learning
+  
+  - critica al fatto che il partizionamento dei dati venga svolto in maniera non corretta e che il random sampling non è rappresentativo
+  
+  - criticano il fatto che molte soluzioni di deep learning richiedano un sacco di tempo per il training, quindi anche il tempo per il training va misurato alla luce del fatto che una banale random forest possa funzionare meglio
+  
+  - parla anche del fatto che sia difficile trasferire quanto appreso da un nids su un altro nids
+  
+  - criticano il fatto che il raggiungimento di performance del 100% dipenda dal fatto che molti dataset sono dei giocattoli
+  
+  - dicono che ci sono alcune feature rivelatrici ma che lo sono solo perché il dataset è fatto male
+  
+  - dicono che più dataset vanno testati assieme e che andrebbero forniti anche i parametri di hyper tuning
+  
+  - criticano chi ancora oggi usa i dataset vecchi
+  
+  - criticano chi fa review dei papers fatta male
+
+- Towards a better labeling process for network security datasets Sebastian
+  
+  - loro sono quelli che creano la metodologia per fare le label dei dataset
+  
+  - dicono che senza label adeguate l'utilità dei dataset diminuisce
+  
+  - creano un tool python che basandosi sui log di zeek riesce a fare le label
+  
+  - dice che alcuni dataset contengono errori che spesso richiedono molto tempo per essere corretti
+  
+  - citano shap e come le labels possano essere utili con shap
+  
+  - dicono che i pacchetti pcap non supportano le label ma si possono mettere nei commenti dei pacchetti pcapng che è una versione più avanzata di pcap
+  
+  - tirano fuori il problema del fatto che non si sa cosa sia un attacco e cosa no, se ci sono dei flow che fanno parte di una connessione che diventerà attacco ma ancora non lo è questo flow è attacco o no?
+  
+  - il tool si chiama netflowlabeler
+  
+  - loro dicono che chi si difende deve sapere che tipo di attacco sia
+
+- A statistical analysis of intrinsic bias of network security datasets for training machine learning mechanisms
+  
+  - dicono che gli ids basati sul machine learning sono un trend
+  
+  - analizzano i vecchi dataset e fanno vedere come comunque quelli nuovi hanno dei problemi
+  
+  - spiegano perché alcuni paper hanno risultati vicino all'ideale
 
 # Critiche ai vari papers
 
@@ -510,7 +587,7 @@
   - fanno girare dei modelli ma non ci sono dettagli su come abbiano fatto il tuning
   
   - cicflowmeter 3 a me ha dato qualche problema con gli ip
-
+  
   - non c'è un match essatto tra quello che c'è scritto sul paper e le label effettive dei vari attacchi
 
 - Generating Network Intrusion Detection Dataset Based on Real and Encrypted Synthetic Attack Traffic (questo è il paper che presenta hikair-2021)
@@ -563,6 +640,7 @@
 - Evaluating Standard Feature Sets Towards Increased Generalisability and Explainability of ML-Based Network Intrusion Detection (usano shap su cic ids 40 citazioni)
   
   - fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
+  
   - non cita il paper di tree shap
     
     # Perché il mio studio è diverso
@@ -738,7 +816,7 @@
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
-
+    
     # Making dataset
 
 - anzitutto ho usato cicflowmeter per rifare quello fatto con hikari
