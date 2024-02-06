@@ -582,6 +582,12 @@
   - fanno vedere come accoppiare le features di cicflowmeter con quelle di nfstream
   
   - parlano di come hanno eliminato le features con i bias, il resto è uguale (durante lo sviluppo del modello di random forest, si parla di ip e porte)
+  
+  - dicono che non ci sono miglioramenti rispetto ai dataset passati ma il problema è legato al metodo sbagliato con cui sono state fatte le metriche
+  
+  - sottolineano come comunque ci possono essere altri problemi da trovare
+  
+  - ci sono dei valori negativi nel dataset messi di proposito
 
 # Critiche ai vari papers
 
@@ -678,6 +684,14 @@
   - fa uscire netflow come vincitore a confronto di cicflowmeter, ma non è stata fatta feature selection e le features sono correlate
   
   - non cita il paper di tree shap
+
+- Evaluating ML-Based Anomaly Detection Across Datasets of Varied Integrity: A Case Study
+  
+  - non tengono conto di quanto il dataset sia sbilanciato
+  
+  - fanno il modello per ciascun csv anziché uno unico
+  
+  - la confusion matrix mostra le percentuali ma non il numero assoluto necessario quando si vuole far fronte al dataset sbilanciato
     
     # Perché il mio studio è diverso
 
