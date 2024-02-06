@@ -547,6 +547,42 @@
   
   - spiegano perché alcuni paper hanno risultati vicino all'ideale
 
+- Evaluating ML-Based Anomaly Detection Across Datasets of Varied Integrity: A Case Study
+  
+  - parlano di come usare un dataset serio sia fondamentale per fare un modello
+  
+  - cita tre papers che criticano cicids 2017, tra cui quello trovato sopra
+  
+  - dicono che le versioni migliorate di quei datasets hanno dei problemi
+  
+  - dicono che la random forest è il modello migliore e la testano con altri due per validare la scelta
+  
+  - dicono che i modelli più complessi si adattano anche a dataset errati
+  
+  - migliorano ulteriormente i dataset presentati da error prevalence
+  
+  - propongono un miglioramento a crisis 2022 che è un miglioramento di wtmc 2021 che è quello che ho letto che migliora cicids 2017
+  
+  - dice che nonostante cicflowmeter sia stata patchato ancora ha delle limitazioni che lo portano a divergere da strumenti professionali
+  
+  - mancanza di un timeout adeguato per il termine delle connessioni
+  
+  - però dice che siccome la connessione viene terminata alla prima richiesta di connessione che è tecnicamente corretto qualora un'altra richiesta di connessione dovesse arrivare viene contato un numero di FIN e RST flag anomalo troppo alto
+  
+  - usano nfstream come alternativa a cicflowmeter siccome cicflowmeter manca di documentazione, ma potrebbe uscire una versione migliorata di cicflowmeter siccome l'autore è a conoscenza dei bug e la stanno sviluppando
+  
+  - comparano il nuovo dataset con quelli vecchi per vedere come le modifiche hanno impattato sui modelli
+  
+  - vogliono usare un metodo time based ma è stato sconsigliato nel precedente paper
+  
+  - mostrano come nfstream a differenza di altri tools sia capace di aderire agli standard
+  
+  - parlano di come la random forest sia il nuovo standard, perché è stato usato in tutte le recenti implementazioni quindi va a sostituire svm
+  
+  - fanno vedere come accoppiare le features di cicflowmeter con quelle di nfstream
+  
+  - parlano di come hanno eliminato le features con i bias, il resto è uguale (durante lo sviluppo del modello di random forest, si parla di ip e porte)
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
