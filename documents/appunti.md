@@ -589,6 +589,38 @@
   
   - ci sono dei valori negativi nel dataset messi di proposito
 
+- Errors in the CICIDS2017 dataset and the significant differences in detection performances it makes
+  
+  - dicono che hanno trovato la mancanza di alcuni attacchi port scan
+  
+  - hanno modificato cicflowmeter e il dataset
+  
+  - fanno notare come cse-cic-flowmeter sistemi il problema del test bed
+  
+  - dicono che il paper error prelevance ha usato un metodo basato su ip e timestamp per fare le label
+  
+  - fanno vedere come cicflowmeter inverta gli ip e spiegano perché
+  
+  - spiegano come ddos abbia fatto si che l'ordine degli ip sia scorretto
+  
+  - sortano i pacchetti e hanno fatto si che cicflowmeter di error prelevance abbia questo fix
+  
+  - a volte il timestamp non è quello corretto e questo bug non è stato sistemato
+  
+  - fanno vedere come alcuni pacchetti siano duplicati forse per come è stata configurata la rete
+  
+  - dicono che error prelevance ha un problema con il traffico del port scan
+  
+  - hanno fatto del fine tuning ai modelli di scikit learn che hanno testato col dataset
+  
+  - hanno tolto tutto tranne la porta di destinazione
+  
+  - mostrano come il riordino dei pacchetti migliori i modelli ma non faccia miracoli
+  
+  - mentre togliere i duplicati mostra un miglioramento non indifferente
+  
+  - sfruttano la spiegazione del decision tre per mostrare come alcune feature sono cambiate e sono quelle relative al inter arrival time che è più basso a causa dei duplicati
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
