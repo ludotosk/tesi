@@ -620,6 +620,23 @@
   - mentre togliere i duplicati mostra un miglioramento non indifferente
   
   - sfruttano la spiegazione del decision tre per mostrare come alcune feature sono cambiate e sono quelle relative al inter arrival time che è più basso a causa dei duplicati
+  
+- Explainable Artificial Intelligence Applications in Cyber Security: State-of-the-Art in Research
+	- spiegano perché la sicurezza informatica è una necessità citando alcuni papers
+	- parlano di spiegabilità in questo paper e fanno anche notare come la spiegabilità sia un requisito richiesto dall'unione europea
+	- illustrano la definizione di cyber security
+	- spiegano perché la spiegabilità nel campo della sicurezza sia importante
+	- parlano di un trade off tra spiegabilità e accuratezza, però questo lo dobbiamo sfatare
+	- sottolineano il fatto che alcuni dataset non siano aggiornati
+	- elencano alcuni punti chiave per il futuro
+		- problemi futuri parlano di dataset di alta qualità e di come la privacy sia un ostacolo nel porterli creare
+		- parlano del trade off tra spiegabilità e prestazioni, questo è un mito da sfatare
+		- parlano di fare modelli che siano sicuri da un punto di vista di adversarial attacks
+		
+- Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods
+	- parte dicendo che lime e shap non conoscono come il modello funzioni internamente
+	- specifica che si parla di kernel shap
+	- mostrano il caso in cui viene creata una funzione ad hoc che quando una certa variabile fa parte di un insieme allora viene eseguito il modello innocuo, altrimenti viene eseguito il modello con bias. questo però si basa sul fatto che il modello sia inaccessibile, mentre se fosse ad albero le cose cambierebbero.
 
 # Critiche ai vari papers
 
@@ -725,7 +742,7 @@
   
   - la confusion matrix mostra le percentuali ma non il numero assoluto necessario quando si vuole far fronte al dataset sbilanciato
     
-    # Perché il mio studio è diverso
+# Perché il mio studio è diverso
 
 - dopo aver dimsostrato che con il mio metodo il mio ids riesce a riconoscere alcuni attacchi mai visti bisogna vedere se unendo i dataset si può fare di meglio
 
@@ -899,7 +916,7 @@
   
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
     
-    # Making dataset
+# Making dataset
 
 - anzitutto ho usato cicflowmeter per rifare quello fatto con hikari
 
