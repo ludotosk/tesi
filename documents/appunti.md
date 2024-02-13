@@ -638,6 +638,18 @@
 	- specifica che si parla di kernel shap
 	- mostrano il caso in cui viene creata una funzione ad hoc che quando una certa variabile fa parte di un insieme allora viene eseguito il modello innocuo, altrimenti viene eseguito il modello con bias. questo però si basa sul fatto che il modello sia inaccessibile, mentre se fosse ad albero le cose cambierebbero.
 
+- Adversarial Machine Learning for Network Intrusion Detection Systems: A Comprehensive Survey
+	- parla della differenza tra nids e hids
+	- dice che i modelli trandizionali non stanno al passo con i nuovi ids e che i dl fanno meglio ma sono suscettibili agli adversarial attacks
+
+- Castles Built on Sand: Observations from Classifying Academic Cybersecurity Datasets with Minimalist Methods
+	- citano una serie di survey che mostrano come i modelli di deep Learning siano la maggioranza e come questo sia un problema in termini di efficienza
+	- notano anche loro che la comparazione è fatta con una stock random forest
+	- si lamentano del fatto che spesso nei confronti non viene impiegata la stessa quantità di tempo
+	- il modello oner è molto semplice, divide le osservazioni di una feature in modo che ci sia mezzo mezzo tra le varie Label
+	- dicono che con il numero di osservazioni presente nei dataset in uso un 20/80 non è necessario, pure un 1/99 può andare bene per allenare il modello
+	- scelgono di fare binario per molti dataset perché è l'unica opzione e di fare attacco vs benigno per cic-ids 2017
+	- consigliano di testare le i dataset con XGBoost, Catboost o random decision tree
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
