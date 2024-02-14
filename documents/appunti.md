@@ -341,10 +341,18 @@
   - se le features non sono correlate tra loro allora il risultato è lo stesso
 
 - Feature Drift Aware for Intrusion Detection System Using Developed Variable Length Particle Swarm Optimization in Data Stream
+
+	- iniziano sottolineando come sia importante la sicurezza informatica e citando alcuni papers
   
-  - sottolineano come con la feature selection si possano migliorare le performance
+	- sottolineano come con la feature selection si possano migliorare le performance
   
-  - parla degli ensemble
+	- dicono che se selezioni delle features oggi domani quella selezione potrebbe non essere più valida, però resta il fatto che i dati che abbiamo sono questi non altri
+	
+	- parla degli ensemble
+	
+	- spiegano perché usare smote
+	
+	- presentano i parametri usati
 
 - Understanding variable importances in forests of randomized trees
   
@@ -714,6 +722,12 @@
 - Feature Drift Aware for Intrusion Detection System Using Developed Variable Length Particle Swarm Optimization in Data Stream
   
   - eliminano alcuni attacchi per avere solo quelli bruteforce, così da avere le metriche al massimo
+  
+  - non citano l'attacco cifrato e mostrano un grafico errato, usano la versione incompleta di hikari
+  
+  - ignorano gli altri attacchi e non spiegano perché
+  
+  - fanno vedere un grafico con l'utilizzo di memoria
 
 - A detailed analysis of CICIDS2017 dataset for designing Intrusion Detection Systems
   
