@@ -341,18 +341,18 @@
   - se le features non sono correlate tra loro allora il risultato è lo stesso
 
 - Feature Drift Aware for Intrusion Detection System Using Developed Variable Length Particle Swarm Optimization in Data Stream
-
-	- iniziano sottolineando come sia importante la sicurezza informatica e citando alcuni papers
   
-	- sottolineano come con la feature selection si possano migliorare le performance
+  - iniziano sottolineando come sia importante la sicurezza informatica e citando alcuni papers
   
-	- dicono che se selezioni delle features oggi domani quella selezione potrebbe non essere più valida, però resta il fatto che i dati che abbiamo sono questi non altri
-	
-	- parla degli ensemble
-	
-	- spiegano perché usare smote
-	
-	- presentano i parametri usati
+  - sottolineano come con la feature selection si possano migliorare le performance
+  
+  - dicono che se selezioni delle features oggi domani quella selezione potrebbe non essere più valida, però resta il fatto che i dati che abbiamo sono questi non altri
+  
+  - parla degli ensemble
+  
+  - spiegano perché usare smote
+  
+  - presentano i parametri usati
 
 - Understanding variable importances in forests of randomized trees
   
@@ -628,37 +628,42 @@
   - mentre togliere i duplicati mostra un miglioramento non indifferente
   
   - sfruttano la spiegazione del decision tre per mostrare come alcune feature sono cambiate e sono quelle relative al inter arrival time che è più basso a causa dei duplicati
-  
+
 - Explainable Artificial Intelligence Applications in Cyber Security: State-of-the-Art in Research
-	- spiegano perché la sicurezza informatica è una necessità citando alcuni papers
-	- parlano di spiegabilità in questo paper e fanno anche notare come la spiegabilità sia un requisito richiesto dall'unione europea
-	- illustrano la definizione di cyber security
-	- spiegano perché la spiegabilità nel campo della sicurezza sia importante
-	- parlano di un trade off tra spiegabilità e accuratezza, però questo lo dobbiamo sfatare
-	- sottolineano il fatto che alcuni dataset non siano aggiornati
-	- elencano alcuni punti chiave per il futuro
-		- problemi futuri parlano di dataset di alta qualità e di come la privacy sia un ostacolo nel porterli creare
-		- parlano del trade off tra spiegabilità e prestazioni, questo è un mito da sfatare
-		- parlano di fare modelli che siano sicuri da un punto di vista di adversarial attacks
-		
+  
+  - spiegano perché la sicurezza informatica è una necessità citando alcuni papers
+  - parlano di spiegabilità in questo paper e fanno anche notare come la spiegabilità sia un requisito richiesto dall'unione europea
+  - illustrano la definizione di cyber security
+  - spiegano perché la spiegabilità nel campo della sicurezza sia importante
+  - parlano di un trade off tra spiegabilità e accuratezza, però questo lo dobbiamo sfatare
+  - sottolineano il fatto che alcuni dataset non siano aggiornati
+  - elencano alcuni punti chiave per il futuro
+    - problemi futuri parlano di dataset di alta qualità e di come la privacy sia un ostacolo nel porterli creare
+    - parlano del trade off tra spiegabilità e prestazioni, questo è un mito da sfatare
+    - parlano di fare modelli che siano sicuri da un punto di vista di adversarial attacks
+
 - Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods
-	- parte dicendo che lime e shap non conoscono come il modello funzioni internamente
-	- specifica che si parla di kernel shap
-	- mostrano il caso in cui viene creata una funzione ad hoc che quando una certa variabile fa parte di un insieme allora viene eseguito il modello innocuo, altrimenti viene eseguito il modello con bias. questo però si basa sul fatto che il modello sia inaccessibile, mentre se fosse ad albero le cose cambierebbero.
+  
+  - parte dicendo che lime e shap non conoscono come il modello funzioni internamente
+  - specifica che si parla di kernel shap
+  - mostrano il caso in cui viene creata una funzione ad hoc che quando una certa variabile fa parte di un insieme allora viene eseguito il modello innocuo, altrimenti viene eseguito il modello con bias. questo però si basa sul fatto che il modello sia inaccessibile, mentre se fosse ad albero le cose cambierebbero.
 
 - Adversarial Machine Learning for Network Intrusion Detection Systems: A Comprehensive Survey
-	- parla della differenza tra nids e hids
-	- dice che i modelli trandizionali non stanno al passo con i nuovi ids e che i dl fanno meglio ma sono suscettibili agli adversarial attacks
+  
+  - parla della differenza tra nids e hids
+  - dice che i modelli trandizionali non stanno al passo con i nuovi ids e che i dl fanno meglio ma sono suscettibili agli adversarial attacks
 
 - Castles Built on Sand: Observations from Classifying Academic Cybersecurity Datasets with Minimalist Methods
-	- citano una serie di survey che mostrano come i modelli di deep Learning siano la maggioranza e come questo sia un problema in termini di efficienza
-	- notano anche loro che la comparazione è fatta con una stock random forest
-	- si lamentano del fatto che spesso nei confronti non viene impiegata la stessa quantità di tempo
-	- il modello oner è molto semplice, divide le osservazioni di una feature in modo che ci sia mezzo mezzo tra le varie Label
-	- dicono che con il numero di osservazioni presente nei dataset in uso un 20/80 non è necessario, pure un 1/99 può andare bene per allenare il modello
-	- scelgono di fare binario per molti dataset perché è l'unica opzione e di fare attacco vs benigno per cic-ids 2017
-	- consigliano di testare le i dataset con XGBoost, Catboost o random decision tree
-# Critiche ai vari papers
+  
+  - citano una serie di survey che mostrano come i modelli di deep Learning siano la maggioranza e come questo sia un problema in termini di efficienza
+  - notano anche loro che la comparazione è fatta con una stock random forest
+  - si lamentano del fatto che spesso nei confronti non viene impiegata la stessa quantità di tempo
+  - il modello oner è molto semplice, divide le osservazioni di una feature in modo che ci sia mezzo mezzo tra le varie Label
+  - dicono che con il numero di osservazioni presente nei dataset in uso un 20/80 non è necessario, pure un 1/99 può andare bene per allenare il modello
+  - scelgono di fare binario per molti dataset perché è l'unica opzione e di fare attacco vs benigno per cic-ids 2017
+  - consigliano di testare le i dataset con XGBoost, Catboost o random decision tree
+    
+    # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
   
@@ -767,7 +772,7 @@
   - fanno il modello per ciascun csv anziché uno unico
   
   - la confusion matrix mostra le percentuali ma non il numero assoluto necessario quando si vuole far fronte al dataset sbilanciato
-    
+
 # Perché il mio studio è diverso
 
 - dopo aver dimsostrato che con il mio metodo il mio ids riesce a riconoscere alcuni attacchi mai visti bisogna vedere se unendo i dataset si può fare di meglio
@@ -941,17 +946,25 @@
 - paper su cicids (829 citazioni 11/01/2024 senza parola survey nel titolo)
   
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
-    
+
 # Making dataset
 
-- anzitutto ho usato cicflowmeter per rifare quello fatto con hikari
+- Friday_2021-04-16_2304 - 4725390 frames, 780 out of order - 5 duplicati
 
-- ho notato un bug in cicflowmeter per cui le porte e gli ip a volte erano invertiti
+- Monday_2021-04-12_0611 - 290207 frames, 43 out of order - 0 duplicati
 
-- gli autori dicono che hanno fatto il dataset guardando ip e porte, allora sto facendo la stessa cosa prendendo gli ip e le porte dal dataset originale e mettendole su quello nuovo
+- Monday_2022-04-11_0622 - 216832 frames, 246 out of order - 62 duplicati
 
-- ho provato a rifare il data set usando le stesse connessioni ma non ha funzionato
+- Saturday_2021-04-17_0357 - 708181 frames, 144 out of order - 1 duplicati
 
-- allora ho fatto un data set bilanciato partendo dall'originale dove ho creato alcune variabili booleane per ip e porte e poi ho chiesto all'albero di spiegare
+- Sunday_2021-04-11_2154 - 622670 frames, 64 out of order - no duplicati
 
-- così facendo ho scoperto quali sono le informazioni più importanti per l'albero
+- Sunday_2021-05-02_1206 - 3446459 frames, 2665 out of order - 23 duplicati
+
+- Sunday_2021-05-02_1659 - 3385734 frames, 2856 out of order - 105 duplicati
+
+- Sunday_2022-04-10_2335 - 327043 frames, 5 out of order - 4 duplicati
+
+- Tuesday_2022-04-12_0554 - 25378249 frames, 34823 out of order - 19289 duplicati
+
+- Tuesday_2022-04-12_1418 - 27380760 frames, 112985 out of order - 3616 duplicati
