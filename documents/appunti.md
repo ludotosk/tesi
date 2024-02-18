@@ -610,6 +610,8 @@
   
   - hanno modificato cicflowmeter e il dataset
   
+  - dicono che il problema di troncare una connessione tcp non solo fa si che ci siano più connessioni ma anche che una connessione is trovi source e destinazioni invertiti
+  
   - fanno notare come cse-cic-flowmeter sistemi il problema del test bed
   
   - dicono che il paper error prelevance ha usato un metodo basato su ip e timestamp per fare le label
@@ -663,14 +665,22 @@
 - Castles Built on Sand: Observations from Classifying Academic Cybersecurity Datasets with Minimalist Methods
   
   - citano una serie di survey che mostrano come i modelli di deep Learning siano la maggioranza e come questo sia un problema in termini di efficienza
+  
   - notano anche loro che la comparazione è fatta con una stock random forest
+  
   - si lamentano del fatto che spesso nei confronti non viene impiegata la stessa quantità di tempo
+  
   - il modello oner è molto semplice, divide le osservazioni di una feature in modo che ci sia mezzo mezzo tra le varie Label
+  
   - dicono che con il numero di osservazioni presente nei dataset in uso un 20/80 non è necessario, pure un 1/99 può andare bene per allenare il modello
+  
   - scelgono di fare binario per molti dataset perché è l'unica opzione e di fare attacco vs benigno per cic-ids 2017
+  
   - consigliano di testare le i dataset con XGBoost, Catboost o random decision tree
+
+- Troubleshooting an Intrusion Detection Dataset: the CICIDS2017 Case Study 
     
-    # Critiche ai vari papers
+# Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
   
