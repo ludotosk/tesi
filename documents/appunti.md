@@ -88,12 +88,17 @@
   - il traffico di anonimizzato è quello classificato come di backgroud
   
   - tutti gli ip esterni, cioè quelli della lista ALEXA sono benigni
+  
   - il traffico lo generano con selenium che è un passo avanti rispetto a cic ids ma resta il fatto che è tutto limitato ad http
+  
   - zeek era stato usato anche per kdd99 e unsw-nb15 quanto si chiamava ancora bro
+  
   - spiegano anche come abbiano fatto a fare le labels
   
   - a differenza di cicids che usa un software closed source per il traffico benigno qui viene usato un software open source
+  
   - una novità loro è che usano il ground truth ovvero generano traffico verso siti web, non solo nella rete locale ma anche esterna
+  
   - per quanto gli attacchi siano limitati loro guardano al 80% del traffico online e cercano gli attacchi sui cms con il 50% del traffico, per un totale del 40% del traffico
 
 - CICIDS-2017 Dataset Feature Analysis With Information Gain for Anomaly Detection (194 citazioni)
@@ -226,8 +231,11 @@
   - citano perché avere dei dataset aggiornati sia importante
   
   - citano cicflowmeter
+  
   - dicono che loro a differenza di altri papers mettono su un intera infrastruttura di rete, compresa di switch firewall ecc e con tre diversi sistemi operativi
+  
   - spiegano come hanno creato il traffico di backgroud usando diversi protocolli
+  
   - fanno una lista dettagliata di quali comandi sono stati usati per fare gli attacchi, così una volta rilevati gli attacchi col modello di ml posso vedere come funzionano
   
   - hanno usato random forest per far vedere quali siano le feature più importanti
@@ -239,6 +247,7 @@
   - mostrano come random forest sia il più veloce
   
   - dicono che facendo il compromesso tra i gli score ottenuti e il tempo d'esecuzione random forest ne esca vincitore
+  
   - fanno una lista di 11 requisiti necessari che loro soddisfano e altri dataset no
 
 - A Unified Approach to Interpreting Model Predictions
@@ -678,8 +687,12 @@
   
   - consigliano di testare le i dataset con XGBoost, Catboost o random decision tree
 
-- Troubleshooting an Intrusion Detection Dataset: the CICIDS2017 Case Study 
-    
+- Troubleshooting an Intrusion Detection Dataset: the CICIDS2017 Case Study
+  
+  - il 25% dei dati ha le labels sbagliate e all'interno di alcune classi si arriva al 50%
+  
+  - non l'ho più letto l'altro paper va più nel dettaglio
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
