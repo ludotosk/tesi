@@ -589,6 +589,8 @@
   
   - dice che nonostante cicflowmeter sia stata patchato ancora ha delle limitazioni che lo portano a divergere da strumenti professionali
   
+  - in sostanza la connessione dovrebbe terminare al secondo FIN o RST, i software professionali di solito usano il primo FIN o RST come riferimento ma la versione con patch di CICFlowMeter non ha questo comportamento
+  
   - mancanza di un timeout adeguato per il termine delle connessioni
   
   - però dice che siccome la connessione viene terminata alla prima richiesta di connessione che è tecnicamente corretto qualora un'altra richiesta di connessione dovesse arrivare viene contato un numero di FIN e RST flag anomalo troppo alto
