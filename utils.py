@@ -215,7 +215,7 @@ def performanceMetricsDF(
         metricsObj.recall_score(yTrain, yPredTrain, average=average),
         metricsObj.f1_score(yTrain, yPredTrain, average=average),
         metricsObj.roc_auc_score(
-            yTrain, yPredTrain, average=None if average == "binary" else average
+            yTrain, yPredTrain, average=average
         ),
     ]
     test_results = [
@@ -224,7 +224,7 @@ def performanceMetricsDF(
         metricsObj.recall_score(yTest, yPredTest, average=average),
         metricsObj.f1_score(yTest, yPredTest, average=average),
         metricsObj.roc_auc_score(
-            yTest, yPredTest, average=None if average == "binary" else average
+            yTest, yPredTest, average=average
         ),
     ]
     resultsDF = pd.DataFrame(
