@@ -15,11 +15,11 @@ device = 'cpu'
 
 # how need to initialize a nn.relu each time you use it
 class MLP(nn.Module, BaseEstimator):
-    def __init__(self, epoch = 320, verbose = False, patience = 10, n_features = 79):
+    def __init__(self, epoch = 320, verbose = False, patience = 10, n_features = 79, out_neurons = 1): # out_neurons = 1 for binary classification, added for alowing multiclass classification
         super(MLP, self).__init__()
         self.fc1 = nn.Sequential(nn.Linear(n_features, 6), nn.ReLU())
         self.fc2 = nn.Sequential(nn.Linear(6, 3), nn.ReLU())
-        self.fc3 = nn.Sequential(nn.Linear(3, 1), nn.Sigmoid())
+        self.fc3 = nn.Sequential(nn.Linear(3, out_neurons), nn.Sigmoid())
         self.epoch = epoch
         self.verbose = verbose
         self.patience = patience
