@@ -4,6 +4,7 @@
 /__pycache__
 knn_utils.pickle
 bag_gbm.pickle
+hikari-multi/lgb_data/exp.pickle
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
