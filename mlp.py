@@ -38,6 +38,8 @@ class MLP(nn.Module, BaseEstimator):
         return x
     
     def fit(self, X, y):
+        # By calling __init__ again, we can reinitialize the model
+        self.__init__(self.epoch, self.verbose, self.patience, self.n_features, self.out_neurons)
         # Initialize the model
         model = self.to(device)
 

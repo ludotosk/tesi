@@ -232,6 +232,28 @@ def performanceMetricsDF(
     )
     return resultsDF
 
+# Function to create dataframe with metrics
+def performanceMetricsDFWeighted(
+    metricsObj, yTrain, yPredTrain, yTest, yPredTest, average="weighted"
+):
+    measures_list = ["ACCURACY", "PRECISION", "RECALL", "F1 SCORE"]
+    train_results = [
+        metricsObj.accuracy_score(yTrain, yPredTrain),
+        metricsObj.precision_score(yTrain, yPredTrain, average=average),
+        metricsObj.recall_score(yTrain, yPredTrain, average=average),
+        metricsObj.f1_score(yTrain, yPredTrain, average=average),
+    ]
+    test_results = [
+        metricsObj.accuracy_score(yTest, yPredTest),
+        metricsObj.precision_score(yTest, yPredTest, average=average),
+        metricsObj.recall_score(yTest, yPredTest, average=average),
+        metricsObj.f1_score(yTest, yPredTest, average=average),
+
+    ]
+    resultsDF = pd.DataFrame(
+        {"Measure": measures_list, "Train": train_results, "Test": test_results}
+    )
+    return resultsDF
 
 # Function to plot confusion matrix - Adapted from https://github.com/DTrimarchi10/confusion_matrix/blob/master/cf_matrix.py
 def make_confusion_matrix(
