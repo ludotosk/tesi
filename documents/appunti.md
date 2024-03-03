@@ -695,6 +695,12 @@
   
   - non l'ho più letto l'altro paper va più nel dettaglio
 
+- An Adversarial Robustness Benchmark for Enterprise Network Intrusion Detection
+  
+  - hanno usato un modello di explianable boosting machine
+  
+  - parlano di come gli ensemble ad albero siano vulnerabili agli adversarial attack 
+
 # Critiche ai vari papers
 
 - Evaluating Unbalanced Network Data for Attack Detection
