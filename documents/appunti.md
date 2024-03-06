@@ -869,6 +869,10 @@
 
 - non ha senso fare come fanno alcuni studi che prendono in cosiderazione solo alcuni attacchi
 
+- faccio confronto tra binario e multi che nessuno fa
+
+- aggiungo alle varie cose criticate su come sviluppare i modelli la parte di spiegabilità che mostra come il dataset sia fatto male
+
 # Cose fatte
 
 - build di cicflowmeter usando un wm con ubuntu 20.04 e openjdk-8
@@ -985,7 +989,7 @@
   
   - Effective network intrusion detection using stacking-based ensembleapproach (rifanno il dataset in modo da ottenere risultati migliori)
 
-# Making dataset
+# Hikari frame sbagliati
 
 - Friday_2021-04-16_2304 - 4725390 frames, 780 out of order - 5 duplicati
 
