@@ -16,20 +16,22 @@ device = 'cpu'
 
 # how need to initialize a nn.relu each time you use it
 class MLP(nn.Module, BaseEstimator):
-    def __init__(self, epoch = 320, verbose = False, patience = 10, n_features = 79, out_neurons = 1): # out_neurons = 1 for binary classification, added for alowing multiclass classification
+    def __init__(self, epoch = 320, verbose = False, patience = 10, n_features = 79, out_neurons = 1, first_layer=6, second_layer=3): # out_neurons = 1 for binary classification, added for alowing multiclass classification
         super(MLP, self).__init__()
-        self.fc1 = nn.Sequential(nn.Linear(n_features, 6), nn.ReLU())
-        self.fc2 = nn.Sequential(nn.Linear(6, 3), nn.ReLU())
+        self.fc1 = nn.Sequential(nn.Linear(n_features, first_layer), nn.ReLU())
+        self.fc2 = nn.Sequential(nn.Linear(first_layer, second_layer), nn.ReLU())
         if out_neurons == 1:
-            self.fc3 = nn.Sequential(nn.Linear(3, out_neurons), nn.Sigmoid())
+            self.fc3 = nn.Sequential(nn.Linear(second_layer, out_neurons), nn.Sigmoid())
         else:
-            self.fc3 = nn.Sequential(nn.Linear(3, out_neurons), nn.Softmax(dim=1))
+            self.fc3 = nn.Sequential(nn.Linear(second_layer, out_neurons), nn.Softmax(dim=1))
         self.epoch = epoch
         self.verbose = verbose
         self.patience = patience
         self.estimator = "MultiLayerPerceptron"
         self.n_features = n_features
         self.out_neurons = out_neurons
+        self.first_layer = first_layer
+        self.second_layer = second_layer
 
     def forward(self, x):
         x = self.fc1(x)
@@ -39,7 +41,7 @@ class MLP(nn.Module, BaseEstimator):
     
     def fit(self, X, y):
         # By calling __init__ again, we can reinitialize the model
-        self.__init__(self.epoch, self.verbose, self.patience, self.n_features, self.out_neurons)
+        self.__init__(self.epoch, self.verbose, self.patience, self.n_features, self.out_neurons, self.first_layer, self.second_layer)
         # Initialize the model
         model = self.to(device)
 

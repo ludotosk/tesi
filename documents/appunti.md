@@ -893,19 +893,9 @@
 
 # Da fare
 
-- ricordarsi di far vedere al prof la questione del singolo albero per ciascun attacco
-
-- contare tempo di scaling e di trasformazione dei dati in tensor, misurare a parte giusto per avere un'idea
-
-- bisogna provare a fare feature selection dei modelli al albero usando l'information gian assieme a shap
-
-- mettere dei limiti di importanza da usare per fare feature selection, per farlo bisogna standardizzare l'importanza
-
-- provare a usare self organizing map per vedere se gli attacchi sono tutti simili o meno
-
-- guardare quanta memoria richiede un normale dataset contro un dataset di float
-
-- bisogna usare bagging sui miei modelli
+- migliorare lightboost
+- usare catgboost
+- usare explanable boosting machine
 
 # Issue utili shap
 
