@@ -6,41 +6,29 @@ digraph {
     0 -> 1 [label="yes" color="#FF0000"]
     0 -> 2 [label="no, missing" color="#0000FF"]
 
-    1 [ label="dst2src_first_seen_ms<227262384" ]
+    1 [ label="dst2src_packets<1" ]
     1 -> 3 [label="yes" color="#FF0000"]
     1 -> 4 [label="no, missing" color="#0000FF"]
 
-    3 [ label="bidirectional_ack_packets<1" ]
+    3 [ label="bidirectional_mean_ps<73" ]
     3 -> 5 [label="yes" color="#FF0000"]
     3 -> 6 [label="no, missing" color="#0000FF"]
 
-    5 [ label="bidirectional_first_seen_ms<421034336" ]
+    5 [ label="bidirectional_syn_packets<1" ]
     5 -> 9 [label="yes" color="#FF0000"]
     5 -> 10 [label="no, missing" color="#0000FF"]
 
-    9 [ label="leaf=-0.0222882759" ]
+    9 [ label="leaf=1.9426887" ]
 
-    10 [ label="leaf=-0.477568716" ]
+    10 [ label="leaf=-0.14587608" ]
 
-    6 [ label="src2dst_mean_ps<73" ]
+    6 [ label="bidirectional_mean_ps<73.5" ]
     6 -> 11 [label="yes" color="#FF0000"]
     6 -> 12 [label="no, missing" color="#0000FF"]
 
-    11 [ label="leaf=6.53360224" ]
+    11 [ label="leaf=-0.151290074" ]
 
-    12 [ label="bidirectional_stddev_ps<18.4752083" ]
-    12 -> 17 [label="yes" color="#FF0000"]
-    12 -> 18 [label="no, missing" color="#0000FF"]
-
-    17 [ label="src2dst_max_ps<85" ]
-    17 -> 21 [label="yes" color="#FF0000"]
-    17 -> 22 [label="no, missing" color="#0000FF"]
-
-    21 [ label="leaf=-0.505191147" ]
-
-    22 [ label="leaf=0.660377324" ]
-
-    18 [ label="leaf=6.21212101" ]
+    12 [ label="leaf=1.27777779" ]
 
     4 [ label="dst2src_duration_ms<110209" ]
     4 -> 7 [label="yes" color="#FF0000"]
@@ -51,52 +39,28 @@ digraph {
     7 -> 14 [label="no, missing" color="#0000FF"]
 
     13 [ label="src2dst_min_ps<1484" ]
-    13 -> 19 [label="yes" color="#FF0000"]
-    13 -> 20 [label="no, missing" color="#0000FF"]
+    13 -> 17 [label="yes" color="#FF0000"]
+    13 -> 18 [label="no, missing" color="#0000FF"]
 
-    19 [ label="src2dst_min_piat_ms<4" ]
-    19 -> 23 [label="yes" color="#FF0000"]
-    19 -> 24 [label="no, missing" color="#0000FF"]
+    17 [ label="src2dst_max_ps<735" ]
+    17 -> 19 [label="yes" color="#FF0000"]
+    17 -> 20 [label="no, missing" color="#0000FF"]
 
-    23 [ label="src2dst_mean_ps<66.6666641" ]
-    23 -> 25 [label="yes" color="#FF0000"]
-    23 -> 26 [label="no, missing" color="#0000FF"]
+    19 [ label="leaf=-0.115096308" ]
 
-    25 [ label="bidirectional_bytes<126" ]
-    25 -> 29 [label="yes" color="#FF0000"]
-    25 -> 30 [label="no, missing" color="#0000FF"]
+    20 [ label="leaf=0.228985086" ]
 
-    29 [ label="leaf=-0.49272114" ]
+    18 [ label="leaf=1.2758913" ]
 
-    30 [ label="leaf=4.37912798" ]
-
-    26 [ label="dst2src_max_piat_ms<6956" ]
-    26 -> 31 [label="yes" color="#FF0000"]
-    26 -> 32 [label="no, missing" color="#0000FF"]
-
-    31 [ label="leaf=-0.481619388" ]
-
-    32 [ label="leaf=-0.116012618" ]
-
-    24 [ label="src2dst_stddev_piat_ms<7.07106781" ]
-    24 -> 27 [label="yes" color="#FF0000"]
-    24 -> 28 [label="no, missing" color="#0000FF"]
-
-    27 [ label="leaf=-0.500438988" ]
-
-    28 [ label="leaf=4.87654305" ]
-
-    20 [ label="leaf=4.090909" ]
-
-    14 [ label="leaf=4.63497448" ]
+    14 [ label="leaf=1.4294976" ]
 
     8 [ label="src2dst_psh_packets<16" ]
     8 -> 15 [label="yes" color="#FF0000"]
     8 -> 16 [label="no, missing" color="#0000FF"]
 
-    15 [ label="leaf=5.82755184" ]
+    15 [ label="leaf=1.81988108" ]
 
-    16 [ label="leaf=-0.348837197" ]
+    16 [ label="leaf=-0.104651161" ]
 
-    2 [ label="leaf=7.23800611" ]
+    2 [ label="leaf=2.17140198" ]
 }

@@ -810,6 +810,8 @@
   - fanno il modello per ciascun csv anziché uno unico
   
   - la confusion matrix mostra le percentuali ma non il numero assoluto necessario quando si vuole far fronte al dataset sbilanciato
+  
+  - non tolgono i timestamp dal modello per cui il test è da buttare
 
 # Perché il mio studio è diverso
 

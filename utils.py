@@ -204,6 +204,8 @@ x_features = [
     "fwd_init_window_size", "bwd_init_window_size", "fwd_last_window_size"
 ]
 
+feature_to_remove_NFS = ['expiration_id','src_ip','src_mac','src_oui','src_port','dst_ip','dst_mac','dst_oui','dst_port','ip_version','vlan_id','bidirectional_first_seen_ms','bidirectional_last_seen_ms','src2dst_first_seen_ms','src2dst_last_seen_ms','dst2src_first_seen_ms','dst2src_last_seen_ms']
+
 # Function to create dataframe with metrics
 def performanceMetricsDF(
     metricsObj, yTrain, yPredTrain, yTest, yPredTest, average="binary"
