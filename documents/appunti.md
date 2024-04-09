@@ -1002,3 +1002,7 @@
 - Tuesday_2022-04-12_0554 - 25378249 frames, 34823 out of order - 19289 duplicati
 
 - Tuesday_2022-04-12_1418 - 27380760 frames, 112985 out of order - 3616 duplicati
+
+# Video su come fare il paper
+
+[IEEE Formatting On Word - YouTube](https://youtu.be/lSyIxJ4Nseo?si=rY4iiMWOsT4DA0tY)
