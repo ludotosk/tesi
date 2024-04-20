@@ -2,809 +2,179 @@ digraph {
     graph [ rankdir=TB ]
     graph [ rankdir="LR" ]
 
-    0 [ label="fwd_subflow_pkts<3" ]
+    0 [ label="fwd_pkts_payload.max<40" ]
     0 -> 1 [label="yes" color="#FF0000"]
     0 -> 2 [label="no, missing" color="#0000FF"]
 
-    1 [ label="flow_iat.min<17.1661377" ]
-    1 -> 3 [label="yes" color="#FF0000"]
-    1 -> 4 [label="no, missing" color="#0000FF"]
+    1 [ label="leaf=2.49481368" ]
 
-    3 [ label="fwd_pkts_payload.min<35" ]
-    3 -> 7 [label="yes" color="#FF0000"]
-    3 -> 8 [label="no, missing" color="#0000FF"]
+    2 [ label="fwd_pkts_per_sec<55.1485405" ]
+    2 -> 3 [label="yes" color="#FF0000"]
+    2 -> 4 [label="no, missing" color="#0000FF"]
 
-    7 [ label="fwd_header_size_min<40" ]
-    7 -> 15 [label="yes" color="#FF0000"]
-    7 -> 16 [label="no, missing" color="#0000FF"]
+    3 [ label="bwd_init_window_size<65535" ]
+    3 -> 5 [label="yes" color="#FF0000"]
+    3 -> 6 [label="no, missing" color="#0000FF"]
 
-    15 [ label="fwd_init_window_size<79" ]
-    15 -> 31 [label="yes" color="#FF0000"]
-    15 -> 32 [label="no, missing" color="#0000FF"]
+    5 [ label="fwd_init_window_size<64800" ]
+    5 -> 9 [label="yes" color="#FF0000"]
+    5 -> 10 [label="no, missing" color="#0000FF"]
 
-    31 [ label="bwd_pkts_payload.min<81" ]
-    31 -> 61 [label="yes" color="#FF0000"]
-    31 -> 62 [label="no, missing" color="#0000FF"]
+    9 [ label="idle.tot<55134344" ]
+    9 -> 15 [label="yes" color="#FF0000"]
+    9 -> 16 [label="no, missing" color="#0000FF"]
 
-    61 [ label="flow_pkts_payload.avg<60" ]
-    61 -> 111 [label="yes" color="#FF0000"]
-    61 -> 112 [label="no, missing" color="#0000FF"]
+    15 [ label="bwd_iat.min<58.1741333" ]
+    15 -> 23 [label="yes" color="#FF0000"]
+    15 -> 24 [label="no, missing" color="#0000FF"]
 
-    111 [ label="bwd_pkts_payload.std<28.9913788" ]
-    111 -> 181 [label="yes" color="#FF0000"]
-    111 -> 182 [label="no, missing" color="#0000FF"]
+    23 [ label="fwd_iat.tot<1361831.25" ]
+    23 -> 33 [label="yes" color="#FF0000"]
+    23 -> 34 [label="no, missing" color="#0000FF"]
 
-    181 [ label="leaf=1.42207778" ]
+    33 [ label="flow_iat.avg<22214.9883" ]
+    33 -> 47 [label="yes" color="#FF0000"]
+    33 -> 48 [label="no, missing" color="#0000FF"]
 
-    182 [ label="leaf=0.259259224" ]
+    47 [ label="leaf=-0.294462234" ]
 
-    112 [ label="flow_duration<0.0275480002" ]
-    112 -> 183 [label="yes" color="#FF0000"]
-    112 -> 184 [label="no, missing" color="#0000FF"]
+    48 [ label="leaf=2.04474497" ]
 
-    183 [ label="leaf=-0.495145619" ]
+    34 [ label="fwd_last_window_size<60" ]
+    34 -> 49 [label="yes" color="#FF0000"]
+    34 -> 50 [label="no, missing" color="#0000FF"]
 
-    184 [ label="leaf=0.157894716" ]
+    49 [ label="leaf=-0.592427552" ]
 
-    62 [ label="fwd_iat.min<14.0666962" ]
-    62 -> 113 [label="yes" color="#FF0000"]
-    62 -> 114 [label="no, missing" color="#0000FF"]
+    50 [ label="leaf=1.083269" ]
 
-    113 [ label="flow_duration<0.0261909999" ]
-    113 -> 185 [label="yes" color="#FF0000"]
-    113 -> 186 [label="no, missing" color="#0000FF"]
+    24 [ label="bwd_header_size_tot<360" ]
+    24 -> 35 [label="yes" color="#FF0000"]
+    24 -> 36 [label="no, missing" color="#0000FF"]
 
-    185 [ label="leaf=1.64150929" ]
+    35 [ label="payload_bytes_per_second<13661.4238" ]
+    35 -> 51 [label="yes" color="#FF0000"]
+    35 -> 52 [label="no, missing" color="#0000FF"]
 
-    186 [ label="leaf=-0.142857149" ]
+    51 [ label="leaf=2.39693737" ]
 
-    114 [ label="bwd_pkts_payload.max<220" ]
-    114 -> 187 [label="yes" color="#FF0000"]
-    114 -> 188 [label="no, missing" color="#0000FF"]
+    52 [ label="leaf=0.0877192989" ]
 
-    187 [ label="leaf=2.42491984" ]
+    36 [ label="bwd_pkts_payload.avg<903.93103" ]
+    36 -> 53 [label="yes" color="#FF0000"]
+    36 -> 54 [label="no, missing" color="#0000FF"]
 
-    188 [ label="leaf=0.962264061" ]
+    53 [ label="leaf=-0.540540516" ]
 
-    32 [ label="active.avg<1558048" ]
-    32 -> 63 [label="yes" color="#FF0000"]
-    32 -> 64 [label="no, missing" color="#0000FF"]
+    54 [ label="leaf=0.384615362" ]
 
-    63 [ label="leaf=2.67754292" ]
+    16 [ label="fwd_iat.tot<56703108" ]
+    16 -> 25 [label="yes" color="#FF0000"]
+    16 -> 26 [label="no, missing" color="#0000FF"]
 
-    64 [ label="leaf=-0.348837197" ]
+    25 [ label="fwd_pkts_payload.std<153.123032" ]
+    25 -> 37 [label="yes" color="#FF0000"]
+    25 -> 38 [label="no, missing" color="#0000FF"]
 
-    16 [ label="fwd_init_window_size<64287" ]
-    16 -> 33 [label="yes" color="#FF0000"]
-    16 -> 34 [label="no, missing" color="#0000FF"]
+    37 [ label="leaf=0.0877192989" ]
 
-    33 [ label="fwd_init_window_size<29000" ]
-    33 -> 65 [label="yes" color="#FF0000"]
-    33 -> 66 [label="no, missing" color="#0000FF"]
+    38 [ label="leaf=-0.463917494" ]
 
-    65 [ label="leaf=0.419795185" ]
+    26 [ label="fwd_data_pkts_tot<210" ]
+    26 -> 39 [label="yes" color="#FF0000"]
+    26 -> 40 [label="no, missing" color="#0000FF"]
 
-    66 [ label="leaf=1.44492424" ]
+    39 [ label="bwd_init_window_size<65160" ]
+    39 -> 55 [label="yes" color="#FF0000"]
+    39 -> 56 [label="no, missing" color="#0000FF"]
 
-    34 [ label="leaf=-0.588900328" ]
+    55 [ label="leaf=2.42949224" ]
 
-    8 [ label="flow_pkts_payload.avg<56.3333321" ]
-    8 -> 17 [label="yes" color="#FF0000"]
-    8 -> 18 [label="no, missing" color="#0000FF"]
+    56 [ label="leaf=1.33540368" ]
 
-    17 [ label="fwd_pkts_payload.min<37" ]
-    17 -> 35 [label="yes" color="#FF0000"]
-    17 -> 36 [label="no, missing" color="#0000FF"]
+    40 [ label="leaf=0.384615362" ]
 
-    35 [ label="flow_iat.max<26212.9316" ]
-    35 -> 67 [label="yes" color="#FF0000"]
-    35 -> 68 [label="no, missing" color="#0000FF"]
+    10 [ label="leaf=2.47567129" ]
 
-    67 [ label="active.min<27630.0898" ]
-    67 -> 115 [label="yes" color="#FF0000"]
-    67 -> 116 [label="no, missing" color="#0000FF"]
+    6 [ label="leaf=2.47866154" ]
 
-    115 [ label="fwd_iat.min<16.9277191" ]
-    115 -> 189 [label="yes" color="#FF0000"]
-    115 -> 190 [label="no, missing" color="#0000FF"]
+    4 [ label="bwd_pkts_per_sec<32.1868248" ]
+    4 -> 7 [label="yes" color="#FF0000"]
+    4 -> 8 [label="no, missing" color="#0000FF"]
 
-    189 [ label="leaf=-0.579024017" ]
+    7 [ label="flow_pkts_payload.tot<600" ]
+    7 -> 11 [label="yes" color="#FF0000"]
+    7 -> 12 [label="no, missing" color="#0000FF"]
 
-    190 [ label="leaf=-0.343873531" ]
+    11 [ label="fwd_pkts_payload.min<49" ]
+    11 -> 17 [label="yes" color="#FF0000"]
+    11 -> 18 [label="no, missing" color="#0000FF"]
 
-    116 [ label="bwd_pkts_per_sec<71.1767578" ]
-    116 -> 191 [label="yes" color="#FF0000"]
-    116 -> 192 [label="no, missing" color="#0000FF"]
+    17 [ label="fwd_iat.avg<36.0012054" ]
+    17 -> 27 [label="yes" color="#FF0000"]
+    17 -> 28 [label="no, missing" color="#0000FF"]
 
-    191 [ label="leaf=-0.315789461" ]
+    27 [ label="flow_iat.min<1.19209301" ]
+    27 -> 41 [label="yes" color="#FF0000"]
+    27 -> 42 [label="no, missing" color="#0000FF"]
 
-    192 [ label="leaf=0.631578922" ]
+    41 [ label="leaf=-0.463917494" ]
 
-    68 [ label="fwd_iat.min<15.0203695" ]
-    68 -> 117 [label="yes" color="#FF0000"]
-    68 -> 118 [label="no, missing" color="#0000FF"]
+    42 [ label="leaf=-0.0684931502" ]
 
-    117 [ label="leaf=-0.315789461" ]
+    28 [ label="fwd_iat.min<71.0487366" ]
+    28 -> 43 [label="yes" color="#FF0000"]
+    28 -> 44 [label="no, missing" color="#0000FF"]
 
-    118 [ label="leaf=1.12499988" ]
+    43 [ label="leaf=0.526315749" ]
 
-    36 [ label="flow_pkts_payload.avg<41" ]
-    36 -> 69 [label="yes" color="#FF0000"]
-    36 -> 70 [label="no, missing" color="#0000FF"]
+    44 [ label="leaf=-0.350877196" ]
 
-    69 [ label="fwd_pkts_tot<2" ]
-    69 -> 119 [label="yes" color="#FF0000"]
-    69 -> 120 [label="no, missing" color="#0000FF"]
+    18 [ label="leaf=-0.605875134" ]
 
-    119 [ label="leaf=0.107188947" ]
+    12 [ label="fwd_pkts_payload.tot<763" ]
+    12 -> 19 [label="yes" color="#FF0000"]
+    12 -> 20 [label="no, missing" color="#0000FF"]
 
-    120 [ label="leaf=-0.565495193" ]
+    19 [ label="leaf=1.72839499" ]
 
-    70 [ label="flow_duration<0.0299609993" ]
-    70 -> 121 [label="yes" color="#FF0000"]
-    70 -> 122 [label="no, missing" color="#0000FF"]
+    20 [ label="fwd_data_pkts_tot<6" ]
+    20 -> 29 [label="yes" color="#FF0000"]
+    20 -> 30 [label="no, missing" color="#0000FF"]
 
-    121 [ label="leaf=1.77669895" ]
+    29 [ label="leaf=-0.476190448" ]
 
-    122 [ label="leaf=0.157894716" ]
+    30 [ label="leaf=0.0877192989" ]
 
-    18 [ label="flow_pkts_payload.max<163" ]
-    18 -> 37 [label="yes" color="#FF0000"]
-    18 -> 38 [label="no, missing" color="#0000FF"]
+    8 [ label="flow_RST_flag_count<1" ]
+    8 -> 13 [label="yes" color="#FF0000"]
+    8 -> 14 [label="no, missing" color="#0000FF"]
 
-    37 [ label="bwd_pkts_payload.std<14.1421356" ]
-    37 -> 71 [label="yes" color="#FF0000"]
-    37 -> 72 [label="no, missing" color="#0000FF"]
+    13 [ label="leaf=2.48988175" ]
 
-    71 [ label="fwd_pkts_payload.tot<201" ]
-    71 -> 123 [label="yes" color="#FF0000"]
-    71 -> 124 [label="no, missing" color="#0000FF"]
+    14 [ label="bwd_init_window_size<65535" ]
+    14 -> 21 [label="yes" color="#FF0000"]
+    14 -> 22 [label="no, missing" color="#0000FF"]
 
-    123 [ label="flow_pkts_payload.max<99" ]
-    123 -> 193 [label="yes" color="#FF0000"]
-    123 -> 194 [label="no, missing" color="#0000FF"]
+    21 [ label="fwd_pkts_per_sec<80.2507248" ]
+    21 -> 31 [label="yes" color="#FF0000"]
+    21 -> 32 [label="no, missing" color="#0000FF"]
 
-    193 [ label="leaf=1.14084494" ]
+    31 [ label="bwd_iat.max<27845.8594" ]
+    31 -> 45 [label="yes" color="#FF0000"]
+    31 -> 46 [label="no, missing" color="#0000FF"]
 
-    194 [ label="leaf=1.92327678" ]
+    45 [ label="leaf=0.616438329" ]
 
-    124 [ label="leaf=-0.441176474" ]
+    46 [ label="flow_iat.min<4.76837206" ]
+    46 -> 57 [label="yes" color="#FF0000"]
+    46 -> 58 [label="no, missing" color="#0000FF"]
 
-    72 [ label="flow_iat.avg<8690.30176" ]
-    72 -> 125 [label="yes" color="#FF0000"]
-    72 -> 126 [label="no, missing" color="#0000FF"]
+    57 [ label="leaf=-0.198019788" ]
 
-    125 [ label="flow_pkts_per_sec<165.099197" ]
-    125 -> 195 [label="yes" color="#FF0000"]
-    125 -> 196 [label="no, missing" color="#0000FF"]
+    58 [ label="leaf=-0.49192363" ]
 
-    195 [ label="leaf=0.0402684286" ]
+    32 [ label="leaf=1.41975307" ]
 
-    196 [ label="leaf=1.57142842" ]
-
-    126 [ label="flow_duration<0.0299609993" ]
-    126 -> 197 [label="yes" color="#FF0000"]
-    126 -> 198 [label="no, missing" color="#0000FF"]
-
-    197 [ label="leaf=2.01562476" ]
-
-    198 [ label="leaf=0.0967741683" ]
-
-    38 [ label="fwd_pkts_payload.min<42" ]
-    38 -> 73 [label="yes" color="#FF0000"]
-    38 -> 74 [label="no, missing" color="#0000FF"]
-
-    73 [ label="flow_iat.max<25748.9688" ]
-    73 -> 127 [label="yes" color="#FF0000"]
-    73 -> 128 [label="no, missing" color="#0000FF"]
-
-    127 [ label="leaf=2.20588231" ]
-
-    128 [ label="fwd_pkts_per_sec<55.2726784" ]
-    128 -> 199 [label="yes" color="#FF0000"]
-    128 -> 200 [label="no, missing" color="#0000FF"]
-
-    199 [ label="leaf=1.10526311" ]
-
-    200 [ label="leaf=0.157894716" ]
-
-    74 [ label="fwd_pkts_payload.min<300" ]
-    74 -> 129 [label="yes" color="#FF0000"]
-    74 -> 130 [label="no, missing" color="#0000FF"]
-
-    129 [ label="fwd_iat.max<15.9740448" ]
-    129 -> 201 [label="yes" color="#FF0000"]
-    129 -> 202 [label="no, missing" color="#0000FF"]
-
-    201 [ label="leaf=-0.327342749" ]
-
-    202 [ label="leaf=0.44018054" ]
-
-    130 [ label="fwd_pkts_payload.min<406" ]
-    130 -> 203 [label="yes" color="#FF0000"]
-    130 -> 204 [label="no, missing" color="#0000FF"]
-
-    203 [ label="leaf=0.929203451" ]
-
-    204 [ label="leaf=1.87499988" ]
-
-    4 [ label="flow_iat.min<15547.9912" ]
-    4 -> 9 [label="yes" color="#FF0000"]
-    4 -> 10 [label="no, missing" color="#0000FF"]
-
-    9 [ label="flow_iat.min<73.9097595" ]
-    9 -> 19 [label="yes" color="#FF0000"]
-    9 -> 20 [label="no, missing" color="#0000FF"]
-
-    19 [ label="bwd_pkts_payload.tot<149" ]
-    19 -> 39 [label="yes" color="#FF0000"]
-    19 -> 40 [label="no, missing" color="#0000FF"]
-
-    39 [ label="fwd_init_window_size<64240" ]
-    39 -> 75 [label="yes" color="#FF0000"]
-    39 -> 76 [label="no, missing" color="#0000FF"]
-
-    75 [ label="bwd_pkts_payload.tot<147" ]
-    75 -> 131 [label="yes" color="#FF0000"]
-    75 -> 132 [label="no, missing" color="#0000FF"]
-
-    131 [ label="flow_RST_flag_count<1" ]
-    131 -> 205 [label="yes" color="#FF0000"]
-    131 -> 206 [label="no, missing" color="#0000FF"]
-
-    205 [ label="leaf=2.21212101" ]
-
-    206 [ label="leaf=1.18558943" ]
-
-    132 [ label="bwd_pkts_per_sec<72.6653595" ]
-    132 -> 207 [label="yes" color="#FF0000"]
-    132 -> 208 [label="no, missing" color="#0000FF"]
-
-    207 [ label="leaf=1.17977524" ]
-
-    208 [ label="leaf=-0.21236293" ]
-
-    76 [ label="fwd_header_size_tot<24" ]
-    76 -> 133 [label="yes" color="#FF0000"]
-    76 -> 134 [label="no, missing" color="#0000FF"]
-
-    133 [ label="flow_duration<5.90000018e-05" ]
-    133 -> 209 [label="yes" color="#FF0000"]
-    133 -> 210 [label="no, missing" color="#0000FF"]
-
-    209 [ label="leaf=0.37499997" ]
-
-    210 [ label="leaf=1.49999988" ]
-
-    134 [ label="leaf=-0.585561514" ]
-
-    40 [ label="fwd_iat.min<30.9944153" ]
-    40 -> 77 [label="yes" color="#FF0000"]
-    40 -> 78 [label="no, missing" color="#0000FF"]
-
-    77 [ label="fwd_pkts_payload.min<42" ]
-    77 -> 135 [label="yes" color="#FF0000"]
-    77 -> 136 [label="no, missing" color="#0000FF"]
-
-    135 [ label="bwd_pkts_payload.min<84" ]
-    135 -> 211 [label="yes" color="#FF0000"]
-    135 -> 212 [label="no, missing" color="#0000FF"]
-
-    211 [ label="leaf=1.61704671" ]
-
-    212 [ label="leaf=2.40957427" ]
-
-    136 [ label="payload_bytes_per_second<13496.166" ]
-    136 -> 213 [label="yes" color="#FF0000"]
-    136 -> 214 [label="no, missing" color="#0000FF"]
-
-    213 [ label="leaf=1.85714269" ]
-
-    214 [ label="leaf=0.705753744" ]
-
-    78 [ label="bwd_iat.max<26.9412994" ]
-    78 -> 137 [label="yes" color="#FF0000"]
-    78 -> 138 [label="no, missing" color="#0000FF"]
-
-    137 [ label="bwd_pkts_payload.tot<244" ]
-    137 -> 215 [label="yes" color="#FF0000"]
-    137 -> 216 [label="no, missing" color="#0000FF"]
-
-    215 [ label="leaf=1.9411763" ]
-
-    216 [ label="leaf=-1.67638063e-08" ]
-
-    138 [ label="leaf=2.79345489" ]
-
-    20 [ label="fwd_pkts_payload.min<62" ]
-    20 -> 41 [label="yes" color="#FF0000"]
-    20 -> 42 [label="no, missing" color="#0000FF"]
-
-    41 [ label="fwd_init_window_size<64240" ]
-    41 -> 79 [label="yes" color="#FF0000"]
-    41 -> 80 [label="no, missing" color="#0000FF"]
-
-    79 [ label="bwd_pkts_payload.std<30.405592" ]
-    79 -> 139 [label="yes" color="#FF0000"]
-    79 -> 140 [label="no, missing" color="#0000FF"]
-
-    139 [ label="bwd_init_window_size<68" ]
-    139 -> 217 [label="yes" color="#FF0000"]
-    139 -> 218 [label="no, missing" color="#0000FF"]
-
-    217 [ label="leaf=2.49943924" ]
-
-    218 [ label="leaf=2.95529771" ]
-
-    140 [ label="bwd_pkts_payload.std<31.1126976" ]
-    140 -> 219 [label="yes" color="#FF0000"]
-    140 -> 220 [label="no, missing" color="#0000FF"]
-
-    219 [ label="leaf=-0.524475515" ]
-
-    220 [ label="leaf=2.58381486" ]
-
-    80 [ label="fwd_header_size_max<24" ]
-    80 -> 141 [label="yes" color="#FF0000"]
-    80 -> 142 [label="no, missing" color="#0000FF"]
-
-    141 [ label="leaf=2.69747877" ]
-
-    142 [ label="leaf=-0.540983617" ]
-
-    42 [ label="leaf=-0.527027011" ]
-
-    10 [ label="flow_pkts_payload.avg<66.5" ]
-    10 -> 21 [label="yes" color="#FF0000"]
-    10 -> 22 [label="no, missing" color="#0000FF"]
-
-    21 [ label="fwd_pkts_payload.max<36" ]
-    21 -> 43 [label="yes" color="#FF0000"]
-    21 -> 44 [label="no, missing" color="#0000FF"]
-
-    43 [ label="fwd_last_window_size<65535" ]
-    43 -> 81 [label="yes" color="#FF0000"]
-    43 -> 82 [label="no, missing" color="#0000FF"]
-
-    81 [ label="active.min<3039819" ]
-    81 -> 143 [label="yes" color="#FF0000"]
-    81 -> 144 [label="no, missing" color="#0000FF"]
-
-    143 [ label="fwd_pkts_payload.min<30" ]
-    143 -> 221 [label="yes" color="#FF0000"]
-    143 -> 222 [label="no, missing" color="#0000FF"]
-
-    221 [ label="leaf=1.39849615" ]
-
-    222 [ label="leaf=2.63513494" ]
-
-    144 [ label="fwd_header_size_tot<72" ]
-    144 -> 223 [label="yes" color="#FF0000"]
-    144 -> 224 [label="no, missing" color="#0000FF"]
-
-    223 [ label="leaf=1.57894731" ]
-
-    224 [ label="leaf=-0.531645536" ]
-
-    82 [ label="leaf=-0.583460927" ]
-
-    44 [ label="fwd_pkts_payload.min<37" ]
-    44 -> 83 [label="yes" color="#FF0000"]
-    44 -> 84 [label="no, missing" color="#0000FF"]
-
-    83 [ label="flow_pkts_per_sec<85.9238281" ]
-    83 -> 145 [label="yes" color="#FF0000"]
-    83 -> 146 [label="no, missing" color="#0000FF"]
-
-    145 [ label="leaf=-0.559864283" ]
-
-    146 [ label="bwd_pkts_per_sec<43.0533524" ]
-    146 -> 225 [label="yes" color="#FF0000"]
-    146 -> 226 [label="no, missing" color="#0000FF"]
-
-    225 [ label="leaf=0.157894716" ]
-
-    226 [ label="leaf=-0.441176474" ]
-
-    84 [ label="bwd_pkts_payload.min<58" ]
-    84 -> 147 [label="yes" color="#FF0000"]
-    84 -> 148 [label="no, missing" color="#0000FF"]
-
-    147 [ label="active.min<26160.9551" ]
-    147 -> 227 [label="yes" color="#FF0000"]
-    147 -> 228 [label="no, missing" color="#0000FF"]
-
-    227 [ label="leaf=0.522935748" ]
-
-    228 [ label="leaf=1.53061211" ]
-
-    148 [ label="leaf=2.20588231" ]
-
-    22 [ label="flow_duration<0.321956009" ]
-    22 -> 45 [label="yes" color="#FF0000"]
-    22 -> 46 [label="no, missing" color="#0000FF"]
-
-    45 [ label="leaf=2.84615374" ]
-
-    46 [ label="fwd_pkts_per_sec<0.103083998" ]
-    46 -> 85 [label="yes" color="#FF0000"]
-    46 -> 86 [label="no, missing" color="#0000FF"]
-
-    85 [ label="fwd_pkts_payload.tot<201" ]
-    85 -> 149 [label="yes" color="#FF0000"]
-    85 -> 150 [label="no, missing" color="#0000FF"]
-
-    149 [ label="flow_duration<59.9998093" ]
-    149 -> 229 [label="yes" color="#FF0000"]
-    149 -> 230 [label="no, missing" color="#0000FF"]
-
-    229 [ label="leaf=0.230769202" ]
-
-    230 [ label="leaf=1.61538446" ]
-
-    150 [ label="leaf=1.78107595" ]
-
-    86 [ label="leaf=-0.315789461" ]
-
-    2 [ label="bwd_init_window_size<65535" ]
-    2 -> 5 [label="yes" color="#FF0000"]
-    2 -> 6 [label="no, missing" color="#0000FF"]
-
-    5 [ label="fwd_pkts_payload.max<755" ]
-    5 -> 11 [label="yes" color="#FF0000"]
-    5 -> 12 [label="no, missing" color="#0000FF"]
-
-    11 [ label="bwd_iat.min<348.091125" ]
-    11 -> 23 [label="yes" color="#FF0000"]
-    11 -> 24 [label="no, missing" color="#0000FF"]
-
-    23 [ label="flow_duration<59.9801369" ]
-    23 -> 47 [label="yes" color="#FF0000"]
-    23 -> 48 [label="no, missing" color="#0000FF"]
-
-    47 [ label="bwd_iat.min<52.9289246" ]
-    47 -> 87 [label="yes" color="#FF0000"]
-    47 -> 88 [label="no, missing" color="#0000FF"]
-
-    87 [ label="bwd_init_window_size<28200" ]
-    87 -> 151 [label="yes" color="#FF0000"]
-    87 -> 152 [label="no, missing" color="#0000FF"]
-
-    151 [ label="flow_ACK_flag_count<2" ]
-    151 -> 231 [label="yes" color="#FF0000"]
-    151 -> 232 [label="no, missing" color="#0000FF"]
-
-    231 [ label="leaf=-0.508611321" ]
-
-    232 [ label="leaf=2.32473612" ]
-
-    152 [ label="bwd_header_size_min<24" ]
-    152 -> 233 [label="yes" color="#FF0000"]
-    152 -> 234 [label="no, missing" color="#0000FF"]
-
-    233 [ label="leaf=1.28752637" ]
-
-    234 [ label="leaf=-0.58189261" ]
-
-    88 [ label="fwd_init_window_size<30016" ]
-    88 -> 153 [label="yes" color="#FF0000"]
-    88 -> 154 [label="no, missing" color="#0000FF"]
-
-    153 [ label="flow_iat.min<15.0203695" ]
-    153 -> 235 [label="yes" color="#FF0000"]
-    153 -> 236 [label="no, missing" color="#0000FF"]
-
-    235 [ label="leaf=0.342281848" ]
-
-    236 [ label="leaf=2.0967741" ]
-
-    154 [ label="leaf=-0.594912827" ]
-
-    48 [ label="bwd_init_window_size<65160" ]
-    48 -> 89 [label="yes" color="#FF0000"]
-    48 -> 90 [label="no, missing" color="#0000FF"]
-
-    89 [ label="bwd_iat.min<6.19888306" ]
-    89 -> 155 [label="yes" color="#FF0000"]
-    89 -> 156 [label="no, missing" color="#0000FF"]
-
-    155 [ label="fwd_pkts_tot<118" ]
-    155 -> 237 [label="yes" color="#FF0000"]
-    155 -> 238 [label="no, missing" color="#0000FF"]
-
-    237 [ label="leaf=-0.428571433" ]
-
-    238 [ label="leaf=0.631578922" ]
-
-    156 [ label="flow_ACK_flag_count<27" ]
-    156 -> 239 [label="yes" color="#FF0000"]
-    156 -> 240 [label="no, missing" color="#0000FF"]
-
-    239 [ label="leaf=1.08849549" ]
-
-    240 [ label="leaf=2.52985048" ]
-
-    90 [ label="bwd_pkts_payload.std<1163.75244" ]
-    90 -> 157 [label="yes" color="#FF0000"]
-    90 -> 158 [label="no, missing" color="#0000FF"]
-
-    157 [ label="flow_iat.tot<134905760" ]
-    157 -> 241 [label="yes" color="#FF0000"]
-    157 -> 242 [label="no, missing" color="#0000FF"]
-
-    241 [ label="leaf=-0.54679805" ]
-
-    242 [ label="leaf=0.631578922" ]
-
-    158 [ label="leaf=1.10526311" ]
-
-    24 [ label="payload_bytes_per_second<98.1146851" ]
-    24 -> 49 [label="yes" color="#FF0000"]
-    24 -> 50 [label="no, missing" color="#0000FF"]
-
-    49 [ label="fwd_iat.min<322.818756" ]
-    49 -> 91 [label="yes" color="#FF0000"]
-    49 -> 92 [label="no, missing" color="#0000FF"]
-
-    91 [ label="leaf=-0.515625" ]
-
-    92 [ label="leaf=0.488372058" ]
-
-    50 [ label="leaf=2.7124598" ]
-
-    12 [ label="bwd_subflow_bytes<4030" ]
-    12 -> 25 [label="yes" color="#FF0000"]
-    12 -> 26 [label="no, missing" color="#0000FF"]
-
-    25 [ label="fwd_iat.max<59999928" ]
-    25 -> 51 [label="yes" color="#FF0000"]
-    25 -> 52 [label="no, missing" color="#0000FF"]
-
-    51 [ label="bwd_bulk_bytes<4581" ]
-    51 -> 93 [label="yes" color="#FF0000"]
-    51 -> 94 [label="no, missing" color="#0000FF"]
-
-    93 [ label="leaf=2.62162137" ]
-
-    94 [ label="leaf=0.631578922" ]
-
-    52 [ label="leaf=0.157894716" ]
-
-    26 [ label="bwd_subflow_bytes<7754" ]
-    26 -> 53 [label="yes" color="#FF0000"]
-    26 -> 54 [label="no, missing" color="#0000FF"]
-
-    53 [ label="bwd_iat.max<221053.125" ]
-    53 -> 95 [label="yes" color="#FF0000"]
-    53 -> 96 [label="no, missing" color="#0000FF"]
-
-    95 [ label="leaf=-0.452054799" ]
-
-    96 [ label="fwd_pkts_payload.avg<93.3333359" ]
-    96 -> 159 [label="yes" color="#FF0000"]
-    96 -> 160 [label="no, missing" color="#0000FF"]
-
-    159 [ label="bwd_pkts_payload.std<1122.18835" ]
-    159 -> 243 [label="yes" color="#FF0000"]
-    159 -> 244 [label="no, missing" color="#0000FF"]
-
-    243 [ label="leaf=0.157894716" ]
-
-    244 [ label="leaf=-0.413793117" ]
-
-    160 [ label="fwd_iat.min<31.9480896" ]
-    160 -> 245 [label="yes" color="#FF0000"]
-    160 -> 246 [label="no, missing" color="#0000FF"]
-
-    245 [ label="leaf=0.727272689" ]
-
-    246 [ label="leaf=1.93220329" ]
-
-    54 [ label="flow_pkts_payload.std<1877.98401" ]
-    54 -> 97 [label="yes" color="#FF0000"]
-    54 -> 98 [label="no, missing" color="#0000FF"]
-
-    97 [ label="leaf=2.50819659" ]
-
-    98 [ label="fwd_pkts_per_sec<4.29908085" ]
-    98 -> 161 [label="yes" color="#FF0000"]
-    98 -> 162 [label="no, missing" color="#0000FF"]
-
-    161 [ label="leaf=-0.375" ]
-
-    162 [ label="leaf=1.12499988" ]
-
-    6 [ label="flow_RST_flag_count<1" ]
-    6 -> 13 [label="yes" color="#FF0000"]
-    6 -> 14 [label="no, missing" color="#0000FF"]
-
-    13 [ label="flow_duration<2.1382041" ]
-    13 -> 27 [label="yes" color="#FF0000"]
-    13 -> 28 [label="no, missing" color="#0000FF"]
-
-    27 [ label="bwd_iat.std<187332.062" ]
-    27 -> 55 [label="yes" color="#FF0000"]
-    27 -> 56 [label="no, missing" color="#0000FF"]
-
-    55 [ label="fwd_pkts_payload.tot<856" ]
-    55 -> 99 [label="yes" color="#FF0000"]
-    55 -> 100 [label="no, missing" color="#0000FF"]
-
-    99 [ label="fwd_pkts_payload.max<427" ]
-    99 -> 163 [label="yes" color="#FF0000"]
-    99 -> 164 [label="no, missing" color="#0000FF"]
-
-    163 [ label="fwd_pkts_payload.std<113.826248" ]
-    163 -> 247 [label="yes" color="#FF0000"]
-    163 -> 248 [label="no, missing" color="#0000FF"]
-
-    247 [ label="leaf=1.4539876" ]
-
-    248 [ label="leaf=-0.428571433" ]
-
-    164 [ label="leaf=2.7124598" ]
-
-    100 [ label="flow_iat.std<46560.543" ]
-    100 -> 165 [label="yes" color="#FF0000"]
-    100 -> 166 [label="no, missing" color="#0000FF"]
-
-    165 [ label="fwd_iat.min<28.1333923" ]
-    165 -> 249 [label="yes" color="#FF0000"]
-    165 -> 250 [label="no, missing" color="#0000FF"]
-
-    249 [ label="leaf=-0.123287693" ]
-
-    250 [ label="leaf=1.03124988" ]
-
-    166 [ label="fwd_data_pkts_tot<6" ]
-    166 -> 251 [label="yes" color="#FF0000"]
-    166 -> 252 [label="no, missing" color="#0000FF"]
-
-    251 [ label="leaf=0.32812497" ]
-
-    252 [ label="leaf=2.09174299" ]
-
-    56 [ label="payload_bytes_per_second<377.048035" ]
-    56 -> 101 [label="yes" color="#FF0000"]
-    56 -> 102 [label="no, missing" color="#0000FF"]
-
-    101 [ label="leaf=1.74683535" ]
-
-    102 [ label="fwd_pkts_payload.std<102.394691" ]
-    102 -> 167 [label="yes" color="#FF0000"]
-    102 -> 168 [label="no, missing" color="#0000FF"]
-
-    167 [ label="leaf=1.30188668" ]
-
-    168 [ label="flow_iat.min<26.9412994" ]
-    168 -> 253 [label="yes" color="#FF0000"]
-    168 -> 254 [label="no, missing" color="#0000FF"]
-
-    253 [ label="leaf=-0.11337211" ]
-
-    254 [ label="leaf=1.02739716" ]
-
-    28 [ label="bwd_iat.max<170174304" ]
-    28 -> 57 [label="yes" color="#FF0000"]
-    28 -> 58 [label="no, missing" color="#0000FF"]
-
-    57 [ label="bwd_data_pkts_tot<6" ]
-    57 -> 103 [label="yes" color="#FF0000"]
-    57 -> 104 [label="no, missing" color="#0000FF"]
-
-    103 [ label="flow_duration<10.513442" ]
-    103 -> 169 [label="yes" color="#FF0000"]
-    103 -> 170 [label="no, missing" color="#0000FF"]
-
-    169 [ label="bwd_iat.min<14.7819519" ]
-    169 -> 255 [label="yes" color="#FF0000"]
-    169 -> 256 [label="no, missing" color="#0000FF"]
-
-    255 [ label="leaf=0.631578922" ]
-
-    256 [ label="leaf=2.52631569" ]
-
-    170 [ label="idle.tot<16133603" ]
-    170 -> 257 [label="yes" color="#FF0000"]
-    170 -> 258 [label="no, missing" color="#0000FF"]
-
-    257 [ label="leaf=-0.405405402" ]
-
-    258 [ label="leaf=1.77966094" ]
-
-    104 [ label="bwd_pkts_payload.avg<2586.03345" ]
-    104 -> 171 [label="yes" color="#FF0000"]
-    104 -> 172 [label="no, missing" color="#0000FF"]
-
-    171 [ label="active.min<7416461" ]
-    171 -> 259 [label="yes" color="#FF0000"]
-    171 -> 260 [label="no, missing" color="#0000FF"]
-
-    259 [ label="leaf=2.64746523" ]
-
-    260 [ label="leaf=0.631578922" ]
-
-    172 [ label="active.tot<2575798.75" ]
-    172 -> 261 [label="yes" color="#FF0000"]
-    172 -> 262 [label="no, missing" color="#0000FF"]
-
-    261 [ label="leaf=-0.348837197" ]
-
-    262 [ label="leaf=1.14705873" ]
-
-    58 [ label="fwd_last_window_size<207" ]
-    58 -> 105 [label="yes" color="#FF0000"]
-    58 -> 106 [label="no, missing" color="#0000FF"]
-
-    105 [ label="bwd_data_pkts_tot<8" ]
-    105 -> 173 [label="yes" color="#FF0000"]
-    105 -> 174 [label="no, missing" color="#0000FF"]
-
-    173 [ label="leaf=0.069767423" ]
-
-    174 [ label="bwd_pkts_payload.max<2560" ]
-    174 -> 263 [label="yes" color="#FF0000"]
-    174 -> 264 [label="no, missing" color="#0000FF"]
-
-    263 [ label="leaf=0.157894716" ]
-
-    264 [ label="leaf=2.37062931" ]
-
-    106 [ label="fwd_pkts_payload.avg<26.3333321" ]
-    106 -> 175 [label="yes" color="#FF0000"]
-    106 -> 176 [label="no, missing" color="#0000FF"]
-
-    175 [ label="down_up_ratio<1.05769205" ]
-    175 -> 265 [label="yes" color="#FF0000"]
-    175 -> 266 [label="no, missing" color="#0000FF"]
-
-    265 [ label="leaf=1.87499988" ]
-
-    266 [ label="leaf=0.488372058" ]
-
-    176 [ label="fwd_subflow_pkts<19" ]
-    176 -> 267 [label="yes" color="#FF0000"]
-    176 -> 268 [label="no, missing" color="#0000FF"]
-
-    267 [ label="leaf=-0.51219511" ]
-
-    268 [ label="leaf=0.157894716" ]
-
-    14 [ label="fwd_last_window_size<376" ]
-    14 -> 29 [label="yes" color="#FF0000"]
-    14 -> 30 [label="no, missing" color="#0000FF"]
-
-    29 [ label="fwd_iat.max<59997692" ]
-    29 -> 59 [label="yes" color="#FF0000"]
-    29 -> 60 [label="no, missing" color="#0000FF"]
-
-    59 [ label="flow_ACK_flag_count<13" ]
-    59 -> 107 [label="yes" color="#FF0000"]
-    59 -> 108 [label="no, missing" color="#0000FF"]
-
-    107 [ label="leaf=0.962264061" ]
-
-    108 [ label="bwd_iat.max<28141.9746" ]
-    108 -> 177 [label="yes" color="#FF0000"]
-    108 -> 178 [label="no, missing" color="#0000FF"]
-
-    177 [ label="leaf=0.9069767" ]
-
-    178 [ label="leaf=2.75398612" ]
-
-    60 [ label="bwd_iat.min<10.9672546" ]
-    60 -> 109 [label="yes" color="#FF0000"]
-    60 -> 110 [label="no, missing" color="#0000FF"]
-
-    109 [ label="leaf=0.157894716" ]
-
-    110 [ label="fwd_subflow_pkts<6" ]
-    110 -> 179 [label="yes" color="#FF0000"]
-    110 -> 180 [label="no, missing" color="#0000FF"]
-
-    179 [ label="leaf=0.157894716" ]
-
-    180 [ label="leaf=1.76712322" ]
-
-    30 [ label="leaf=-0.375" ]
+    22 [ label="leaf=2.21198153" ]
 }
