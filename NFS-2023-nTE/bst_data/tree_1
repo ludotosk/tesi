@@ -2,7 +2,7 @@ digraph {
     graph [ rankdir=TB ]
     graph [ rankdir="LR" ]
 
-    0 [ label="protocol<17" ]
+    0 [ label="bidirectional_min_ps<67" ]
     0 -> 1 [label="yes" color="#FF0000"]
     0 -> 2 [label="no, missing" color="#0000FF"]
 
@@ -26,7 +26,7 @@ digraph {
     13 -> 19 [label="yes" color="#FF0000"]
     13 -> 20 [label="no, missing" color="#0000FF"]
 
-    19 [ label="leaf=-0.100757204" ]
+    19 [ label="leaf=-0.100347914" ]
 
     20 [ label="leaf=0.0962566808" ]
 
@@ -74,5 +74,5 @@ digraph {
 
     8 [ label="leaf=1.18215609" ]
 
-    2 [ label="leaf=1.46901667" ]
+    2 [ label="leaf=1.4689368" ]
 }
