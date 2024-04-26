@@ -26,17 +26,83 @@ digraph {
     13 -> 19 [label="yes" color="#FF0000"]
     13 -> 20 [label="no, missing" color="#0000FF"]
 
-    19 [ label="leaf=-0.100347914" ]
+    19 [ label="bidirectional_rst_packets<4" ]
+    19 -> 25 [label="yes" color="#FF0000"]
+    19 -> 26 [label="no, missing" color="#0000FF"]
 
-    20 [ label="leaf=0.0962566808" ]
+    25 [ label="src2dst_fin_packets<1" ]
+    25 -> 35 [label="yes" color="#FF0000"]
+    25 -> 36 [label="no, missing" color="#0000FF"]
+
+    35 [ label="leaf=-0.158704147" ]
+
+    36 [ label="bidirectional_mean_ps<89.272728" ]
+    36 -> 43 [label="yes" color="#FF0000"]
+    36 -> 44 [label="no, missing" color="#0000FF"]
+
+    43 [ label="leaf=0.764150918" ]
+
+    44 [ label="src2dst_max_ps<482" ]
+    44 -> 47 [label="yes" color="#FF0000"]
+    44 -> 48 [label="no, missing" color="#0000FF"]
+
+    47 [ label="leaf=-0.156051815" ]
+
+    48 [ label="leaf=0.0544041358" ]
+
+    26 [ label="bidirectional_duration_ms<170" ]
+    26 -> 37 [label="yes" color="#FF0000"]
+    26 -> 38 [label="no, missing" color="#0000FF"]
+
+    37 [ label="leaf=0.198113203" ]
+
+    38 [ label="leaf=-0.0962566882" ]
+
+    20 [ label="leaf=0.144385025" ]
 
     14 [ label="dst2src_stddev_ps<444.67334" ]
     14 -> 21 [label="yes" color="#FF0000"]
     14 -> 22 [label="no, missing" color="#0000FF"]
 
-    21 [ label="leaf=-0.0822912455" ]
+    21 [ label="bidirectional_stddev_piat_ms<1280.47229" ]
+    21 -> 27 [label="yes" color="#FF0000"]
+    21 -> 28 [label="no, missing" color="#0000FF"]
 
-    22 [ label="leaf=0.573800266" ]
+    27 [ label="src2dst_stddev_piat_ms<86.2485352" ]
+    27 -> 39 [label="yes" color="#FF0000"]
+    27 -> 40 [label="no, missing" color="#0000FF"]
+
+    39 [ label="leaf=0.764150918" ]
+
+    40 [ label="bidirectional_duration_ms<3841" ]
+    40 -> 45 [label="yes" color="#FF0000"]
+    40 -> 46 [label="no, missing" color="#0000FF"]
+
+    45 [ label="bidirectional_bytes<991" ]
+    45 -> 49 [label="yes" color="#FF0000"]
+    45 -> 50 [label="no, missing" color="#0000FF"]
+
+    49 [ label="leaf=-0.137248546" ]
+
+    50 [ label="leaf=0.339622647" ]
+
+    46 [ label="leaf=-0.159681156" ]
+
+    28 [ label="leaf=1.16129029" ]
+
+    22 [ label="dst2src_stddev_ps<1546.31299" ]
+    22 -> 29 [label="yes" color="#FF0000"]
+    22 -> 30 [label="no, missing" color="#0000FF"]
+
+    29 [ label="src2dst_mean_ps<162" ]
+    29 -> 41 [label="yes" color="#FF0000"]
+    29 -> 42 [label="no, missing" color="#0000FF"]
+
+    41 [ label="leaf=1.97322714" ]
+
+    42 [ label="leaf=0.0445544533" ]
+
+    30 [ label="leaf=-0.144777447" ]
 
     10 [ label="dst2src_psh_packets<2" ]
     10 -> 15 [label="yes" color="#FF0000"]
@@ -46,33 +112,45 @@ digraph {
     15 -> 23 [label="yes" color="#FF0000"]
     15 -> 24 [label="no, missing" color="#0000FF"]
 
-    23 [ label="leaf=-0.0774193555" ]
+    23 [ label="bidirectional_mean_ps<185" ]
+    23 -> 31 [label="yes" color="#FF0000"]
+    23 -> 32 [label="no, missing" color="#0000FF"]
 
-    24 [ label="leaf=0.143911436" ]
+    31 [ label="leaf=0.056603767" ]
 
-    16 [ label="leaf=0.944190204" ]
+    32 [ label="leaf=-0.143270627" ]
+
+    24 [ label="bidirectional_stddev_ps<1459.13013" ]
+    24 -> 33 [label="yes" color="#FF0000"]
+    24 -> 34 [label="no, missing" color="#0000FF"]
+
+    33 [ label="leaf=0.48113206" ]
+
+    34 [ label="leaf=-0.0962566882" ]
+
+    16 [ label="leaf=1.4162854" ]
 
     6 [ label="src2dst_rst_packets<1" ]
     6 -> 11 [label="yes" color="#FF0000"]
     6 -> 12 [label="no, missing" color="#0000FF"]
 
-    11 [ label="leaf=1.15328455" ]
+    11 [ label="leaf=1.72992694" ]
 
     12 [ label="bidirectional_mean_ps<286.058838" ]
     12 -> 17 [label="yes" color="#FF0000"]
     12 -> 18 [label="no, missing" color="#0000FF"]
 
-    17 [ label="leaf=0.119828813" ]
+    17 [ label="leaf=0.179743215" ]
 
-    18 [ label="leaf=-0.098083429" ]
+    18 [ label="leaf=-0.14712514" ]
 
     4 [ label="dst2src_mean_ps<74" ]
     4 -> 7 [label="yes" color="#FF0000"]
     4 -> 8 [label="no, missing" color="#0000FF"]
 
-    7 [ label="leaf=-3.1188474e-09" ]
+    7 [ label="leaf=-4.6782711e-09" ]
 
-    8 [ label="leaf=1.18215609" ]
+    8 [ label="leaf=1.77323425" ]
 
-    2 [ label="leaf=1.4689368" ]
+    2 [ label="leaf=2.20340538" ]
 }
