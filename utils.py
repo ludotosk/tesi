@@ -6,6 +6,7 @@ import seaborn as sns
 from sklearn import metrics
 import time
 import csv
+from sklearn.model_selection import StratifiedKFold
 
 # Here I change the type of some feature becuase since they come from a network package they are supposed to be a certain amount of bit maximum, I also checked before to do the change.
 # Then I will eclude the ip of the hosts, the port and the Unnamed: 0. Because the ip and ports are categorical but they are to many to fit in the model, and also there is not a good reason for train the model over the ip since it change based on the network so the attacker will always have a different one. About the Unnamed: 0 you can use that number to split this csv in mani csvs which is not a thing that we need to do so I removed that feature as well.
@@ -368,6 +369,55 @@ def make_confusion_matrix(
     if title:
         plt.title(title)
 
+def kfold(model, X_res, y_res):
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+    avg_train_f1_macro = []
+    avg_test_f1_macro = []
+
+    avg_train_f1_weighted = []
+    avg_test_f1_weighted = []
+
+    all_test_values = []  # List to hold all test values
+    all_test_results = []  # List to hold all test results
+
+    for i, (train_index, test_index) in enumerate(skf.split(X_res, y_res)):
+        print(f"Fold {i}:")
+        if type(y_res) == np.ndarray:
+            y_train = y_res[train_index]
+            y_test = y_res[test_index]
+        else:
+            y_train = y_res.iloc[train_index]
+            y_test = y_res.iloc[test_index]
+
+        model.fit(X_res.iloc[train_index], y_train)
+        y_predicted_train = model.predict(X_res.iloc[train_index])
+        y_predicted_test = model.predict(X_res.iloc[test_index])
+        train_f1_macro = metrics.f1_score(y_train, y_predicted_train, average='macro')
+        test_f1_macro = metrics.f1_score(y_test, y_predicted_test, average='macro')
+        train_f1_weighted = metrics.f1_score(y_train, y_predicted_train, average='weighted')
+        test_f1_weighted = metrics.f1_score(y_test, y_predicted_test, average='weighted')
+        print(f"Train F1: {train_f1_macro:.4f}")
+        print(f"Test F1: {test_f1_macro:.4f}")
+        avg_train_f1_macro.append(train_f1_macro)
+        avg_test_f1_macro.append(test_f1_macro)
+        avg_train_f1_weighted.append(train_f1_weighted)
+        avg_test_f1_weighted.append(test_f1_weighted)
+        all_test_values = np.concatenate((all_test_values,y_test), axis=None)
+        all_test_results = np.concatenate((all_test_results,y_predicted_test), axis=None)
+
+    # Show the confusion matrix
+    cf = metrics.confusion_matrix(all_test_values,all_test_results)
+    categories = pd.unique(model.classes_)
+    make_confusion_matrix(cf, 
+                        categories=categories,
+                        cmap='Blues',
+                        figsize=(15,15))
+
+    print(f"Average Train F1 Macro: {np.mean(avg_train_f1_macro):.4f}")
+    print(f"Average Test F1 Macro: {np.mean(avg_test_f1_macro):.4f}")
+    print(f"Average Train F1 Weighted: {np.mean(avg_train_f1_weighted):.4f}")
+    print(f"Average Test F1 Weighted: {np.mean(avg_test_f1_weighted):.4f}")
 
 def compute_ratio(data, column):
     # Get ratio instead of raw numbers using normalize=True
