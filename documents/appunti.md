@@ -1006,3 +1006,19 @@
 # Video su come fare il paper
 
 [IEEE Formatting On Word - YouTube](https://youtu.be/lSyIxJ4Nseo?si=rY4iiMWOsT4DA0tY)
+
+# correzioni
+- aggiungere numeri delle pagine
+- related work senza s
+- fare una tabella per i punti del paper che ho messo con i sottotitoli
+- spiegare di più la parte delle metriche
+- la prima volta che menziono un algoritmo devo dire qual è l'abbreviazione
+- aggiungere spiegazione di f1 per hikari
+- spiegare meglio la parte di k-fold per nfs
+- fare un abstract più generico
+- intro paragrafo sulla sicurezza, perché? qual è il problema? e cosa farò
+- dopo la intro posso mettere lavori correlati sia sulla spiegabilità che sulla sicurezza
+- aggiungere shapley value
+- dataset nella metodologia
+- leggere altri paper per fare meglio l'introduzione
+- [Esempio di abstract](http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps/)
