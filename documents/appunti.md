@@ -1008,6 +1008,7 @@
 [IEEE Formatting On Word - YouTube](https://youtu.be/lSyIxJ4Nseo?si=rY4iiMWOsT4DA0tY)
 
 # correzioni
+
 - aggiungere numeri delle pagine
 - related work senza s
 - fare una tabella per i punti del paper che ho messo con i sottotitoli
@@ -1021,4 +1022,5 @@
 - aggiungere shapley value
 - dataset nella metodologia
 - leggere altri paper per fare meglio l'introduzione
+- aggiungere immagini su ISO OSI stack, su three way handshake
 - [Esempio di abstract](http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps/)
