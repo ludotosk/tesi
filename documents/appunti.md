@@ -1012,11 +1012,11 @@
 - <s> aggiungere numeri delle pagine </s>
 - <s> related work senza s </s>
 - <s> fare una tabella per i punti del paper che ho messo con i sottotitoli </s>
-- spiegare di più la parte delle metriche
-- la prima volta che menziono un algoritmo devo dire qual è l'abbreviazione
-- aggiungere spiegazione di f1 per hikari
-- spiegare meglio la parte di k-fold per nfs
-- fare un abstract più generico
+- <s>spiegare di più la parte delle metriche</s>
+- <s>la prima volta che menziono un algoritmo devo dire qual è l'abbreviazione</s>
+- <s>aggiungere spiegazione di f1 per hikari</s>
+- <s>spiegare meglio la parte di k-fold per nfs</s>
+- <s>fare un abstract più generico</s>
 - <s> intro paragrafo sulla sicurezza, perché? qual è il problema? e cosa farò </s>
 - <s> dopo la intro posso mettere lavori correlati sia sulla spiegabilità che sulla sicurezza </s>
 - aggiungere shapley value (le immagini in fondo)
@@ -1024,3 +1024,9 @@
 - <s>leggere altri paper per fare meglio l'introduzione</s>
 - aggiungere immagini per illustrare alcuni punti
 - [Esempio di abstract](http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps/)
+
+## Cose da dire sulla modifica
+
+- parlare degli SDG
+
+- chiedere delle keyword
