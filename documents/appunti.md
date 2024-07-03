@@ -1024,6 +1024,18 @@
 - <s>leggere altri paper per fare meglio l'introduzione</s>
 - aggiungere immagini per illustrare alcuni punti
 - [Esempio di abstract](http://www.easterbrook.ca/steve/2010/01/how-to-write-a-scientific-abstract-in-six-easy-steps/)
+- Introduzione più lunga e spiegare meglio quali sono i gap
+- Iniziare l'introduzione con una motivazione generale (su perché spiegare gli ids sono importanti) 
+- Secondo dire che i modelli generali possono essere usati per queste cose
+- Terzo serve uno sforzo
+- Quarto dire che i dataset sono semplici nel arrivare a risultati buoni 1 pagina o 1 e mezza da primo punto a qui
+- Poi si parla di gap, spiegando che esporo il dataset e spiegare perché è un gap
+- Togliere i non goal, o metterli dopo aver detto quali sono i miei problemi (alla fine dell'introduzione)
+- Poi dire qual è la struttura, capitolo 1 spiega questo e quello
+- E spiegare quale sono i background necessari e nelle varie spiegazioni dire perché quella spiegazione è necessaria
+- Nei related work fare una frase per ogni paper
+- Spiegare di più nella parte degli algoritmi di spiegazione, perché uso shap?
+- Fare del rephrasing
 
 ## Cose da dire sulla modifica
 
