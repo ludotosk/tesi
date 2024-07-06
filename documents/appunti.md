@@ -1036,6 +1036,7 @@
 - Nei related work fare una frase per ogni paper
 - Spiegare di più nella parte degli algoritmi di spiegazione, perché uso shap?
 - Fare del rephrasing
+- vedere se la modifica di data choice può essere migliorata
 
 ## Cose da dire sulla modifica
 
